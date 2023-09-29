@@ -3,3 +3,5 @@
 -- Add any additional options here
 vim.opt.winbar = "%m=%m %f"
 vim.opt.clipboard:append("unnamedplus")
+vim.opt.timeoutlen = 1000
+vim.opt.ttimeoutlen = 0

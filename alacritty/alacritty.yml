@@ -3,6 +3,10 @@ live_config_reload: true
 env:
   TERM: xterm-256color
 
+# key_bindings:
+  # - { key: t, mods: Command, chars: "\x13\x6b" } # open t - tmux smart session manager
+  # - { key: K, chars: "\x13\x6b" } # open t - tmux smart session manager
+
 font:
   normal:
     family: "MesloLGL Nerd Font"
