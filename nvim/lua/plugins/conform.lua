@@ -9,7 +9,7 @@ return {
         typescript = { "prettierd" },
         javascriptreact = { "prettierd" },
         typescriptreact = { "prettierd" },
-        css = { "prettierd" },
+        css = { "prettierd", "stylelint" },
         html = { "prettierd" },
         json = { "prettierd" },
         yaml = { "prettierd" },
