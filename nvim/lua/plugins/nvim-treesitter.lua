@@ -2,6 +2,7 @@ return {
   "nvim-treesitter/nvim-treesitter",
   dependencies = {
     { "windwp/nvim-ts-autotag" },
+    { "nvim-treesitter/nvim-treesitter-textobjects" },
   },
   opts = {
     autotag = {
@@ -10,20 +11,7 @@ return {
       enable_close_on_slash = false,
     },
     ensure_installed = {
-      "bash",
-      "html",
-      "javascript",
-      "json",
-      "lua",
-      "markdown",
-      "markdown_inline",
-      "python",
-      "query",
-      "regex",
-      "tsx",
-      "typescript",
-      "vim",
-      "yaml",
+      "go",
     },
   },
 }

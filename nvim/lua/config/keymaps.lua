@@ -17,9 +17,6 @@ function _G.get_git_diff_files()
     if string.find(text, "Not a git repository") then
       is_git_repo = false
       break
-      -- else
-      --   local icon, _ = icons.get_icon(text, vim.fn.fnamemodify(text, ":e"), { default = true })
-      --   table.insert(list_with_icons, icon .. " " .. text)
     end
   end
   if is_git_repo then
