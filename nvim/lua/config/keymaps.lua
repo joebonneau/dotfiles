@@ -7,12 +7,10 @@ vim.keymap.set("n", "<leader>gm", "<Cmd>Gvdiffsplit!<CR>", { silent = true, desc
 function _G.get_git_diff_files()
   local pickers = require("telescope.pickers")
   local finders = require("telescope.finders")
-  local previewers = require("telescope.previewers")
   local conf = require("telescope.config").values
   local list = vim.fn.systemlist("git diff --name-only $(git merge-base $(git branch --show-current) HEAD)")
   local icons = require("nvim-web-devicons")
   local is_git_repo = true
-  local list_with_icons = {}
   for _, text in ipairs(list) do
     if string.find(text, "Not a git repository") then
       is_git_repo = false
