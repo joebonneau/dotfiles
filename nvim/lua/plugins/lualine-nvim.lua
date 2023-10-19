@@ -13,7 +13,7 @@ return {
 
     return {
       options = {
-        theme = "auto",
+        theme = "tokyonight",
         globalstatus = true,
         disabled_filetypes = { statusline = { "dashboard", "alpha" } },
       },
