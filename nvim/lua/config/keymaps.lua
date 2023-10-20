@@ -52,3 +52,19 @@ function _G.get_git_diff_files()
 end
 
 vim.keymap.set("n", "<leader>fd", ":lua get_git_diff_files()<CR>", { desc = "Find file in git diff" })
+
+vim.api.nvim_create_user_command("DiagnosticsToggleVirtualText", function()
+  local current_value = vim.diagnostic.config().virtual_text
+  if current_value then
+    vim.diagnostic.config({ virtual_text = false })
+  else
+    vim.diagnostic.config({ virtual_text = true })
+  end
+end, {})
+
+vim.keymap.set(
+  "n",
+  "<leader>di",
+  "<cmd>DiagnosticsToggleVirtualText<CR>",
+  { desc = "Toggle in-line diagnostics", silent = true }
+)

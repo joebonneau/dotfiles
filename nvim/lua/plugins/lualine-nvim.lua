@@ -22,9 +22,9 @@ return {
         lualine_b = {
           {
             "branch",
-            fmt = function(branch)
-              return string.len(branch) > 30 and string.sub(branch, 1, 30) .. "..." or branch
-            end,
+            -- fmt = function(branch)
+            --   return string.len(branch) > 30 and string.sub(branch, 1, 30) .. "..." or branch
+            -- end,
           },
         },
         lualine_c = {
@@ -37,8 +37,8 @@ return {
               hint = icons.diagnostics.Hint,
             },
           },
-          { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-          { "filename", path = 0, symbols = { modified = "  ", readonly = "", unnamed = "" } },
+          -- { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+          -- { "filename", path = 0, symbols = { modified = "  ", readonly = "", unnamed = "" } },
           {
             function()
               return Util.root.pretty_path()
