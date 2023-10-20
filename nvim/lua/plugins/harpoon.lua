@@ -4,9 +4,10 @@ return {
   keys = {
     {
       "<leader>hh",
-      function()
-        require("harpoon.ui").toggle_quick_menu()
-      end,
+      "<cmd>Telescope harpoon marks<CR>",
+      -- function()
+      --   require("harpoon.ui").toggle_quick_menu()
+      -- end,
       desc = "Show the harpoon menu",
       silent = true,
       mode = "n",
