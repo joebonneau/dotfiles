@@ -16,13 +16,15 @@ return {
         theme = "tokyonight",
         globalstatus = true,
         disabled_filetypes = { statusline = { "dashboard", "alpha" } },
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
       },
       sections = {
-        lualine_a = { "mode" },
+        lualine_a = { { "mode", separator = "" } },
         lualine_b = {
-          {
-            "branch",
-          },
+          -- {
+          --   "branch",
+          -- },
         },
         lualine_c = {
           {
