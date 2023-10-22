@@ -19,7 +19,11 @@ font:
 
 window:
   option_as_alt: Both
-  # opacity: 0.8
+key_bindings:
+  - { key: K, mods: Command, chars: "\x02\x54" } # open t - tmux smart session manager
+  - { key: L, mods: Command, chars: "\x02\x4c" } # switch to last tmux session
+  - { key: N, mods: Command, chars: "\x02\x6e" } # switch to next window in current session
+# opacity: 0.8
 # key_bindings:
 #   - { key: A, mods: Alt, chars: "\x1ba" }
 #   - { key: B, mods: Alt, chars: "\x1bb" }

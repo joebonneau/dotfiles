@@ -8,10 +8,13 @@ return {
     autotag = {
       enable = true,
       enable_rename = true,
-      enable_close_on_slash = false,
+      enable_close_on_slash = true,
     },
     ensure_installed = {
       "go",
+      "gomod",
+      "gowork",
+      "gosum",
     },
   },
 }

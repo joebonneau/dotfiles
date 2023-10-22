@@ -15,7 +15,8 @@ return {
       graphql = { "prettierd" },
       lua = { "stylua" },
       python = { "autoflake", "autopep8", "isort", "black" },
-      go = { "gofumpt", "goimports", "golines" },
+      go = { "gofumpt", "golines" },
+      -- go = { "gofumpt", "goimports", "golines" },
     },
   },
 }
