@@ -15,6 +15,9 @@ return {
         layout = "diff2_horizontal",
         winbar_info = false, -- See ':h diffview-config-view.x.winbar_info'
       },
+      default_args = {
+        DiffviewOpen = { "--imply-local" },
+      },
     },
   },
 }
