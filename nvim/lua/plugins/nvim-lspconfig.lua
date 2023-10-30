@@ -4,7 +4,7 @@ return {
     format = { timeout_ms = 1000 },
     servers = {
       emmet_language_server = {
-        filetypes = { "gotmpl", "go" },
+        filetypes = { "gotmpl", "go", "javascriptreact", "typescriptreact" },
       },
     },
   },
