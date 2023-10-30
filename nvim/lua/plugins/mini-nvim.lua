@@ -4,12 +4,6 @@ return {
     version = false,
     config = function()
       require("mini.comment").setup()
-      -- gopls doesn't work unless the filetype is manually set, and
-      -- treesitter doesn't have a parser for gotmpl
-      vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-        pattern = { "*.gotmpl" },
-        command = "setlocal filetype=gotmpl | setlocal commentstring={{/*\\ %s\\ */}}')",
-      })
     end,
   },
   {
