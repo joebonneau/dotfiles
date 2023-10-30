@@ -16,6 +16,7 @@ font:
   bold_italic:
     family: "MesloLGL Nerd Font"
     style: Bold Italic
+  size: 18.0
 
 window:
   option_as_alt: Both

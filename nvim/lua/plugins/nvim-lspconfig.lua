@@ -21,11 +21,17 @@ return {
     format = { timeout_ms = 1000 },
     servers = {
       emmet_language_server = {
-        filetypes = { "gotmpl", "tmpl", "go" },
+        filetypes = { "gotmpl", "tmpl" },
+        -- filetypes = { "gotmpl", "tmpl", "go" },
       },
       gopls = {
-        filetypes = { "go" },
+        root_dir = function()
+          return vim.loop.os_homedir()
+        end,
       },
+      -- gopls = {
+      --   filetypes = { "go" },
+      -- },
     },
   },
 }
