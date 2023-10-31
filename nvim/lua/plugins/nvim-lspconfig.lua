@@ -21,12 +21,7 @@ return {
     format = { timeout_ms = 1000 },
     servers = {
       emmet_language_server = {
-<<<<<<< HEAD
-        filetypes = { "gotmpl", "tmpl" },
-        -- filetypes = { "gotmpl", "tmpl", "go" },
-=======
         filetypes = { "gotmpl", "go", "javascriptreact", "typescriptreact" },
->>>>>>> be2613cebf5a3dd9b71e593da57a3d0947fe8416
       },
       gopls = {
         root_dir = function()
