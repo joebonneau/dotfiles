@@ -36,21 +36,42 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 
 vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = { ".tmux.conf" },
-  command = "execute 'silent !tmux source ~/.tmux.conf --silent'",
+  pattern = { "*tmux.conf" },
+  command = "execute 'silent !tmux source <afile> --silent'",
 })
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+--   pattern = { "tmux.conf", "*.fish" },
+--   callback = function()
+--     local filename = vim.api.nvim_buf_get_name(0)
+--     local escaped_filename = string.gsub(filename, "%.", "\\.")
+--     vim.cmd(string.format("execute '!tmux-source %s'", escaped_filename))
+--   end,
+-- })
 
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = { ".zshrc" },
-  command = "execute 'silent !source .zshrc --silent'",
-})
+local map_split = function(buf_id, lhs, direction)
+  local rhs = function()
+    -- Make new window and set it as target
+    local new_target_window
+    vim.api.nvim_win_call(MiniFiles.get_target_window(), function()
+      vim.cmd(direction .. " split")
+      new_target_window = vim.api.nvim_get_current_win()
+    end)
 
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = { "yabairc" },
-  command = "!yabai --restart-service",
-})
+    -- Create target window and open highlighted file in split
+    MiniFiles.set_target_window(new_target_window)
+    MiniFiles.go_in()
+  end
 
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = { ".skhdrc" },
-  command = "!skhd --restart-service",
+  -- Adding `desc` will result into `show_help` entries
+  local desc = "Split " .. direction
+  vim.keymap.set("n", lhs, rhs, { buffer = buf_id, desc = desc })
+end
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = "MiniFilesBufferCreate",
+  callback = function(args)
+    local buf_id = args.data.buf_id
+    map_split(buf_id, "<C-x>", "horizontal")
+    map_split(buf_id, "<C-v>", "vertical")
+  end,
 })

@@ -1,4 +1,4 @@
-# eval (/opt/homebrew/bin/brew shellenv)
+eval (/usr/local/bin/brew shellenv)
 starship init fish | source
 zoxide init fish | source
 
@@ -15,7 +15,7 @@ fish_add_path $HOME/.tmux/plugins/t-smart-tmux-session-manager/bin
 # ~/.config/tmux/plugins
 fish_add_path $HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin
 
-fish_config theme save "TokyoNight Storm"
+# fish_config theme save "TokyoNight Storm"
 
 fish_add_path ~/.config/bin
 # golang - https://golang.google.cn/
