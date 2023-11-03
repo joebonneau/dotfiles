@@ -19,6 +19,8 @@ font:
   size: 18.0
 
 window:
+  decorations: buttonless
+  dynamic_padding: false
   option_as_alt: Both
 key_bindings:
   - { key: K, mods: Command, chars: "\x02\x54" } # open t - tmux smart session manager
