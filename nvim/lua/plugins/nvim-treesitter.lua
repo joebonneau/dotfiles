@@ -11,7 +11,10 @@ return {
       enable_close_on_slash = false,
     },
     ensure_installed = {
+      "css",
+      "fish",
       "go",
+      "scss",
     },
   },
   config = function(_, opts)

@@ -53,13 +53,32 @@ function docker-refresh-openapi
     end
 end
 
-function gsw
-    if [ (count $argv) -gt 0 ]
-        set branch $argv[1]
+function gsw --argument _branch
+    if test "$_branch" != ""
+        set branch $_branch
     else
         set branch (git branch --format='%(refname:short)' | fzf-tmux -p --border-label=" Select a branch ")
     end
     if [ -n "$branch" ]
         git switch $branch
     end
+end
+
+function symlink --argument _from _to
+    if test "$_from" = ""; or test "$_to" = ""
+        echo "symlink: must provide from and to arguments"
+        return 1
+    end
+
+    set abs_to (realpath "$_to")
+
+    if test -d $_to && not test -d $_from
+        set to "$abs_to/"(basename $_from)
+    else
+        set to "$abs_to"
+    end
+
+    set from (realpath "$_from")
+
+    ln -s $from $to
 end
