@@ -1,5 +1,4 @@
-# Disable the blank line at the start of the prompt
-# add_newline = true
+add_newline = true
 
 format = """
 $character\
@@ -15,19 +14,14 @@ disabled = true
 disabled = true
 
 [directory]
-format = "[ $path]($style)[ > ]( bold white )"
-# format = "[ $path]($style)[: ]( white )"
+format = "[ $path]($style)[ > ](bold white)"
 style = "#41a6b5"
-# truncation_length = 1
-# truncation_symbol = ""
 truncate_to_repo = false
 
 [character]
-success_symbol = " [](bold white)"
-error_symbol = " [](bold red)"
+success_symbol = " [](bold white)"
+error_symbol = " [](bold red)"
 vimcmd_symbol = " [](bold green)"
 vimcmd_replace_one_symbol = " [](bold purple)" 
 vimcmd_replace_symbol = " [](bold purple)" 
 vimcmd_visual_symbol = " [](bold yellow)" 
-# success_symbol = " [](bold white)"
-# error_symbol = " [](bold red)"
