@@ -3,7 +3,7 @@
 SETUVAR --export EDITOR:nvim
 SETUVAR --export --path GOPATH:/Users/bonneau/go
 SETUVAR --export GOPROXY:https\x3a//proxy\x2egolang\x2eorg\x2cdirect
-SETUVAR --export GOROOT:/opt/homebrew/opt/go/libexec
+SETUVAR --export GOROOT:/usr/local/Cellar/go/1\x2e21\x2e3/libexec
 SETUVAR __fish_initialized:3400
 SETUVAR _fisher_franciscolourenco_2F_done_files:\x7e/\x2econfig/fish/conf\x2ed/done\x2efish
 SETUVAR _fisher_jorgebucaran_2F_autopair_2E_fish_files:\x7e/\x2econfig/fish/functions/_autopair_backspace\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_left\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_right\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_same\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_tab\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/autopair\x2efish
@@ -51,7 +51,7 @@ SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3d2e3c64
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR fish_user_paths:/Users/joebonneau/\x2etmux/plugins/t\x2dsmart\x2dtmux\x2dsession\x2dmanager/bin\x1e/Users/bonneau/\x2etmux/plugins/t\x2dsmart\x2dtmux\x2dsession\x2dmanager/bin\x1e/Users/bonneau/go/bin
+SETUVAR fish_user_paths:/bin\x1e/Users/bonneau/\x2econfig/tmux/plugins/t\x2dsmart\x2dtmux\x2dsession\x2dmanager/bin\x1e/Users/joebonneau/\x2etmux/plugins/t\x2dsmart\x2dtmux\x2dsession\x2dmanager/bin\x1e/Users/bonneau/\x2etmux/plugins/t\x2dsmart\x2dtmux\x2dsession\x2dmanager/bin\x1e/Users/bonneau/go/bin
 SETUVAR sponge_allow_previously_successful:true
 SETUVAR sponge_delay:2
 SETUVAR sponge_filters:sponge_filter_failed\x1esponge_filter_matched
