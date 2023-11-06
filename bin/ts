@@ -1,4 +1,4 @@
-#!/opt/homebrew/bin/bash 
+!# usr/bin/env bash
 
 # NOTE: split-window refers to vertical and horizontal splits opposite of how I think
 # about them
@@ -9,44 +9,43 @@ persist=0
 
 # Parse command line arguments
 while [[ $# -gt 0 ]]; do
-  case "$1" in
-    -v|--vertical)
-      orientation="h"
-      shift
-      ;;
-    -h|--horizontal)
-      orientation="v"
-      shift
-      ;;
-    -p|--persist)
-      persist=1
-      shift
-      ;;
-    *)
-      command="$1"
-      shift
-      ;;
-  esac
+	case "$1" in
+	-v | --vertical)
+		orientation="h"
+		shift
+		;;
+	-h | --horizontal)
+		orientation="v"
+		shift
+		;;
+	-p | --persist)
+		persist=1
+		shift
+		;;
+	*)
+		command="$1"
+		shift
+		;;
+	esac
 done
 
 # Check if command is specified
 if [ -z "$command" ]; then
-  echo "Error: Missing required command argument."
-  exit 1
+	echo "Error: Missing required command argument."
+	exit 1
 fi
 
 # Create the split
 if [ "$persist" -eq 1 ]; then
-  tmux split-window -${orientation}
-  tmux send-keys "$command" Enter
+	tmux split-window -${orientation}
+	tmux send-keys "$command" Enter
 else
-  tmux split-window -${orientation} "$command"
+	tmux split-window -${orientation} "$command"
 fi
 
 # Switch to the new pane
 if [ "$orientation" = "h" ]; then
-  tmux select-pane -D
+	tmux select-pane -D
 elif [ "$orientation" = "v" ]; then
-  tmux select-pane -R
+	tmux select-pane -R
 fi
-
