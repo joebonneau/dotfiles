@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-
-tmux new-window -n "fish"
-tmux new-window -n "nvim"
-tmux switch-client -t "nvim"
+# one window for nvim, one for shell
+tmux new-window
+tmux new-window
 tmux send-keys 'nvim -c "Telescope find_files"' 'Enter'
+session_name=$(tmux display-message -p "#S")
+tmux switch-client -t "$session_name:nvim"
