@@ -25,3 +25,6 @@ abbr adr "devscripts adr"
 abbr dev-devscripts "docker run --volume=$pwd:/app --user "(id -u):(id -g)" -it --rm dev-scripts_app:latest"
 abbr dev-aformat "dev-devscripts aformat"
 abbr dev-adr "dev-devscripts adr"
+
+# aliases for ease of use in neovim (abbr don't expand)
+alias pydoc "python3 -m pydoc"
