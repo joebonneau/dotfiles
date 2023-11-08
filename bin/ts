@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 # NOTE: split-window refers to vertical and horizontal splits opposite of how I think
 # about them

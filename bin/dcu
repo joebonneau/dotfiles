@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# Define your docker container names here
+session=$(tmux display-message -p "#S")
+if [ "$session" = "hermes" ] || [ "$session" = "pegasus-view" ]; then
+  containers=("app" "web" "frontend")
+else
+  containers=("app")
+fi
+
+# Create a new tmux window
+tmux new-window -n "docker" -a -t $session
+# tmux send-keys 'fish -c \"bash -c docker-compose up -d $(printf "%s " "${my_list[@]}")\"' Enter
+tmux send-keys "bash -c 'docker-compose up -d \$(printf \"%s \" \"${my_list[@]}\")'" Enter
+sleep 1
+
+# Create a new pane for each docker container
+for container in "${containers[@]}"
+do
+    tmux split-window -h 
+    tmux select-layout tiled
+    tmux send-keys "docker-compose up $container" Enter
+done
+
+# Attach to the new tmux window
+tmux select-pane -t 1

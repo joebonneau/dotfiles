@@ -68,3 +68,11 @@ vim.keymap.set(
   "<cmd>DiagnosticsToggleVirtualText<CR>",
   { desc = "Toggle in-line diagnostics", silent = true }
 )
+
+vim.api.nvim_create_user_command("RunDockerTests", function()
+  local filename = vim.fn.expand("%")
+  local cmd = string.format('!ts -v -p "docker-compose run --rm app test --args=%s"', filename)
+  vim.cmd(cmd)
+end, {})
+
+vim.keymap.set("n", "<leader>dt", "<cmd>RunDockerTests<CR>", { desc = "Run docker tests in split pane" })

@@ -57,7 +57,8 @@ function gsw --argument _branch
     if test "$_branch" != ""
         set branch $_branch
     else
-        set branch (git branch --format='%(refname:short)' | fzf-tmux -p --border-label=" Select a branch ")
+        # set branch (git branch -a --format='%(refname:short)' | fzf-tmux -p --border-label=" Select a branch ")
+        set branch (git branch -a --format="%(refname:lstrip=3)" | grep -v '^$' | fzf-tmux -p --border-label=" Select a branch ")
     end
     if [ -n "$branch" ]
         git switch $branch
