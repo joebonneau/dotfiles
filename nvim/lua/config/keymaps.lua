@@ -68,3 +68,17 @@ vim.keymap.set(
   "<cmd>DiagnosticsToggleVirtualText<CR>",
   { desc = "Toggle in-line diagnostics", silent = true }
 )
+
+vim.api.nvim_create_user_command("MakeFileExecutable", function()
+  local notify = require("notify")
+  vim.cmd("!chmod +x %")
+  local filename = vim.fn.expand("%:t")
+  notify(string.format("%s is now executable!", filename))
+end, {})
+vim.keymap.set(
+  "n",
+  "<leader>fx",
+  "<cmd>MakeFileExecutable<CR>",
+  { desc = "Make current file executable", silent = true }
+)
+-- vim.keymap.set("n", "<leader>fx", ":!chmod +x %<CR>", { desc = "Make current file executable", silent = true })
