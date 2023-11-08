@@ -88,3 +88,12 @@ vim.keymap.set(
   "<cmd>MakeFileExecutable<CR>",
   { desc = "Make current file executable", silent = true }
 )
+
+vim.keymap.set(
+  "n",
+  "<leader>gd",
+  "<cmd>DiffviewOpen origin/main...HEAD<CR>",
+  { desc = "Open git diff view", silent = true }
+)
+
+vim.keymap.set("n", "<leader>gD", "<cmd>DiffviewClose<CR>", { desc = "Close git diff view", silent = true })
