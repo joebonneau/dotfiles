@@ -76,3 +76,15 @@ vim.api.nvim_create_user_command("RunDockerTests", function()
 end, {})
 
 vim.keymap.set("n", "<leader>dt", "<cmd>RunDockerTests<CR>", { desc = "Run docker tests in split pane" })
+vim.api.nvim_create_user_command("MakeFileExecutable", function()
+  local notify = require("notify")
+  vim.cmd("!chmod +x %")
+  local filename = vim.fn.expand("%:t")
+  notify(string.format("%s is now executable!", filename))
+end, {})
+vim.keymap.set(
+  "n",
+  "<leader>fx",
+  "<cmd>MakeFileExecutable<CR>",
+  { desc = "Make current file executable", silent = true }
+)
