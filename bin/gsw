@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# Usage: gsw (no arguments) or gsw <branch>
+
+if [ -n "$1" ]; then
+	branch=$1
+else
+	branch=$(
+		git branch -a |
+			grep -v "remotes/origin/HEAD" |
+			grep -v " -> " |
+			sed 's/remotes\/origin\///g' |
+			sed 's/^[ \t]*//' | # removes leading whitespace
+			sed 's/^\*\ //' |   # removes the * from the current branch
+			sort |
+			uniq | # removes duplicates created by removing remotes/origin/HEAD
+			fzf-tmux -p --border-label=" Select a branch "
+	)
+fi
+if [ -n "$branch" ]; then
+	current=$(git branch --show-current)
+	if [ "$current" = "$branch" ]; then
+		exit 0
+	fi
+	echo "Previous branch: $current"
+	git switch $branch
+fi

@@ -1,30 +1,3 @@
-set BGreen '\033[1;32m'
-set NC '\033[0m' # No Color
-
-function tmux-source
-    set -l filenames "~/git_repos/dotfiles/fish/config.fish" "~/git_repos/dotfiles/fish/conf.d/abbr.fish" "~/git_repos/dotfiles/fish/conf.d/abbr.fish"
-    for filename in $filenames
-        set escaped_filename (echo $filename | sed 's/\./\\./g')
-        set quoted_filename "'$escaped_filename'"
-        tmux list-sessions -F '#{session_name}' \
-            | xargs -I{} tmux list-windows -t {} -F '#{window_id}' \
-            | xargs -I{} tmux list-panes -t {} -F '#{pane_id}' \
-            | xargs -I{} tmux send-keys -t {} "source $quoted_filename" Enter
-    end
-end
-
-function dsh
-    set containers (docker ps --format "{{.Names}}")
-    set container_name (printf "%s\n" $containers | fzf-tmux -p --border-label=" Select a container ")
-
-    if [ -z "$container_name" ]
-        return
-    else
-        set container_id (docker ps --filter "name=$container_name" --format "{{.ID}}")
-        echo -e "===== Entering container "$BGreen""$container_name""$NC" ====="
-        docker exec -it "$container_id" /bin/bash
-    end
-end
 
 function docker-refresh-openapi
     set webhash (docker ps | grep -m 1 "hermes_web" | awk '{print $1}')
@@ -50,18 +23,6 @@ function docker-refresh-openapi
 
         echo -e "===== Success! Restarting containers... ====="
         docker-compose restart web frontend app
-    end
-end
-
-function gsw --argument _branch
-    if test "$_branch" != ""
-        set branch $_branch
-    else
-        # set branch (git branch -a --format='%(refname:short)' | fzf-tmux -p --border-label=" Select a branch ")
-        set branch (git branch -a --format="%(refname:lstrip=3)" | grep -v '^$' | fzf-tmux -p --border-label=" Select a branch ")
-    end
-    if [ -n "$branch" ]
-        git switch $branch
     end
 end
 

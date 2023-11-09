@@ -16,6 +16,8 @@ return {
       lua = { "stylua" },
       python = { "autoflake", "autopep8", "isort", "black" },
       go = { "gofumpt", "goimports", "golines" },
+      fish = { "fish_indent" },
+      bash = { "shfmt" },
       -- gotmpl = { "prettier" },
     },
   },

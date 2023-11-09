@@ -92,7 +92,7 @@ vim.keymap.set(
 vim.keymap.set(
   "n",
   "<leader>gd",
-  "<cmd>DiffviewOpen origin/main...HEAD<CR>",
+  "<cmd>DiffviewOpen origin/master...HEAD<CR>",
   { desc = "Open git diff view", silent = true }
 )
 

@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+BGreen='\033[1;32m'
+NC='\033[0m' # No Color
+
+containers=$(docker ps --format "{{.Names}}")
+container_name=$(
+	printf "%s\n" $containers |
+		fzf-tmux -p --border-label=" Select a container "
+)
+
+if [ -z "$container_name" ]; then
+	exit 0
+else
+	container_id=$(docker ps --filter "name=$container_name" --format "{{.ID}}")
+	echo -e "===== Entering container "$BGreen""$container_name""$NC" ====="
+	docker exec -it "$container_id" /bin/bash
+fi
