@@ -23,5 +23,6 @@ if [ -n "$branch" ]; then
 		exit 0
 	fi
 	echo "Previous branch: $current"
+	export GIT_PREV_BRANCH=$current
 	git switch $branch
 fi

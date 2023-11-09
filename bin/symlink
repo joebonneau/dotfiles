@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+from="$1"
+to="$2"
+
+if [ "$from" = "" ] || [ "$to" = "" ]; then
+	echo "error: must provide from and to arguments"
+	return 1
+fi
+abs_to=$(realpath "$to")
+
+if [ -d $to ] && [ ! -d $_from ]; then
+	to=$("$abs_to/"$(basename $from))
+else
+	to="$abs_to"
+fi
+
+from=$(realpath "$from")
+
+ln -s $from $to
