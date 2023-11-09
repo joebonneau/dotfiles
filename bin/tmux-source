@@ -1,9 +1,11 @@
-    filenames=( "~/git_repos/dotfiles/fish/config.fish" "~/git_repos/dotfiles/fish/conf.d/abbr.fish" "~/git_repos/dotfiles/fish/conf.d/abbr.fish" )
-    for filename in $filenames; do
-        escaped_filename=$(echo $filename | sed 's/\./\\./g')
-        quoted_filename="'$escaped_filename'"
-        tmux list-sessions -F '#{session_name}' \
-            | xargs -I{} tmux list-windows -t {} -F '#{window_id}' \
-            | xargs -I{} tmux list-panes -t {} -F '#{pane_id}' \
-            | xargs -I{} tmux send-keys -t {} "source $quoted_filename" Enter
+filenames=( "~/git_repos/dotfiles/fish/config.fish" "~/git_repos/dotfiles/fish/conf.d/abbr.fish" "~/git_repos/dotfiles/fish/conf.d/abbr.fish" )
+for filename in $filenames; do
+    escaped_filename=$(echo $filename | sed 's/\./\\./g')
+    quoted_filename="'$escaped_filename'"
+pane_ids=$(tmux list-sessions -F '#{session_name}' \
+  | xargs -I{} tmux list-windows -t {} -F '#{window_id} #{window_name}' \
+  | grep -E '^@[0-9]+ fish' \
+  | awk '{print $1}' \
+  | xargs -I{} tmux list-panes -t {} -F '#{pane_id}')
+# TODO:: probably just run `tmux run-shell "exec fish"` 
     end
