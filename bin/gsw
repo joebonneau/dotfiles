@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Usage: gsw (no arguments) or gsw <branch>
+# Usage: gsw (no arguments) or gsw <branch> or gsw - (switch to previous branch)
 
 if [ -n "$1" ]; then
 	branch=$1
@@ -23,6 +23,5 @@ if [ -n "$branch" ]; then
 		exit 0
 	fi
 	echo "Previous branch: $current"
-	export GIT_PREV_BRANCH=$current
 	git switch $branch
 fi
