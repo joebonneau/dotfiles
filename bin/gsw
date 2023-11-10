@@ -10,8 +10,8 @@ else
 			grep -v "remotes/origin/HEAD" |
 			grep -v " -> " |
 			sed 's/remotes\/origin\///g' |
-			sed 's/^[ \t]*//' | # removes leading whitespace
-			sed 's/^\*\ //' |   # removes the * from the current branch
+			sed 's/^[ ]*//' | # removes leading whitespace
+			sed 's/^\*\ //' | # removes the * from the current branch
 			sort |
 			uniq | # removes duplicates created by removing remotes/origin/HEAD
 			fzf-tmux -p --border-label=" Select a branch "
