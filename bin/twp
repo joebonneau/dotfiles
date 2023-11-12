@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+current_pane_width=$(tmux display-message -p "#{pane_width}")
+new_pane_width=$((current_pane_width * 120 / 100)) # Increase by 20%
+current_pane_height=$(tmux display-message -p "#{pane_height}")
+new_pane_height=$((current_pane_height * 120 / 100)) # Increase by 20%
+
+window_options=(
+	"split window vertically" "v" "split-window -h"
+	"split window horizontally" "w" "split-window -v"
+	"rotate panes" "r" "rotate-window"
+	"resize pane left" "h" "resize-pane -L -x $new_pane_width"
+	"resize pane down" "j" "resize-pane -D -y $new_pane_height"
+	"resize pane up" "k" "resize-pane -U -y $new_pane_height"
+	"resize pane right" "l" "resize-pane -R -x $new_pane_width"
+)
+
+tmux display-menu -T "Window and Pane Operations" "${window_options[@]}"

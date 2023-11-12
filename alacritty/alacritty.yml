@@ -25,6 +25,7 @@ window:
 key_bindings:
   - { key: K, mods: Command, chars: "\x02\x54" } # open t - tmux smart session manager
   - { key: L, mods: Command, chars: "\x02\x4c" } # switch to last tmux session
+  - { key: M, mods: Command, chars: "\x02\x29" } # open spotify_player in popup
   - { key: N, mods: Command, chars: "\x02\x6e" } # switch to next window in current session
   - { key: S, mods: Command, chars: "\x02\x73" } # enter tmux vi-copy-mode
   - { key: W, mods: Command, chars: "\x02\x63" } # create new tmux window in current session

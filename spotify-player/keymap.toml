@@ -1,0 +1,6 @@
+[[keymaps]]
+command = "SelectNextOrScrollDown"
+key_sequence = "C-j"
+[[keymaps]]
+command = "SelectPreviousOrScrollUp"
+key_sequence = "C-k"

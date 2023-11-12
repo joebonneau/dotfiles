@@ -18,6 +18,7 @@ fish_add_path $HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin
 
 # fish_config theme save "TokyoNight Storm"
 
+fish_add_path ~/.cargo/bin
 fish_add_path ~/.config/bin
 # golang - https://golang.google.cn/
 set -Ux GOPATH (go env GOPATH)

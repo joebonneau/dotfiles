@@ -1,0 +1,31 @@
+theme = "tokyonight"
+client_id = "520cdb9e1e8e401480625d095e3ad2ed"
+client_port = 8080
+tracks_playback_limit = 50
+playback_format = "{track} • {artists}\n{album}\n{metadata}"
+notify_format = { summary = "{track} • {artists}", body = "{album}" }
+# the default `copy_command` is based on the OS
+copy_command = { command = "pbcopy", args = [] } # macos
+app_refresh_duration_in_ms = 32
+playback_refresh_duration_in_ms = 0
+cover_image_refresh_duration_in_ms = 2000
+page_size_in_rows = 20
+enable_media_control = false
+enable_streaming = "Always"
+enable_cover_image_cache = true
+default_device = "spotify-player"
+play_icon = "▶"
+pause_icon = "󰏤"
+playback_window_position = "Top"
+cover_img_length = 9
+cover_img_width = 5
+playback_window_width = 4
+border_style = "Rounded"
+
+[device]
+name = "spotify-player"
+device_type = "speaker"
+volume = 100
+bitrate = 320
+audio_cache = false
+normalization = false
