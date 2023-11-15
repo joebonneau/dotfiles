@@ -49,6 +49,8 @@ return {
         end,
         desc = "Open mini.files (cwd)",
       },
+      { "<leader>fm", false },
+      { "<leader>fM", false },
     },
   },
 }

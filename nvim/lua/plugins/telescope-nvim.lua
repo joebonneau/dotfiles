@@ -3,16 +3,20 @@ return {
   dependencies = {
     "kkharji/sqlite.lua",
     { "prochri/telescope-all-recent.nvim", opts = {} },
-    -- "AckslD/nvim-neoclip.lua",
-    -- "danielvolchek/tailiscope.nvim",
-    -- "debugloop/telescope-undo.nvim",
-    -- "natecraddock/telescope-zf-native.nvim",
+    "AckslD/nvim-neoclip.lua",
     "ThePrimeagen/harpoon",
-    -- "joshmedeski/telescope-smart-goto.nvim",
-    -- "piersolenski/telescope-import.nvim",
     {
       "nvim-telescope/telescope-live-grep-args.nvim",
       version = "^1.0.0",
+    },
+    {
+      "danielfalk/smart-open.nvim",
+      branch = "0.2.x",
+      config = function() end,
+      dependencies = {
+        "kkharji/sqlite.lua",
+        { "nvim-telescope/telescope-fzy-native.nvim" },
+      },
     },
   },
   -- apply the config and additionally load fzf-native
@@ -21,13 +25,14 @@ return {
     telescope.setup(opts)
     telescope.load_extension("harpoon")
     -- telescope.load_extension("import")
-    -- telescope.load_extension("neoclip")
+    telescope.load_extension("neoclip")
     telescope.load_extension("notify")
     -- telescope.load_extension("smart_goto")
     -- telescope.load_extension("tailiscope")
     -- telescope.load_extension("undo")
     -- telescope.load_extension("zf-native")
     telescope.load_extension("live_grep_args")
+    telescope.load_extension("smart_open")
   end,
 
   opts = {
@@ -115,8 +120,11 @@ return {
   },
   keys = {
     { "<leader>*", "<cmd>Telescope grep_string<cr>", { silent = true, desc = "Grep Word Under Cursor" } },
-    { "<leader>ff", false },
-    { "<leader><space>", false },
+    { "<leader>ff", "<cmd>Telescope smart_open<CR>", desc = "Find files" },
+    { "<leader><space>", "<cmd>Telescope smart_open<CR>", desc = "Find files" },
     { "<leader>fc", "<cmd>Telescope commands<cr>", { silent = true, desc = "Find commands" } },
+    { "<leader>fF", false },
+    { "<leader>fr", false },
+    { "<leader>fR", false },
   },
 }

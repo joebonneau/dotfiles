@@ -13,6 +13,8 @@ abbr dcr "docker-compose run --rm"
 abbr dcud "docker-compose up -d"
 abbr dps "docker ps"
 
+abbr nvim "nvim -c 'Telescope smart_open'"
+
 abbr c clear
 abbr ef "source ~/git_repos/dotfiles/fish/conf.d/abbr.fish && exec fish"
 
