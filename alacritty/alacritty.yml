@@ -23,6 +23,7 @@ window:
   dynamic_padding: false
   option_as_alt: Both
 key_bindings:
+  - { key: D, mods: Command, chars: "\x02\x28" } # open lazydocker in popup
   - { key: K, mods: Command, chars: "\x02\x54" } # open t - tmux smart session manager
   - { key: L, mods: Command, chars: "\x02\x4c" } # switch to last tmux session
   - { key: M, mods: Command, chars: "\x02\x29" } # open spotify_player in popup

@@ -115,5 +115,8 @@ return {
   },
   keys = {
     { "<leader>*", "<cmd>Telescope grep_string<cr>", { silent = true, desc = "Grep Word Under Cursor" } },
+    { "<leader>ff", false },
+    { "<leader><space>", false },
+    { "<leader>fc", "<cmd>Telescope commands<cr>", { silent = true, desc = "Find commands" } },
   },
 }
