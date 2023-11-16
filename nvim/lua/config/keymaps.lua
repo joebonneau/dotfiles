@@ -94,17 +94,5 @@ vim.keymap.set(
   { desc = "Make current file executable", silent = true }
 )
 
-vim.keymap.set(
-  "n",
-  "<leader>gd",
-  "<cmd>DiffviewOpen origin/master...HEAD<CR>",
-  { desc = "Open git diff view", silent = true }
-)
-
+vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<CR>", { desc = "Open git diff view", silent = true })
 vim.keymap.set("n", "<leader>gD", "<cmd>DiffviewClose<CR>", { desc = "Close git diff view", silent = true })
-
--- vim.api.nvim_create_user_command("GoToFile", function()
---   require("telescope").extensions.smart_open.smart_open()
--- end, {})
-
-vim.cmd([[command! -nargs=0 GoToFile :Telescope smart_open]])

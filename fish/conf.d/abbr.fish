@@ -9,7 +9,7 @@ abbr gfl "git fetch && git pull"
 abbr dcb "docker-compose build"
 abbr dcd "docker-compose down"
 abbr dcr "docker-compose run --rm"
-# abbr dcu "docker-compose up"
+abbr dcu "docker-compose up"
 abbr dcud "docker-compose up -d"
 abbr dps "docker ps"
 
