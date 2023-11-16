@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+tmux new-window 'docker-compose up -d; tmux wait-for -S docker-compose; exec fish'
+tmux wait-for docker-compose
+
+# wait until after "docker-compose up -d" finishes
+tmux split-window
+tmux send-keys "docker-compose logs --follow app"
+tmux split-window
+tmux send-keys "docker-compose logs --follow frontend"
+tmux split-window
+tmux send-keys "docker-compose logs --follow web"
+tmux select-layout tiled
