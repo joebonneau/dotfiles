@@ -24,26 +24,22 @@ return {
     local telescope = require("telescope")
     telescope.setup(opts)
     telescope.load_extension("harpoon")
-    -- telescope.load_extension("import")
     telescope.load_extension("neoclip")
     telescope.load_extension("notify")
-    -- telescope.load_extension("smart_goto")
-    -- telescope.load_extension("tailiscope")
-    -- telescope.load_extension("undo")
-    -- telescope.load_extension("zf-native")
     telescope.load_extension("live_grep_args")
     telescope.load_extension("smart_open")
   end,
 
   opts = {
     defaults = {
-      -- mappings = {
-      --   i = {
-      --     ["<C-p>"] = require("telescope.actions.layout").toggle_preview,
-      --     ["<C-j>"] = require("telescope.actions").cycle_history_next,
-      --     ["<C-k>"] = require("telescope.actions").cycle_history_prev,
-      --   },
-      -- },
+      mappings = {
+        i = {
+          ["<C-n>"] = require("telescope.actions").cycle_history_next,
+          ["<C-p>"] = require("telescope.actions").cycle_history_prev,
+          ["<C-j>"] = require("telescope.actions").move_selection_next,
+          ["<C-k>"] = require("telescope.actions").move_selection_previous,
+        },
+      },
       file_ignore_patterns = { ".git/", "node_modules" },
       layout_config = {
         height = 0.90,

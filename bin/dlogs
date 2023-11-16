@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# TODO: add a check to see if there is already a docker window
+# and if so, don't create a new one
+tmux new-window -n "docker" 'docker-compose up -d; tmux wait-for -S docker-compose; exec fish'
+fish_pane=$(tmux display-message -p "#{pane_id}")
+tmux wait-for docker-compose
+
+# wait until after "docker-compose up -d" finishes
+tmux split-window
+tmux send-keys "docker-compose logs --follow app" Enter
+tmux split-window
+tmux send-keys "docker-compose logs --follow web" Enter
+tmux split-window
+tmux send-keys "docker-compose logs --follow frontend" Enter
+tmux select-layout tiled
+tmux select-pane -t "$fish_pane"

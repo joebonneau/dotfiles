@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+current_session=$(tmux display-message -p "#{session_name}")
+tmux select-pane -t "$current_session:docker.1"
+tmux display-message -p "Restarting containers..."
+tmux run-shell 'docker-compose restart app web frontend; tmux wait-for -S docker-compose'
+fish_pane=$(tmux display-message -p "#{pane_id}")
+tmux wait-for docker-compose
+
+# wait until after "docker-compose up -d" finishes
+tmux select-pane -t "$current_session:docker.2"
+tmux send-keys "docker-compose logs --follow app" Enter
+tmux select-pane -t "$current_session:docker.3"
+tmux send-keys "docker-compose logs --follow web" Enter
+tmux select-pane -t "$current_session:docker.4"
+tmux send-keys "docker-compose logs --follow frontend" Enter
+tmux select-pane -t "$fish_pane"

@@ -12,6 +12,8 @@ abbr dcr "docker-compose run --rm"
 abbr dcu "docker-compose up"
 abbr dcud "docker-compose up -d"
 abbr dps "docker ps"
+abbr dl dlogs
+abbr dr drestart
 
 abbr nvim "nvim -c 'Telescope smart_open'"
 
