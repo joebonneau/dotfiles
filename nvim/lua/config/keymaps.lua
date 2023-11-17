@@ -96,3 +96,6 @@ vim.keymap.set(
 
 vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<CR>", { desc = "Open git diff view", silent = true })
 vim.keymap.set("n", "<leader>gD", "<cmd>DiffviewClose<CR>", { desc = "Close git diff view", silent = true })
+
+vim.keymap.set("n", "<leader>o", "o<Esc>")
+vim.keymap.set("n", "<leader>O", "O<Esc>")
