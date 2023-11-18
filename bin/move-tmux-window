@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+
+import subprocess
+
+current_window = (
+    subprocess.check_output(["tmux", "display-message", "-p", "#{window_id}"])
+    .decode("utf-8")
+    .strip()
+)
+
+all_windows = (
+    subprocess.check_output(["tmux", "list-windows", "-F", "#{window_id}"])
+    .decode("utf-8")
+    .strip()
+    .split("\n")
+)
+
+placement = "-a"
+for i, window in enumerate(all_windows):
+    if window == current_window:
+        if i + 1 > len(all_windows) - 1:
+            next_window = all_windows[0]
+            placement = "-b"
+        else:
+            next_window = all_windows[i + 1]
+
+args = ["tmux", "move-window", placement, "-s", current_window, "-t", next_window]
+subprocess.run(args)

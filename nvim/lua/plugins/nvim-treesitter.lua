@@ -15,6 +15,7 @@ return {
       "fish",
       "go",
       "scss",
+      "tsx",
     },
   },
   config = function(_, opts)

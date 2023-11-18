@@ -23,14 +23,19 @@ window:
   dynamic_padding: false
   option_as_alt: Both
 key_bindings:
-  - { key: D, mods: Command, chars: "\x02\x28" } # open lazydocker in popup
   - { key: K, mods: Command, chars: "\x02\x54" } # open t - tmux smart session manager
   - { key: L, mods: Command, chars: "\x02\x4c" } # switch to last tmux session
   - { key: M, mods: Command, chars: "\x02\x29" } # open spotify_player in popup
   - { key: N, mods: Command, chars: "\x02\x6e" } # switch to next window in current session
   - { key: S, mods: Command, chars: "\x02\x73" } # enter tmux vi-copy-mode
+  - { key: U, mods: Command, chars: "\x02\x75" } # tmux-fzf-url
   - { key: W, mods: Command, chars: "\x02\x63" } # create new tmux window in current session
   - { key: X, mods: Command, chars: "\x02\x78" } # kill current window
+  - { key: Z, mods: Command, chars: "\x02\x7a" } # zoom/unzoom tmux pane
+  - { key: H, mods: Control|Shift, chars: "\x02\x5b" } # swap previous tmux pane
+  - { key: L, mods: Control|Shift, chars: "\x02\x5d" } # swap next tmux pane
+  - { key: J, mods: Control|Shift, chars: "\x02\x28" } # swap next tmux window
+
 colors:
   name: TokyoNight Storm
   author: Folke

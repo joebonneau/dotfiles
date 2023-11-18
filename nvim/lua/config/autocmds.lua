@@ -67,7 +67,3 @@ vim.api.nvim_create_autocmd("User", {
     map_split(buf_id, "<C-v>", "vertical")
   end,
 })
-
-vim.api.nvim_create_autocmd("VimEnter", {
-  command = "Telescope smart_open",
-})
