@@ -34,7 +34,7 @@ key_bindings:
   - { key: Z, mods: Command, chars: "\x02\x7a" } # zoom/unzoom tmux pane
   - { key: H, mods: Control|Shift, chars: "\x02\x5b" } # swap previous tmux pane
   - { key: L, mods: Control|Shift, chars: "\x02\x5d" } # swap next tmux pane
-  - { key: J, mods: Control|Shift, chars: "\x02\x28" } # swap next tmux window
+  - { key: N, mods: Control|Shift, chars: "\x02\x28" } # swap next tmux window
 
 colors:
   name: TokyoNight Storm
