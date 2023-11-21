@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# Specify the name or index of the tmux window you want to attach
+target_session="spotify"
+target_window="spotify"
+
+# Create/set an env var that has the true previously active session, as we don't want
+# to switch back to the spotify session
+# export TMUX_PREV_ACTIVE_SESSION=$(tmux display-message -p "#{client_last_session}")
+# echo $TMUX_PREV_ACTIVE_SESSION
+
+# if already in the target_session, then switch back to the previously active session
+current_session=$(tmux display-message -p "#S")
+if [ "$current_session" = "$target_session" ]; then
+	tmux switch-client -l
+	exit 0
+fi
+
+# Check whether target_session:target_window exists
+# If it doesn't, create it
+tmux has-session -t "$target_session" >/dev/null 2>&1
+has_session=$?
+if [ "$has_session" -eq 1 ]; then
+	tmux new-session -d -s "$target_session" "spotify_player"
+else
+	tmux switch-client -t "$target_session"
+fi

@@ -4,7 +4,6 @@ return {
     "kkharji/sqlite.lua",
     { "prochri/telescope-all-recent.nvim", opts = {} },
     "AckslD/nvim-neoclip.lua",
-    "ThePrimeagen/harpoon",
     {
       "nvim-telescope/telescope-live-grep-args.nvim",
       version = "^1.0.0",
@@ -23,7 +22,6 @@ return {
   config = function(_, opts)
     local telescope = require("telescope")
     telescope.setup(opts)
-    telescope.load_extension("harpoon")
     telescope.load_extension("neoclip")
     telescope.load_extension("notify")
     telescope.load_extension("live_grep_args")

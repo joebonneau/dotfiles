@@ -1,5 +1,5 @@
-# eval (/opt/homebrew/bin/brew shellenv)
-eval (/usr/local/bin/brew shellenv)
+eval (/opt/homebrew/bin/brew shellenv)
+# eval (/usr/local/bin/brew shellenv)
 starship init fish | source
 zoxide init fish | source
 
@@ -12,6 +12,7 @@ set -Ux COMPOSE_HTTP_TIMEOUT 86400
 # set -Ux GOROOT /usr/local/Cellar/go/1.21.3/libexec
 # set -Ux GOPROXY https://proxy.golang.org,direct
 set -Ux GOROOT (brew --prefix golang)/libexec
+set -Ux GOPATH /Users/joebonneau/git_repos
 # ~/.tmux/plugins
 fish_add_path $HOME/.tmux/plugins/t-smart-tmux-session-manager/bin
 # ~/.config/tmux/plugins

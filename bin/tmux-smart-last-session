@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# avoids the minor annoyance of switching to nothing when you've killed the previous
+# session
+
+# swallows stdout and stderr
+tmux switch-client -l >/dev/null 2>&1
+exit_code=$?
+if [ "$exit_code" -eq 1 ]; then
+	tmux switch-client -n
+fi

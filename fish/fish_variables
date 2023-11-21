@@ -2,9 +2,9 @@
 # VERSION: 3.0
 SETUVAR --export COMPOSE_HTTP_TIMEOUT:86400
 SETUVAR --export EDITOR:nvim
-SETUVAR --export --path GOPATH:/Users/bonneau/go
+SETUVAR --export --path GOPATH:/Users/joebonneau/git_repos
 SETUVAR --export GOPROXY:https\x3a//proxy\x2egolang\x2eorg\x2cdirect
-SETUVAR --export GOROOT:/usr/local/opt/go/libexec
+SETUVAR --export GOROOT:/opt/homebrew/opt/go/libexec
 SETUVAR __fish_initialized:3400
 SETUVAR _fisher_franciscolourenco_2F_done_files:\x7e/\x2econfig/fish/conf\x2ed/done\x2efish
 SETUVAR _fisher_jorgebucaran_2F_autopair_2E_fish_files:\x7e/\x2econfig/fish/functions/_autopair_backspace\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_left\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_right\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_same\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_tab\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/autopair\x2efish

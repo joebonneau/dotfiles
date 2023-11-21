@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Moves the current window to the after the next window, unless the current window is
+# the last one. If the current window is the last window, then it will become the first
+# window.
 
 current_window=$(tmux display-message -p "#{window_id}" | tr -d '\n')
 
