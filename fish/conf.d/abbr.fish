@@ -23,6 +23,7 @@ abbr dsh docker-container-sh
 alias ts tmux-split
 
 abbr nvim "nvim -c 'Telescope smart_open'"
+abbr hfzf "history | fzf"
 
 abbr c clear
 abbr ef "source ~/git_repos/dotfiles/fish/conf.d/abbr.fish && exec fish"

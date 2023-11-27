@@ -13,6 +13,7 @@ set -Ux COMPOSE_HTTP_TIMEOUT 86400
 # set -Ux GOPROXY https://proxy.golang.org,direct
 set -Ux GOROOT (brew --prefix golang)/libexec
 set -Ux GOPATH /Users/joebonneau/git_repos
+set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
 # ~/.tmux/plugins
 fish_add_path $HOME/.tmux/plugins/t-smart-tmux-session-manager/bin
 # ~/.config/tmux/plugins
