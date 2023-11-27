@@ -4,11 +4,6 @@
 target_session="spotify"
 target_window="spotify"
 
-# Create/set an env var that has the true previously active session, as we don't want
-# to switch back to the spotify session
-# export TMUX_PREV_ACTIVE_SESSION=$(tmux display-message -p "#{client_last_session}")
-# echo $TMUX_PREV_ACTIVE_SESSION
-
 # if already in the target_session, then switch back to the previously active session
 current_session=$(tmux display-message -p "#S")
 if [ "$current_session" = "$target_session" ]; then
