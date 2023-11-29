@@ -55,6 +55,7 @@
   "persistence.nvim": { "branch": "main", "commit": "ad538bfd5336f1335cdb6fd4e0b0eebfa6e12f32" },
   "plenary.nvim": { "branch": "master", "commit": "c47e1a21d235a422034012935febd2d078d77ac6" },
   "promise-async": { "branch": "main", "commit": "e94f35161b8c5d4a4ca3b6ff93dd073eb9214c0e" },
+  "qmk.nvim": { "branch": "main", "commit": "99e34a71406911669806569087ec876d540d79f9" },
   "smart-open.nvim": { "branch": "0.2.x", "commit": "026091fe7f9b283aa1f5f4bb8c56aa5bcad43dbd" },
   "sqlite.lua": { "branch": "master", "commit": "b7e28c8463254c46a8e61c52d27d6a2040492fc3" },
   "telescope-all-recent.nvim": { "branch": "main", "commit": "766d79bedf8dd59c2d0a944a7cf3c98795ab5f07" },
