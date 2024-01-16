@@ -1,0 +1,125 @@
+live_config_reload = true
+# theme = "Tokyonight_Storm"
+
+# [colors]
+# author = "Folke"
+# name = "TokyoNight Storm"
+
+[[colors.indexed_colors]]
+color = "0xff9e64"
+index = 16
+
+[[colors.indexed_colors]]
+color = "0xdb4b4b"
+index = 17
+
+[colors.bright]
+black = "0x414868"
+blue = "0x7aa2f7"
+cyan = "0x7dcfff"
+green = "0x9ece6a"
+magenta = "0xbb9af7"
+red = "0xf7768e"
+white = "0xc0caf5"
+yellow = "0xe0af68"
+
+[colors.normal]
+black = "0x1D202F"
+blue = "0x7aa2f7"
+cyan = "0x7dcfff"
+green = "0x9ece6a"
+magenta = "0xbb9af7"
+red = "0xf7768e"
+white = "0xa9b1d6"
+yellow = "0xe0af68"
+
+[colors.primary]
+background = "0x24283b"
+foreground = "0xc0caf5"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 18.0
+
+[font.bold]
+family = "MesloLGL Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "MesloLGL Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "MesloLGL Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "MesloLGL Nerd Font"
+style = "Regular"
+
+[[keyboard.bindings]]
+chars = "\u0002T"
+key = "K"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002L"
+key = "L"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002)"
+key = "M"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002n"
+key = "N"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002s"
+key = "S"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002u"
+key = "U"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002c"
+key = "W"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002x"
+key = "X"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002z"
+key = "Z"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002["
+key = "H"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002]"
+key = "L"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002("
+key = "N"
+mods = "Control|Shift"
+
+[window]
+decorations = "buttonless"
+dynamic_padding = false
+option_as_alt = "Both"

@@ -1,7 +1,9 @@
-# eval (/opt/homebrew/bin/brew shellenv)
-eval (/usr/local/bin/brew shellenv)
+eval (/opt/homebrew/bin/brew shellenv)
+# eval (/usr/local/bin/brew shellenv)
 starship init fish | source
 zoxide init fish | source
+pyenv init - | source
+status --is-interactive; and pyenv virtualenv-init - | source
 
 set -U fish_greeting
 set -U fish_key_bindings fish_vi_key_bindings
