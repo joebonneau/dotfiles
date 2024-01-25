@@ -14,12 +14,10 @@ return {
       markdown = { "prettierd" },
       graphql = { "prettierd" },
       lua = { "stylua" },
-      -- python = { "autoflake", "autopep8", "isort", "black" },
       python = { "ruff" },
       go = { "gofumpt", "goimports", "golines" },
       fish = { "fish_indent" },
       bash = { "shfmt" },
-      -- gotmpl = { "prettier" },
     },
   },
 }

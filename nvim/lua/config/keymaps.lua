@@ -9,53 +9,6 @@ vim.keymap.del("n", "<leader>fn")
 vim.keymap.del("n", "<leader>gg")
 vim.keymap.del("n", "<leader>gG")
 
--- function _G.get_git_diff_files()
---   local pickers = require("telescope.pickers")
---   local finders = require("telescope.finders")
---   local conf = require("telescope.config").values
---   -- local list = vim.fn.systemlist("git diff --name-only $(git merge-base $(git branch --show-current) HEAD)")
---   local list = vim.fn.systemlist("git diff --name-only master HEAD")
---   local icons = require("nvim-web-devicons")
---   local is_git_repo = true
---   for _, text in ipairs(list) do
---     if string.find(text, "Not a git repository") then
---       is_git_repo = false
---       break
---     end
---   end
---   if is_git_repo then
---     local opts = {
---       layout_strategy = "horizontal",
---       layout_config = {
---         width = 0.5,
---         height = 0.5,
---       },
---     }
---     pickers
---       .new(opts, {
---         prompt_title = "Find in Git Diff",
---         finder = finders.new_table({
---           results = list,
---           entry_maker = function(entry)
---             local icon, _ = icons.get_icon(entry.value, vim.fn.fnamemodify(entry, ":e"), { default = true })
---             return {
---               value = entry,
---               ordinal = entry,
---               display = icon .. " " .. entry,
---             }
---           end,
---         }),
---
---         -- finder = finders.new_table({ results = list_with_icons }),
---         sorter = conf.file_sorter(opts),
---       })
---       :find()
---   else
---     local notify = require("notify")
---     notify("Current directory is not a git repo.", vim.log.levels.WARN, { title = "Find in git diff" })
---   end
--- end
-
 vim.keymap.set("n", "<leader>fd", ":lua get_git_diff_files()<CR>", { desc = "Find file in git diff" })
 
 vim.api.nvim_create_user_command("DiagnosticsToggleVirtualText", function()
