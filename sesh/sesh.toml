@@ -1,8 +1,9 @@
-default_startup_script = "~/git_repos/dotfiles/bin/sesh/default.sh"
+default_startup_script = "~/git_repos/dotfiles/sesh/bin/default.sh"
 
-[session.name]
-prepend_parent_dir = true
+[[startup_scripts]]
+session_path = "~/git_repos/sesh"
+script_path = "~/git_repos/dotfiles/sesh/bin/sesh.sh"
 
-# [[startup_scripts]]
-# session_path = "~/git_repos/sesh"
-# script_path = "~/git_repos/dotfiles/bin/sesh/sesh.sh"
+[[startup_scripts]]
+session_path = "~/git_repos/dotfiles/spotify-player"
+script_path = "~/git_repos/dotfiles/sesh/bin/spotify.sh"
