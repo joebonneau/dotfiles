@@ -5,6 +5,10 @@ $character\
 $directory\
 $git_branch\
 $git_status\
+$python\
+$nodejs\
+$golang\
+[ > ](bold white)\
 """
 
 [git_branch]
@@ -14,14 +18,22 @@ disabled = true
 disabled = true
 
 [directory]
-format = "[ $path]($style)[ > ](bold white)"
+format = "[ $path]($style)"
 style = "#41a6b5"
-truncate_to_repo = false
 
 [character]
 success_symbol = " [](bold white)"
 error_symbol = " [](bold red)"
 vimcmd_symbol = " [](bold green)"
-vimcmd_replace_one_symbol = " [](bold purple)" 
-vimcmd_replace_symbol = " [](bold purple)" 
-vimcmd_visual_symbol = " [](bold yellow)" 
+vimcmd_replace_one_symbol = " [](bold purple)"
+vimcmd_replace_symbol = " [](bold purple)"
+vimcmd_visual_symbol = " [](bold yellow)"
+
+[python]
+format = '[ 🐍 ($virtualenv)](purple)'
+
+[nodejs]
+format = '[ 🤖 $version](purple) '
+
+[golang]
+format = '[ 🏎💨 $version](purple) '
