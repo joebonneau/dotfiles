@@ -27,6 +27,11 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   command = "setlocal filetype=gotmpl | setlocal commentstring={{/*\\ %s\\ */}}",
 })
 
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.dhtml" },
+  command = "setlocal filetype=htmldjango",
+})
+
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = { "*tmux.conf" },
   command = "execute 'silent !tmux source <afile> --silent'",

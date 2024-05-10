@@ -1,0 +1,8 @@
+default_startup_script = "~/git_repos/dotfiles/bin/sesh/default.sh"
+
+[session.name]
+prepend_parent_dir = true
+
+[[startup_scripts]]
+session_path = "~/git_repos/sesh"
+script_path = "~/git_repos/dotfiles/bin/sesh/sesh.sh"

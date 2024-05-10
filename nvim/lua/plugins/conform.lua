@@ -14,10 +14,11 @@ return {
       markdown = { "prettierd" },
       graphql = { "prettierd" },
       lua = { "stylua" },
-      python = { "ruff" },
+      python = { "ruff_format" },
       go = { "gofumpt", "goimports", "golines" },
       fish = { "fish_indent" },
       bash = { "shfmt" },
+      htmldjango = { "djlint" },
     },
   },
 }

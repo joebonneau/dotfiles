@@ -4,6 +4,9 @@ starship init fish | source
 zoxide init fish | source
 pyenv init - | source
 status --is-interactive; and pyenv virtualenv-init - | source
+fzf --fish | source
+
+load_nvm >/dev/stderr
 
 set -U fish_greeting
 set -U fish_key_bindings fish_vi_key_bindings
@@ -16,10 +19,6 @@ set -Ux COMPOSE_HTTP_TIMEOUT 86400
 set -Ux GOROOT (brew --prefix golang)/libexec
 set -Ux GOPATH /Users/joebonneau/git_repos
 set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
-# ~/.tmux/plugins
-fish_add_path $HOME/.tmux/plugins/t-smart-tmux-session-manager/bin
-# ~/.config/tmux/plugins
-fish_add_path $HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin
 
 # fish_config theme save "TokyoNight Storm"
 
