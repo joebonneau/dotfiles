@@ -9,6 +9,10 @@ vim.keymap.del("n", "<leader>fn")
 vim.keymap.del("n", "<leader>gg")
 vim.keymap.del("n", "<leader>gG")
 
+-- macros
+vim.keymap.set("n", "Q", "@qj", { remap = true })
+vim.keymap.set("x", "Q", ":norm @qj<CR>", { remap = true })
+
 vim.keymap.set("n", "<leader>fd", ":lua get_git_diff_files()<CR>", { desc = "Find file in git diff" })
 
 vim.api.nvim_create_user_command("DiagnosticsToggleVirtualText", function()

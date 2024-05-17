@@ -5,5 +5,12 @@ return {
     presets = {
       bottom_search = true,
     },
+    lsp = {
+      signature = {
+        auto_open = {
+          enabled = false,
+        },
+      },
+    },
   },
 }

@@ -10,6 +10,7 @@ return {
       typescriptreact = { "eslint_d" },
       python = { "ruff" },
       djangohtml = { "djlint" },
+      yaml = { "actionlint" },
     }
     -- local ruff = require("lint").linters.ruff
     --
