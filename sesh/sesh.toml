@@ -21,3 +21,7 @@ startup_script = "~/git_repos/dotfiles/sesh/bin/recipester.sh"
 name = "patient_data_platform"
 path = "~/git_repos/threshold-health/patient_data_platform"
 startup_script = "~/git_repos/dotfiles/sesh/bin/threshold.sh"
+
+[[session]]
+name = "nvim_trash"
+path = "~/.local/share/nvim/mini.files/trash"

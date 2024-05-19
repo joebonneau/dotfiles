@@ -11,7 +11,7 @@ vim.keymap.del("n", "<leader>gG")
 
 -- macros
 vim.keymap.set("n", "Q", "@qj", { remap = true })
-vim.keymap.set("x", "Q", ":norm @qj<CR>", { remap = true })
+vim.keymap.set("x", "Q", ":norm @qj<CR>")
 
 vim.keymap.set("n", "<leader>fd", ":lua get_git_diff_files()<CR>", { desc = "Find file in git diff" })
 

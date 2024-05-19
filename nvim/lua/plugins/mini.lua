@@ -3,8 +3,6 @@ return {
     "echasnovski/mini.move",
     version = false,
     mappings = {
-      -- left = "<M-h>",
-      -- right = "<M-l>",
       down = "<M-j>",
       up = "<leader><M-k>",
       line_left = "<M-h>",
@@ -21,6 +19,7 @@ return {
         preview = false,
       },
       options = {
+        permanent_delete = false,
         use_as_default_explorer = true,
       },
       mappings = {
