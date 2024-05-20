@@ -2,6 +2,18 @@ return {
   "folke/noice.nvim",
   enabled = true,
   opts = {
+    cmdline = {
+      format = {
+        cmdline = { pattern = "^:", icon = "  ", lang = "vim" },
+      },
+      view = "cmdline",
+    },
+    messages = {
+      enabled = false,
+    },
+    popupmenu = {
+      enabled = false,
+    },
     presets = {
       bottom_search = true,
     },
