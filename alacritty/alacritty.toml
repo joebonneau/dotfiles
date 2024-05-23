@@ -60,6 +60,11 @@ family = "MesloLGM Nerd Font"
 style = "Regular"
 
 [[keyboard.bindings]]
+chars = "\u0002J"
+key = "J"
+mods = "Command"
+
+[[keyboard.bindings]]
 chars = "\u0002T"
 key = "K"
 mods = "Command"

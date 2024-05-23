@@ -1,7 +1,7 @@
 # git
 abbr g git
 abbr gst "git status"
-abbr gc "git commit --no-verify -m"
+abbr gc "git commit -m"
 abbr ga "git add"
 abbr gp "git push"
 abbr gcb "git checkout -b"
