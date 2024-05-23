@@ -10,7 +10,7 @@ return {
       typescriptreact = { "eslint_d" },
       python = { "ruff" },
       djangohtml = { "djlint" },
-      yaml = { "actionlint" },
+      gha_yaml = { "actionlint" },
       dockerfile = { "hadolint" },
       css = { "stylelint" },
     }

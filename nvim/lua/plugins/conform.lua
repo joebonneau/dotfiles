@@ -14,7 +14,7 @@ return {
       markdown = { "prettierd" },
       graphql = { "prettierd" },
       lua = { "stylua" },
-      python = { "ruff_format" },
+      python = { "ruff_format", "ruff_organize_imports" },
       go = { "gofumpt", "goimports", "golines" },
       fish = { "fish_indent" },
       bash = { "shfmt" },

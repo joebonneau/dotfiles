@@ -20,13 +20,6 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   end,
 })
 
--- gopls doesn't work unless the filetype is manually set, and
--- treesitter doesn't have a parser for gotmpl
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = { "*.html.tmpl" },
-  command = "setlocal filetype=gotmpl | setlocal commentstring={{/*\\ %s\\ */}}",
-})
-
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.dhtml" },
   command = "setlocal filetype=htmldjango",
@@ -36,14 +29,6 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = { "*tmux.conf" },
   command = "execute 'silent !tmux source <afile> --silent'",
 })
--- vim.api.nvim_create_autocmd("BufWritePost", {
---   pattern = { "tmux.conf", "*.fish" },
---   callback = function()
---     local filename = vim.api.nvim_buf_get_name(0)
---     local escaped_filename = string.gsub(filename, "%.", "\\.")
---     vim.cmd(string.format("execute '!tmux-source %s'", escaped_filename))
---   end,
--- })
 
 local map_split = function(buf_id, lhs, direction)
   local rhs = function()
@@ -56,7 +41,7 @@ local map_split = function(buf_id, lhs, direction)
 
     -- Create target window and open highlighted file in split
     MiniFiles.set_target_window(new_target_window)
-    MiniFiles.go_in()
+    MiniFiles.go_in({})
   end
 
   -- Adding `desc` will result into `show_help` entries
