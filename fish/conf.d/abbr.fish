@@ -5,7 +5,7 @@ abbr gc "git commit -m"
 abbr ga "git add"
 abbr gp "git push"
 abbr gcb "git checkout -b"
-abbr gfl "git fetch && git pull"
+abbr gfp "git push --force-with-lease"
 abbr gsw git-switch-branch
 
 # docker

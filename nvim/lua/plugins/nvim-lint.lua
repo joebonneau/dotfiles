@@ -8,7 +8,7 @@ return {
       typescript = { "eslint_d" },
       javascriptreact = { "eslint_d" },
       typescriptreact = { "eslint_d" },
-      python = { "ruff" },
+      -- python = { "ruff" },
       djangohtml = { "djlint" },
       gha_yaml = { "actionlint" },
       dockerfile = { "hadolint" },

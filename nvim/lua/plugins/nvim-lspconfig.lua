@@ -1,71 +1,5 @@
 return {
   "neovim/nvim-lspconfig",
-  -- config = function()
-  --   local lspconfig = require("lspconfig")
-  -- lspconfig.htmx.setup({
-  --   filetypes = { "htmldjango" },
-  -- })
-  -- lspconfig.emmet_language_server.setup({
-  --   filetypes = { "astro", "gotmpl", "go", "html", "htmldjango", "javascriptreact", "typescriptreact" },
-  -- })
-  -- lspconfig.pyright.setup({
-  --   filetypes = { "python" },
-  -- })
-  -- lspconfig.tailwindcss.setup({
-  --   filetypes = {
-  --     "aspnetcorerazor",
-  --     "astro",
-  --     "astro-markdown",
-  --     "blade",
-  --     "clojure",
-  --     "django-html",
-  --     "htmldjango",
-  --     "edge",
-  --     "eelixir",
-  --     "elixir",
-  --     "ejs",
-  --     "erb",
-  --     "eruby",
-  --     "gohtml",
-  --     "gohtmltmpl",
-  --     "haml",
-  --     "handlebars",
-  --     "hbs",
-  --     "html",
-  --     "html-eex",
-  --     "heex",
-  --     "jade",
-  --     "leaf",
-  --     "liquid",
-  --     "markdown",
-  --     "mdx",
-  --     "mustache",
-  --     "njk",
-  --     "nunjucks",
-  --     "php",
-  --     "razor",
-  --     "slim",
-  --     "twig",
-  --     "css",
-  --     "less",
-  --     "postcss",
-  --     "sass",
-  --     "scss",
-  --     "stylus",
-  --     "sugarss",
-  --     "javascript",
-  --     "javascriptreact",
-  --     "reason",
-  --     "rescript",
-  --     "typescript",
-  --     "typescriptreact",
-  --     "vue",
-  --     "svelte",
-  --     "templ",
-  --     "python",
-  --   },
-  --   })
-  -- end,
   opts = {
     format = { timeout_ms = 1000 },
     servers = {
@@ -73,7 +7,44 @@ return {
         filetypes = { "astro", "gotmpl", "go", "html", "htmldjango", "javascriptreact", "typescriptreact" },
       },
       htmx = { filetypes = { "htmldjango" } },
-      pyright = {},
+      pyright = {
+        capabilities = (function()
+          local capabilities = vim.lsp.protocol.make_client_capabilities()
+          capabilities.textDocument.publishDiagnostics.tagSupport.valueSet = { 2 }
+          return capabilities
+        end)(),
+        settings = {
+          python = {
+            analysis = {
+              useLibraryCodeForTypes = true,
+              diagnosticSeverityOverrides = {
+                reportUnusedVariable = "warning", -- or anything
+              },
+              typeCheckingMode = "basic",
+            },
+          },
+        },
+      },
+      ruff_lsp = { enabled = false },
+      ruff = { enabled = true },
     },
+  },
+  setup = {
+    ruff = function()
+      LazyVim.lsp.on_attach(function(client, _)
+        if client.name == "ruff" then
+          -- Disable hover in favor of Pyright
+          client.server_capabilities.hoverProvider = false
+        end
+      end)
+    end,
+    pyright = function()
+      LazyVim.lsp.on_attach(function(client, _)
+        if client.name == "ruff" then
+          -- Disable hover in favor of Pyright
+          client.server_capabilities.hoverProvider = false
+        end
+      end)
+    end,
   },
 }
