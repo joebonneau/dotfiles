@@ -37,6 +37,10 @@ return {
             ["<C-p>"] = require("telescope.actions").cycle_history_prev,
             ["<C-j>"] = require("telescope.actions").move_selection_next,
             ["<C-k>"] = require("telescope.actions").move_selection_previous,
+            -- ["<C-q>"] = require("trouble.providers.telescope").open_with_trouble,
+          },
+          n = {
+            -- ["<C-q>"] = require("trouble.providers.telescope").open_with_trouble,
           },
         },
         file_ignore_patterns = { ".git/", "node_modules" },

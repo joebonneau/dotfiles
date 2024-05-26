@@ -9,7 +9,7 @@ return {
       view = "cmdline",
     },
     messages = {
-      enabled = false,
+      enabled = true,
     },
     popupmenu = {
       enabled = false,

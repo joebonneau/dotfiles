@@ -14,17 +14,17 @@ return {
         section_separators = { left = "", right = "" },
       },
       sections = {
-        lualine_a = { { "mode", separator = "" } },
+        lualine_a = { { "mode" } },
         lualine_b = {},
         lualine_c = {
           {
             "diagnostics",
             symbols = {
               error = icons.diagnostics.Error,
-              warn = icons.diagnostics.Warn,
-              info = icons.diagnostics.Info,
-              hint = icons.diagnostics.Hint,
             },
+            warn = icons.diagnostics.Warn,
+            info = icons.diagnostics.Info,
+            hint = icons.diagnostics.Hint,
           },
         },
         lualine_x = {
@@ -34,9 +34,7 @@ return {
             color = { fg = "#ff9e64" },
           },
           {
-            function()
-              return require("noice").api.status.command.get()
-            end,
+            require("noice").api.status.command.get,
             cond = function()
               return package.loaded["noice"] and require("noice").api.status.command.has()
             end,
@@ -49,7 +47,7 @@ return {
         },
         lualine_z = {},
       },
-      extensions = { "lazy" },
+      extensions = { "lazy", "mason", "oil" },
     }
   end,
 }
