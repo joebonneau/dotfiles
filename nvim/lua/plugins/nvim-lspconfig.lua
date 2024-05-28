@@ -28,6 +28,7 @@ return {
       ruff_lsp = { enabled = false },
       ruff = { enabled = true },
     },
+    inlay_hints = { enabled = false },
   },
   setup = {
     ruff = function()
