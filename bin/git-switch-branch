@@ -2,26 +2,66 @@
 
 # Usage: gsw (no arguments) or gsw <branch> or gsw - (switch to previous branch)
 
+# if [ -n "$1" ]; then
+# 	branch=$1
+# else
+# 	branches=$(
+# 		git branch -a |
+# 			grep -v "remotes/origin/HEAD" |
+# 			grep -v " -> " |
+# 			sed 's/remotes\/origin\///g' |
+# 			sed 's/^[ ]*//' | # removes leading whitespace
+# 			sed 's/^\*\ //' | # removes the * from the current branch
+# 			sort |
+# 			uniq | # removes duplicates created by removing remotes/origin/HEAD
+# 		# fzf-tmux -p --border-label=" Select a branch "
+# 	)
+# 	tmux display-popup -E "$branches | gum filter --limit 1 --placeholder 'Choose a branch' --height 20 --prompt=' '"
+# fi
+# if [ -n "$branch" ]; then
+# 	current=$(git branch --show-current)
+# 	if [ "$current" = "$branch" ]; then
+# 		exit 0
+# 	fi
+# 	echo "Previous branch: $current"
+# 	git switch $branch
+# fi
+
+# Check if a branch name was provided as an argument
 if [ -n "$1" ]; then
 	branch=$1
 else
-	branch=$(
+	current=$(git branch --show-current)
+	branches=$(
 		git branch -a |
 			grep -v "remotes/origin/HEAD" |
 			grep -v " -> " |
 			sed 's/remotes\/origin\///g' |
-			sed 's/^[ ]*//' | # removes leading whitespace
-			sed 's/^\*\ //' | # removes the * from the current branch
+			sed 's/^[ ]*//' |      # removes leading whitespace
+			sed 's/^\*\ //' |      # removes the * from the current branch
+			grep -v "^$current$" | # removes the current branch from the list
 			sort |
-			uniq | # removes duplicates created by removing remotes/origin/HEAD
-			fzf-tmux -p --border-label=" Select a branch "
+			uniq # removes duplicates created by removing remotes/origin/HEAD
 	)
+
+	# Use a temporary file to capture the selected branch
+	tmpfile=$(mktemp)
+	tmux display-popup -E "echo \"$branches\" | gum filter --limit 1 --placeholder 'Choose a branch' --height 20 --prompt=' ' > $tmpfile"
+	branch=$(cat $tmpfile)
+	rm -f $tmpfile
+
+	# Exit if no branch was selected
+	if [ -z "$branch" ]; then
+		exit 1
+	fi
 fi
+
+# If a branch was provided or selected, switch to it
 if [ -n "$branch" ]; then
 	current=$(git branch --show-current)
 	if [ "$current" = "$branch" ]; then
 		exit 0
 	fi
-	echo "Previous branch: $current"
-	git switch $branch
+	echo "Previous branch '$current'"
+	git switch "$branch"
 fi

@@ -22,6 +22,9 @@ abbr dsh docker-container-sh
 # tmux
 alias ts tmux-split
 
+# brew
+abbr brewfile "brew bundle dump --force"
+
 abbr nvim "nvim -c 'Telescope smart_open'"
 abbr hfzf "history | fzf"
 
