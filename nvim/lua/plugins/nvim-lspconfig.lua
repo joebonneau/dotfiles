@@ -4,9 +4,8 @@ return {
     format = { timeout_ms = 1000 },
     servers = {
       emmet_language_server = {
-        filetypes = { "astro", "gotmpl", "go", "html", "htmldjango", "javascriptreact", "typescriptreact" },
+        filetypes = { "gotmpl", "go", "html", "htmldjango", "javascriptreact", "typescriptreact" },
       },
-      htmx = { filetypes = { "htmldjango" } },
       pyright = {
         capabilities = (function()
           local capabilities = vim.lsp.protocol.make_client_capabilities()
