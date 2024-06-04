@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+
+import os
+import subprocess
+import tempfile
+
+command_mapper = {
+    "split window vertically": "split-window -h",
+    "split window horizontally": "split-window -v",
+    "rotate panes": "rotate-window",
+    "swap pane with previous": "swap-pane -U",
+    "swap pane with next": "swap-pane -D",
+    "toggle zoom": "resize-pane -Z",
+}
+
+
+def tmux_picker():
+    # Create the list of options for gum
+    options = "\n".join(command_mapper.keys())
+
+    # Create a temporary file to store the selection
+    with tempfile.NamedTemporaryFile(delete=False) as tmpfile:
+        tmpfile_path = tmpfile.name
+
+    try:
+        # Use tmux to display a popup with gum to select an option, and write the selection to the temporary file
+        command = f'gum filter --limit 1 --placeholder="Select a command..." --prompt="   " <<< "{options}" > {tmpfile_path}'
+        subprocess.run(command, shell=True)
+
+        # Read the selection from the temporary file
+        with open(tmpfile_path, "r") as tmpfile:
+            selection = tmpfile.read().strip()
+
+        # If a valid selection was made, execute the corresponding tmux command
+        if selection in command_mapper:
+            tmux_command = f"tmux {command_mapper[selection]}"
+            subprocess.run(tmux_command, shell=True)
+    finally:
+        # Clean up the temporary file
+        if os.path.exists(tmpfile_path):
+            os.remove(tmpfile_path)
+
+
+if __name__ == "__main__":
+    tmux_picker()

@@ -109,6 +109,12 @@ chars = "\u0002z"
 key = "Z"
 mods = "Command"
 
+
+[[keyboard.bindings]]
+chars = "\u0002A"
+key = "A"
+mods = "Command"
+
 [[keyboard.bindings]]
 chars = "\u0002["
 key = "H"
