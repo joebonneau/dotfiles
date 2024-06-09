@@ -1,0 +1,23 @@
+{
+  "comment": {
+    "prefix": "docstring",
+    "body": [
+      "\"\"\"",
+      "${1:A one-line summary.}",
+      "",
+      "${2:Detailed description.}$0",
+      "",
+      "Args:",
+      "    ${4:argument_name}: ${5:type and description.}",
+      "",
+      "Returns:",
+      "    ${3:type and description of the returned object.}",
+      "",
+      "Example:",
+      "    # ${6:Description of my example.}",
+      "    ${7:use_it_this_way(arg1, arg2)}",
+      "\"\"\""
+    ],
+    "description": "A Python docstring for functions and methods, including short summary, details, args, returns, and examples. This docstring is an synonym of \"\"\"function."
+  }
+}
