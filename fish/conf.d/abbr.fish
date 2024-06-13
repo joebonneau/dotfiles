@@ -32,6 +32,7 @@ abbr hfzf "history | fzf"
 abbr c clear
 abbr ef "source ~/git_repos/dotfiles/fish/conf.d/abbr.fish && exec fish"
 abbr efa exec-all-sh
+abbr upda update-all
 
 # aliases for ease of use in neovim (abbr don't expand)
 alias pydoc "python3 -m pydoc"
