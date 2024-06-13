@@ -52,6 +52,7 @@ return {
       ensure_installed = {
         "astro",
         "css",
+        "devicetree",
         "fish",
         "go",
         "htmldjango",
