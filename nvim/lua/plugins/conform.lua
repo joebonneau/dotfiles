@@ -19,6 +19,7 @@ return {
       fish = { "fish_indent" },
       bash = { "shfmt" },
       htmldjango = { "djlint" },
+      rust = { "rustfmt" },
     },
   },
 }

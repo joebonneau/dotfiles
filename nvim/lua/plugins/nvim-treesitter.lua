@@ -56,6 +56,7 @@ return {
         "fish",
         "go",
         "htmldjango",
+        "rust",
         "scss",
         "tsx",
       },
