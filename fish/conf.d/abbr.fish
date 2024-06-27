@@ -6,19 +6,23 @@ abbr gr "git rebase"
 abbr ga "git add"
 abbr gp "git push"
 abbr gcb "git checkout -b"
-abbr gfp "git push --force-with-lease"
+abbr gfp "git push --force-with-lease --force-if-includes"
 abbr gsw git-switch-branch
 
 # docker
-abbr dcb "docker-compose build"
-abbr dcd "docker-compose down"
-abbr dcr "docker-compose run --rm"
-abbr dcu "docker-compose up"
-abbr dcud "docker-compose up -d"
+abbr dc "docker compose"
+abbr dcl "docker compose logs --tail 50"
+abbr dce "docker compose exec"
+abbr dcb "docker compose build"
+abbr dcd "docker compose down"
+abbr dcr "docker compose run --rm"
+abbr dcu "docker compose up"
+abbr dcud "docker compose up -d"
 abbr dps "docker ps"
 abbr dl docker-up-logs
 abbr dr docker-restart-refresh-logs
 abbr dsh docker-container-sh
+abbr ddi "docker rmi -f \$(docker images -aq)"
 
 # tmux
 alias ts tmux-split

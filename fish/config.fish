@@ -1,5 +1,4 @@
 eval (/opt/homebrew/bin/brew shellenv)
-# eval (/usr/local/bin/brew shellenv)
 starship init fish | source
 zoxide init fish | source
 pyenv init - | source
@@ -27,3 +26,6 @@ fish_add_path ~/.config/bin
 # golang - https://golang.google.cn/
 set -Ux GOPATH (go env GOPATH)
 fish_add_path $GOPATH/bin
+
+# Created by `pipx` on 2024-06-22 15:46:03
+set PATH $PATH /Users/joebonneau/.local/bin
