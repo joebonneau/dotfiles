@@ -1,1 +1,4 @@
 .DS_Store
+*.log
+.config/tmux/plugins
+.config/fish/fish_variables

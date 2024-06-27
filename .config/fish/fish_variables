@@ -53,7 +53,7 @@ SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3d2e3c64
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR fish_user_paths:/Users/joebonneau/git_repos/bin\x1e/Users/bonneau/\x2ecargo/bin\x1e/Users/joebonneau/\x2ecargo/bin\x1e/Users/joebonneau/\x2econfig/tmux/plugins/t\x2dsmart\x2dtmux\x2dsession\x2dmanager/bin\x1e/Users/bonneau/\x2econfig/bin\x1e/Users/joebonneau/\x2econfig/bin\x1e/bin\x1e/Users/bonneau/\x2econfig/tmux/plugins/t\x2dsmart\x2dtmux\x2dsession\x2dmanager/bin\x1e/Users/joebonneau/\x2etmux/plugins/t\x2dsmart\x2dtmux\x2dsession\x2dmanager/bin\x1e/Users/bonneau/\x2etmux/plugins/t\x2dsmart\x2dtmux\x2dsession\x2dmanager/bin\x1e/Users/bonneau/go/bin
+SETUVAR fish_user_paths:/Users/joebonneau/\x2econfig/bin
 SETUVAR sponge_allow_previously_successful:true
 SETUVAR sponge_delay:2
 SETUVAR sponge_filters:sponge_filter_failed\x1esponge_filter_matched
