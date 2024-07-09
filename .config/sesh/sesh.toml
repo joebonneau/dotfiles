@@ -20,7 +20,7 @@ startup_script = "~/.config/sesh/bin/recipester.sh"
 [[session]]
 name = "patient_data_platform"
 path = "~/git_repos/patient_data_platform"
-startup_script = "~/.config/sesh/bin/threshold.sh"
+startup_script = "~/.config/sesh/bin/threshold/threshold.sh"
 
 [[session]]
 name = "nvim_trash"

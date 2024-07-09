@@ -3,3 +3,4 @@
 .config/tmux/plugins
 .config/op
 .config/bin/threshold
+.config/sesh/bin/threshold
