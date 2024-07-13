@@ -1,7 +1,7 @@
 # git
 abbr g git
 abbr gst "git status"
-# abbr gc "git commit -m --trailer"
+abbr gc "git commit -m --trailer"
 abbr gc git-commit-with-trailer
 abbr gr "git rebase"
 abbr ga "git add"
@@ -31,7 +31,7 @@ alias ts tmux-split
 # brew
 abbr brewfile "brew bundle dump --force"
 
-abbr nvim "nvim -c \"Telescope smart_open\""
+# abbr nvim "nvim -c \"Telescope smart_open\""
 abbr hfzf "history | fzf"
 
 abbr c clear
