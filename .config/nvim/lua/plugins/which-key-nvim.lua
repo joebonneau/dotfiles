@@ -1,8 +1,8 @@
 return {
   "folke/which-key.nvim",
   opts = {
-    modes = {
-      x = false,
+    triggers = {
+      { "<auto>", mode = "nisotc" },
     },
   },
 }
