@@ -29,8 +29,7 @@ return {
     view_options = {
       show_hidden = true,
       is_always_hidden = function(name, _)
-        local hide_files =
-          { ".DS_Store", ".vite", ".pytest_cache", "__pycache__", "node_modules", ".git", ".ruff_cache" }
+        local hide_files = { ".DS_Store", ".vite", ".pytest_cache", "__pycache__", "node_modules", ".ruff_cache" }
         for _, value in pairs(hide_files) do
           if name == value then
             return true

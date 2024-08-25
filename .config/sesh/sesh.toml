@@ -1,26 +1,26 @@
 [default_session]
-startup_script = "~/.config/sesh/bin/default.sh"
+startup_command = "~/.config/sesh/bin/default.sh"
 
 
 [[session]]
 name = "sesh"
 path = "~/git_repos/sesh"
-startup_script = "~/.config/sesh/bin/sesh.sh"
+startup_command = "~/.config/sesh/bin/sesh.sh"
 
 [[session]]
 name = "spotify"
 path = "~/.config/spotify-player"
-startup_script = "~/.config/sesh/bin/spotify.sh"
+startup_command = "~/.config/sesh/bin/spotify.sh"
 
 [[session]]
 name = "recipester"
 path = "~/git_repos/recipester"
-startup_script = "~/.config/sesh/bin/recipester.sh"
+startup_command = "~/.config/sesh/bin/recipester.sh"
 
 [[session]]
 name = "patient_data_platform"
 path = "~/git_repos/patient_data_platform"
-startup_script = "~/.config/sesh/bin/threshold/threshold.sh"
+startup_command = "~/.config/sesh/bin/threshold/threshold.sh"
 
 [[session]]
 name = "nvim_trash"

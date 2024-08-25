@@ -4,8 +4,10 @@ abbr gst "git status"
 abbr gc "git commit -m --trailer"
 abbr gc git-commit-with-trailer
 abbr gr "git rebase"
+abbr gre "git rebase --exec 'source ~/git_repos/patient_data_platform/.githooks/pre-commit'"
+abbr grei "git rebase -i --exec 'source ~/git_repos/patient_data_platform/.githooks/pre-commit' --reschedule-failed-exec"
 abbr ga "git add"
-abbr gp "git push"
+abbr gp git-push-catch-temp
 abbr gcb "git checkout -b"
 abbr gfp "git push --force-with-lease --force-if-includes"
 abbr gsw git-switch-branch
