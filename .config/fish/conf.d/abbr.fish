@@ -1,6 +1,7 @@
 # git
 abbr g git
 abbr gst "git status"
+abbr gsp "git stash push --"
 abbr gc "git commit -m --trailer"
 abbr gc git-commit-with-trailer
 abbr gr "git rebase"
