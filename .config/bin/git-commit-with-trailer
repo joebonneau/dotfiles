@@ -1,31 +1,76 @@
 #!/usr/bin/env bash
 
-# Check if a commit message was provided
-if [ -z "$1" ]; then
-	echo "Usage: $0 <commit message>"
-	exit 1
-fi
+# Initialize the no_verify flag
+no_verify=""
 
-# Get the commit message from the first argument
-commit_message="$1"
+# Parse command line arguments
+while [[ $# -gt 0 ]]; do
+  case $1 in
+  --no-verify)
+    no_verify="--no-verify"
+    shift
+    ;;
+  *)
+    commit_message="$1"
+    shift
+    ;;
+  esac
+done
+
+# Check if a commit message was provided
+if [ -z "$commit_message" ]; then
+  echo "Usage: $0 [--no-verify] <commit message>"
+  exit 1
+fi
 
 # Get the current branch name
 branch_name=$(git rev-parse --abbrev-ref HEAD)
 
-# Extract the ticket name from the branch name (format XXX-00_)
-if [[ $branch_name =~ ^([A-Z]{3}-[0-9]{1,4})_.*$ ]]; then
-	ticket_name="${BASH_REMATCH[1]}"
+# Extract the ticket name from the branch name (format (X...n)-00_)
+if [[ $branch_name =~ ^([A-Z0-9]+-[0-9]{1,4})_.*$ ]]; then
+  ticket_name="${BASH_REMATCH[1]}"
 else
-	echo "Error: Branch name does not contain a valid ticket name in the format XXX-00_"
-	exit 1
+  echo "Error: Branch name does not contain a valid ticket name in the format XXX-00_"
+  exit 1
 fi
 
-# Run the git commit command with the message and trailer
-git commit -m "$commit_message" --trailer "Ticket: $ticket_name"
+# Run the git commit command with the message, trailer, and optional --no-verify flag
+git commit $no_verify -m "$commit_message" --trailer "Ticket: $ticket_name"
 
 # Check if the commit was successful
 if [ $? -eq 0 ]; then
-	echo "Commit successful with trailer: Ticket: $ticket_name"
+  echo "Commit successful with trailer: Ticket: $ticket_name"
 else
-	echo "Commit failed"
+  echo "Commit failed"
 fi
+##!/usr/bin/env bash
+#
+## Check if a commit message was provided
+#if [ -z "$1" ]; then
+#	echo "Usage: $0 <commit message>"
+#	exit 1
+#fi
+#
+## Get the commit message from the first argument
+#commit_message="$1"
+#
+## Get the current branch name
+#branch_name=$(git rev-parse --abbrev-ref HEAD)
+#
+## Extract the ticket name from the branch name (format XXX-00_)
+#if [[ $branch_name =~ ^([A-Z]{3}-[0-9]{1,4})_.*$ ]]; then
+#	ticket_name="${BASH_REMATCH[1]}"
+#else
+#	echo "Error: Branch name does not contain a valid ticket name in the format XXX-00_"
+#	exit 1
+#fi
+#
+## Run the git commit command with the message and trailer
+#git commit -m "$commit_message" --trailer "Ticket: $ticket_name"
+#
+## Check if the commit was successful
+#if [ $? -eq 0 ]; then
+#	echo "Commit successful with trailer: Ticket: $ticket_name"
+#else
+#	echo "Commit failed"
+#fi

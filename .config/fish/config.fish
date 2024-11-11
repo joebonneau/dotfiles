@@ -7,6 +7,7 @@ fzf --fish | source
 
 load_nvm >/dev/stderr
 
+bind -M visual y "commandline --current-selection | fish_clipboard_copy; commandline -f end-selection"
 set -U fish_greeting
 set -U fish_key_bindings fish_vi_key_bindings
 set -Ux EDITOR nvim
