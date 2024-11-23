@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+current_workspace=$(aerospace list-workspaces --focused)
+echo "current: $current_workspace"
+echo "arg: $1"
+
+if [[ "$current_workspace" == $1 ]]; then
+  aerospace workspace-back-and-forth
+else
+  aerospace workspace $1
+fi
+
+exit 0
