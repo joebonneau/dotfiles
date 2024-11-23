@@ -6,8 +6,6 @@
 vim.keymap.del("n", "<leader>ft")
 vim.keymap.del("n", "<leader>fT")
 vim.keymap.del("n", "<leader>fn")
-vim.keymap.del("n", "<leader>gg")
-vim.keymap.del("n", "<leader>gG")
 
 -- macros
 vim.keymap.set("n", "Q", "@qj", { remap = true })
@@ -56,3 +54,8 @@ vim.keymap.set("n", "<leader>gD", "<cmd>DiffviewClose<CR>", { desc = "Close git 
 
 vim.keymap.set("n", "<leader>o", "o<Esc>")
 vim.keymap.set("n", "<leader>O", "O<Esc>")
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "aerospace.toml" },
+  command = "!aerospace reload-config",
+})
