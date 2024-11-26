@@ -51,6 +51,7 @@ return {
         { name = "path" },
         { name = "codeium" },
         { name = "snippets" },
+        { name = "vim-dadbod-completion" },
       }, {
         name = "buffer",
         option = {

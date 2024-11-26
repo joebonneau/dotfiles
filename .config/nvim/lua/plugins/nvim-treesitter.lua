@@ -59,6 +59,7 @@ return {
         "rust",
         "scss",
         "tsx",
+        "sql",
       },
     },
     config = function(_, opts)

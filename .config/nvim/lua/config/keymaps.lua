@@ -29,26 +29,6 @@ vim.keymap.set(
   { desc = "Toggle in-line diagnostics", silent = true }
 )
 
-vim.api.nvim_create_user_command("RunDockerTests", function()
-  local filename = vim.fn.expand("%")
-  local cmd = string.format('!ts -v -p "docker-compose run --rm app test --args=%s"', filename)
-  vim.cmd(cmd)
-end, {})
-
-vim.keymap.set("n", "<leader>dt", "<cmd>RunDockerTests<CR>", { desc = "Run docker tests in split pane" })
-vim.api.nvim_create_user_command("MakeFileExecutable", function()
-  local notify = require("notify")
-  vim.cmd("!chmod +x %")
-  local filename = vim.fn.expand("%:t")
-  notify(string.format("%s is now executable!", filename))
-end, {})
-vim.keymap.set(
-  "n",
-  "<leader>fx",
-  "<cmd>MakeFileExecutable<CR>",
-  { desc = "Make current file executable", silent = true }
-)
-
 vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<CR>", { desc = "Open git diff view", silent = true })
 vim.keymap.set("n", "<leader>gD", "<cmd>DiffviewClose<CR>", { desc = "Close git diff view", silent = true })
 
