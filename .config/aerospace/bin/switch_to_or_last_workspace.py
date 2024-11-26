@@ -15,10 +15,11 @@ WORKSPACE_APP_PATH_MAPPER = {
     "Zoom": "/Applications/Zoom.app",
 }
 
+
 def run_command(command):
     """Run a shell command and return its output"""
     result = subprocess.run(command.split(), capture_output=True, text=True)
-    return result.stdout.strip()
+    return result.stdout.strip() or result.stderr.strip()
 
 
 def main():
@@ -27,12 +28,10 @@ def main():
         sys.exit(1)
 
     target_workspace = sys.argv[1]
-    current_workspace = run_command("aerospace list-workspaces --focused")
-
-    if current_workspace == sys.argv[1]:
-        subprocess.run(["aerospace", "workspace-back-and-forth"])
-    else:
-        subprocess.run(["aerospace", "workspace", target_workspace])
+    msg = run_command(f"aerospace workspace {target_workspace}")
+    if msg == "":
+        sys.exit(0)
+    subprocess.run(["aerospace", "workspace-back-and-forth"])
 
 
 if __name__ == "__main__":
