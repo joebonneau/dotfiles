@@ -5,13 +5,14 @@ pyenv init - | source
 status --is-interactive; and pyenv virtualenv-init - | source
 fzf --fish | source
 
-load_nvm >/dev/stderr
+fnm env --use-on-cd --shell fish | source
 
 bind -M visual y "commandline --current-selection | fish_clipboard_copy; commandline -f end-selection"
 set -U fish_greeting
 set -U fish_key_bindings fish_vi_key_bindings
 set -Ux EDITOR nvim
 set -Ux COMPOSE_HTTP_TIMEOUT 86400
+set -Ux RAINFROG_CONFIG ~/.config/rainfrog
 
 # For some reason, GOROOT defaults to 1.21.0
 # set -Ux GOROOT /usr/local/Cellar/go/1.21.3/libexec

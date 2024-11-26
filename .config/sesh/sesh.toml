@@ -18,5 +18,10 @@ path = "~/git_repos/patient_data_platform"
 startup_command = "source ~/.config/sesh/bin/threshold/threshold.sh"
 
 [[session]]
+name = "db"
+path = "/tmp"
+startup_command = "nvim -c DBUI"
+
+[[session]]
 name = "nvim_trash"
 path = "~/.local/share/nvim/mini.files/trash"
