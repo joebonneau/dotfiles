@@ -7,6 +7,7 @@ after-login-command = []
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
+  'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0',
   "exec-and-forget ~/git_repos/dotfiles/.config/aerospace/bin/open_apps.py",
 ]
 
@@ -55,12 +56,12 @@ preset = 'qwerty'
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = [{ monitor."Built-in Retina Display" = 0 }, 10]
-inner.vertical = [{ monitor."Built-in Retina Display" = 0 }, 10]
-outer.left = 0
-outer.bottom = 0
-outer.top = 0
-outer.right = 0
+inner.horizontal = [{ monitor."Built-in Retina Display" = 10 }, 10]
+inner.vertical = [{ monitor."Built-in Retina Display" = 10 }, 10]
+outer.left = 5
+outer.bottom = 5
+outer.top = 5
+outer.right = 5
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
