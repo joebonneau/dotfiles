@@ -1,6 +1,9 @@
 return {
   "neovim/nvim-lspconfig",
   opts = {
+    diagnostics = {
+      virtual_text = false,
+    },
     format = { timeout_ms = 1000 },
     servers = {
       emmet_language_server = {
