@@ -25,7 +25,7 @@ end, {})
 vim.keymap.set(
   "n",
   "<leader>di",
-  "<cmd>DiagnosticsToggleVirtualText<CR>",
+  ":lua require('tiny-inline-diagnostic').toggle()<CR>",
   { desc = "Toggle in-line diagnostics", silent = true }
 )
 

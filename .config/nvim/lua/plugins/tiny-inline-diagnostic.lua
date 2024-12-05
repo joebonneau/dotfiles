@@ -11,6 +11,15 @@ return {
         show_all_diags_on_cursorline = true,
       },
       preset = "classic",
+      signs = {
+        left = "",
+        right = "",
+        diag = "●",
+        arrow = "    ",
+        up_arrow = "    ",
+        vertical = " │",
+        vertical_end = " └",
+      },
     })
   end,
 }

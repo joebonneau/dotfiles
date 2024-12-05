@@ -52,27 +52,28 @@ return {
         { name = "codeium" },
         { name = "snippets" },
         { name = "vim-dadbod-completion" },
-      }, {
-        name = "buffer",
-        option = {
-          -- show completions from all buffers used within the last x minutes
-          get_bufnrs = function()
-            local mins = 15 -- CONFIG
-            local recentBufs = vim
-              .iter(vim.fn.getbufinfo({ buflisted = 1 }))
-              :filter(function(buf)
-                return os.time() - buf.lastused < mins * 60
-              end)
-              :map(function(buf)
-                return buf.bufnr
-              end)
-              :totable()
-            return recentBufs
-          end,
-          max_indexed_line_length = 100, -- no long lines (e.g. base64-encoded things)
+        {
+          name = "buffer",
+          option = {
+            -- show completions from all buffers used within the last x minutes
+            get_bufnrs = function()
+              local mins = 15 -- CONFIG
+              local recentBufs = vim
+                .iter(vim.fn.getbufinfo({ buflisted = 1 }))
+                :filter(function(buf)
+                  return os.time() - buf.lastused < mins * 60
+                end)
+                :map(function(buf)
+                  return buf.bufnr
+                end)
+                :totable()
+              return recentBufs
+            end,
+            max_indexed_line_length = 100, -- no long lines (e.g. base64-encoded things)
+          },
+          keyword_length = 3,
+          max_item_count = 4, -- since searching all buffers results in many results
         },
-        keyword_length = 3,
-        max_item_count = 4, -- since searching all buffers results in many results
       }),
       formatting = {
         format = function(_, item)
