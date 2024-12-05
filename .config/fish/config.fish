@@ -1,18 +1,16 @@
 eval (/opt/homebrew/bin/brew shellenv)
-starship init fish | source
-zoxide init fish | source
-pyenv init - | source
+status --is-interactive; and starship init fish | source
+status --is-interactive; and zoxide init fish | source
+status --is-interactive; and pyenv init - | source
 status --is-interactive; and pyenv virtualenv-init - | source
-fzf --fish | source
-
-fnm env --use-on-cd --shell fish | source
+status --is-interactive; and fzf --fish | source
+status --is-interactive; and fnm env --use-on-cd --shell fish | source
 
 bind -M visual y "commandline --current-selection | fish_clipboard_copy; commandline -f end-selection"
 set -U fish_greeting
 set -U fish_key_bindings fish_vi_key_bindings
 set -Ux EDITOR nvim
 set -Ux COMPOSE_HTTP_TIMEOUT 86400
-set -Ux RAINFROG_CONFIG ~/.config/rainfrog
 
 # For some reason, GOROOT defaults to 1.21.0
 # set -Ux GOROOT /usr/local/Cellar/go/1.21.3/libexec
