@@ -188,6 +188,10 @@ if.app-id = 'com.apple.Passwords'
 run = "move-node-to-workspace P"
 
 [[on-window-detected]]
+if.window-title-regex-substring = "Slack"
+run = "move-node-to-workspace T"
+
+[[on-window-detected]]
 if.app-id = 'com.apple.Finder'
 run = 'layout floating'
 

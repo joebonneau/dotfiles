@@ -5,6 +5,7 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-cmdline",
     {
       "garymjr/nvim-snippets",
       opts = {
@@ -23,6 +24,30 @@ return {
     }
     vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
     local cmp = require("cmp")
+    cmp.setup.cmdline("/", {
+      mapping = {
+        ["<CR>"] = cmp.mapping(cmp.mapping.confirm({ select = false }), { "c" }),
+        ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }), { "c" }),
+        ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }), { "c" }),
+      },
+      sources = {
+        { name = "buffer" },
+      },
+    })
+    cmp.setup.cmdline(":", {
+      mapping = {
+        ["<CR>"] = cmp.mapping(cmp.mapping.confirm({ select = false }), { "c" }),
+        ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }), { "c" }),
+        ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }), { "c" }),
+      },
+      sources = cmp.config.sources({
+        { name = "path" },
+      }, {
+        { name = "cmdline", option = {
+          ignore_cmds = { "man", "!" },
+        } },
+      }),
+    })
     local defaults = require("cmp.config.default")()
     return {
       snippet = {
@@ -36,13 +61,7 @@ return {
       mapping = cmp.mapping.preset.insert({
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-Space>"] = cmp.mapping.complete(),
-        ["<C-x>"] = cmp.mapping.abort(),
         ["<CR>"] = cmp.mapping.confirm({ select = false }),
-        ["<S-CR>"] = cmp.mapping.confirm({
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = false,
-        }),
         ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
         ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
       }),
@@ -74,6 +93,9 @@ return {
           keyword_length = 3,
           max_item_count = 4, -- since searching all buffers results in many results
         },
+        { name = "cmdline", option = {
+          ignore_cmds = { "Man", "!" },
+        } },
       }),
       formatting = {
         format = function(_, item)
