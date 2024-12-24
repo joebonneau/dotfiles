@@ -70,6 +70,11 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   command = "setlocal filetype=sql",
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "kanata.cfg",
+  command = "setlocal commentstring=;;/ %s",
+})
+
 -- vim.api.nvim_create_autocmd("BufWritePost", {
 --   pattern = {"*.md"},
 --   command = "execute 'silent !tmux '"

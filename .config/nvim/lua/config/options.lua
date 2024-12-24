@@ -6,3 +6,4 @@ vim.opt.timeoutlen = 1000
 vim.opt.ttimeoutlen = 0
 vim.opt.cmdheight = 0
 vim.opt.jumpoptions = "stack,view"
+vim.opt.relativenumber = false

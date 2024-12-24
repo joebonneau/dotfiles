@@ -7,6 +7,14 @@ vim.keymap.del("n", "<leader>ft")
 vim.keymap.del("n", "<leader>fT")
 vim.keymap.del("n", "<leader>fn")
 
+-- Duplicate a line and comment out the first line
+vim.keymap.set("n", "yc", function()
+  vim.api.nvim_feedkeys("yygccp", "m", false)
+end)
+
+vim.keymap.set("n", "H", "^")
+vim.keymap.set("n", "L", "g$")
+
 -- macros
 vim.keymap.set("n", "Q", "@qj", { remap = true })
 vim.keymap.set("x", "Q", ":norm @qj<CR>")
