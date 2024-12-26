@@ -47,3 +47,6 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = { "aerospace.toml" },
   command = "!aerospace reload-config",
 })
+
+-- Duplicate a line and comment out the first line
+vim.keymap.set("n", "yc", "yygccp", { remap = true })

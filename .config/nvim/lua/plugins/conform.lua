@@ -20,6 +20,7 @@ return {
       bash = { "shfmt" },
       htmldjango = { "djlint" },
       rust = { "rustfmt" },
+      sql = { "sleek" },
     },
   },
 }
