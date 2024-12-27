@@ -1,0 +1,28 @@
+theme = tokyonight-storm
+window-decoration = false
+
+font-family = "MesloLGM Nerd Font Mono"
+font-family-bold = "MesloLGM Nerd Font Mono Bold"
+font-family-italic = "MesloLGM Nerd Font Mono Italic"
+font-family-bold-italic = "MesloLGM Nerd Font Bold Italic"
+font-size = 17
+font-thicken = true
+
+adjust-cursor-thickness = 3
+bold-is-bright = true
+link-url = true
+
+shell-integration = fish
+
+keybind = cmd+k=text:\x02T
+keybind = cmd+l=text:\x02L
+keybind = cmd+n=text:\x02n
+keybind = cmd+x=text:\x02x
+keybind = cmd+s=text:\x02s
+keybind = cmd+u=text:\x02u
+keybind = cmd+c=text:\x02c
+keybind = cmd+a=text:\x02A
+keybind = cmd+z=text:\x02z
+keybind = cmd+w=text:\x02c
+
+
