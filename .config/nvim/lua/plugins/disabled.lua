@@ -5,5 +5,6 @@ return {
   { "nvim-neo-tree/neo-tree.nvim", enabled = false },
   { "folke/neoconf.nvim", enabled = false },
   { "rcarriga/nvim-notify", enabled = false },
+  { "folke/persistence.nvim", enabled = false },
   -- { "folke/trouble.nvim", enabled = false },
 }

@@ -10,5 +10,6 @@ return {
     theme = "tokyonight",
     show_modified = true,
     show_navic = false,
+    create_autocmd = true,
   },
 }
