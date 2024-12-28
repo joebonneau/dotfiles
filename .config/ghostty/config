@@ -1,14 +1,14 @@
 theme = tokyonight-storm
 window-decoration = false
+macos-window-shadow = false
 
-font-family = "MesloLGM Nerd Font Mono"
-font-family-bold = "MesloLGM Nerd Font Mono Bold"
-font-family-italic = "MesloLGM Nerd Font Mono Italic"
-font-family-bold-italic = "MesloLGM Nerd Font Bold Italic"
-font-size = 17
-font-thicken = true
+font-family = "MesloLGM Mono Nerd Font"
 
-adjust-cursor-thickness = 3
+font-size = 18
+font-thicken = false
+
+cursor-style = block
+cursor-style-blink = true
 bold-is-bright = true
 link-url = true
 

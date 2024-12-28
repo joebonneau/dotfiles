@@ -3,7 +3,8 @@
 import subprocess
 
 APP_PATH_MAPPER = {
-    "Alacritty": "/Applications/Alacritty.app",
+    # "Alacritty": "/Applications/Alacritty.app",
+    "Ghostty": "/Applications/Ghostty.app",
     "Vivaldi": "/Applications/Vivaldi.app",
     "Discord": "/Applications/Discord.app",
     "Messages": "/System/Applications/Messages.app",
