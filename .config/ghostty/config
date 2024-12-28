@@ -3,6 +3,9 @@ window-decoration = false
 macos-window-shadow = false
 
 font-family = "MesloLGM Mono Nerd Font"
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
 
 font-size = 18
 font-thicken = false
