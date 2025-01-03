@@ -12,9 +12,6 @@ vim.keymap.set("n", "yc", function()
   vim.api.nvim_feedkeys("yygccp", "m", false)
 end)
 
-vim.keymap.set("n", "H", "^")
-vim.keymap.set("n", "L", "g$")
-
 -- macros
 vim.keymap.set("n", "Q", "@qj", { remap = true })
 vim.keymap.set("x", "Q", ":norm @qj<CR>")
