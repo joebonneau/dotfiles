@@ -35,6 +35,7 @@ return {
       },
       ruff_lsp = { enabled = false },
       ruff = { enabled = true },
+      rust_analyzers = { enabled = true },
     },
     inlay_hints = { enabled = false },
   },
