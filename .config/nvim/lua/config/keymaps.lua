@@ -7,6 +7,14 @@ vim.keymap.del("n", "<leader>ft")
 vim.keymap.del("n", "<leader>fT")
 vim.keymap.del("n", "<leader>fn")
 
+vim.api.nvim_create_user_command("W", function()
+  vim.api.nvim_cmd({ cmd = "w" }, {})
+end, {})
+
+vim.api.nvim_create_user_command("Wq", function()
+  vim.api.nvim_cmd({ cmd = "wq" }, {})
+end, {})
+
 -- Duplicate a line and comment out the first line
 vim.keymap.set("n", "yc", function()
   vim.api.nvim_feedkeys("yygccp", "m", false)
@@ -17,15 +25,6 @@ vim.keymap.set("n", "Q", "@qj", { remap = true })
 vim.keymap.set("x", "Q", ":norm @qj<CR>")
 
 vim.keymap.set("n", "<leader>fd", ":lua get_git_diff_files()<CR>", { desc = "Find file in git diff" })
-
-vim.api.nvim_create_user_command("DiagnosticsToggleVirtualText", function()
-  local current_value = vim.diagnostic.config().virtual_text
-  if current_value then
-    vim.diagnostic.config({ virtual_text = false })
-  else
-    vim.diagnostic.config({ virtual_text = true })
-  end
-end, {})
 
 vim.keymap.set(
   "n",

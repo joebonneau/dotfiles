@@ -1,5 +1,6 @@
 return {
   "saghen/blink.cmp",
+  version = "0.9.3",
   opts = {
     keymap = {
       ["<C-j>"] = { "select_next", "fallback" },

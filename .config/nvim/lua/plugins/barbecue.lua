@@ -1,5 +1,6 @@
 return {
-  "utilyre/barbecue.nvim",
+  "joebonneau/barbecue.nvim",
+  enabled = false,
   name = "barbecue",
   version = "*",
   dependencies = {
