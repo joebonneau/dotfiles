@@ -1,0 +1,67 @@
+{
+  "actions" : [
+    {
+      "actions" : [
+        {
+          "key" : "c",
+          "label" : "",
+          "type" : "url",
+          "value" : "raycast://extensions/raycast/clipboard-history/clipboard-history"
+        },
+        {
+          "key" : "e",
+          "label" : "",
+          "type" : "url",
+          "value" : "raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"
+        },
+        {
+          "key" : "s",
+          "label" : "",
+          "type" : "url",
+          "value" : "raycast://extensions/raycast/snippets/search-snippets"
+        }
+      ],
+      "key" : "s",
+      "label" : "search",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "c",
+          "label" : "",
+          "type" : "application",
+          "value" : "/System/Applications/Calculator.app"
+        },
+        {
+          "key" : "f",
+          "label" : "",
+          "type" : "application",
+          "value" : "/System/Library/CoreServices/Finder.app"
+        },
+        {
+          "key" : "l",
+          "label" : null,
+          "type" : "application",
+          "value" : "/Applications/Leader Key.app"
+        },
+        {
+          "key" : "p",
+          "label" : null,
+          "type" : "application",
+          "value" : "/System/Applications/Passwords.app"
+        },
+        {
+          "key" : "o",
+          "label" : null,
+          "type" : "application",
+          "value" : "/Applications/1Password.app"
+        }
+      ],
+      "key" : "o",
+      "label" : "open",
+      "type" : "group"
+    }
+  ],
+  "type" : "group"
+}

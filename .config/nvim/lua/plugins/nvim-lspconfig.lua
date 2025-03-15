@@ -7,7 +7,7 @@ return {
     format = { timeout_ms = 1000 },
     servers = {
       emmet_language_server = {
-        filetypes = { "gotmpl", "go", "html", "htmldjango", "javascriptreact", "typescriptreact" },
+        filetypes = { "templ", "go", "html", "htmldjango", "javascriptreact", "typescriptreact" },
       },
       pyright = {
         -- handlers = {
