@@ -42,5 +42,7 @@ abbr ef "source ~/.config/fish/conf.d/abbr.fish && exec fish"
 abbr efa exec-all-sh
 abbr upda update-all
 
+abbr tf terraform
+
 # aliases for ease of use in neovim (abbr don't expand)
 alias pydoc "python3 -m pydoc"

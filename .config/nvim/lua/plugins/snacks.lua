@@ -9,4 +9,13 @@ return {
       enabled = false,
     },
   },
+  keys = {
+    {
+      "<leader>ff",
+      function()
+        Snacks.picker.smart()
+      end,
+      desc = "Smart picker",
+    },
+  },
 }

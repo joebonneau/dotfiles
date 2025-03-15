@@ -21,6 +21,7 @@ return {
       htmldjango = { "djlint" },
       rust = { "rustfmt" },
       sql = { "sleek" },
+      terraform = { "terraform_fmt" },
     },
   },
 }

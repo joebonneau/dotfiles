@@ -60,6 +60,7 @@ return {
         "scss",
         "tsx",
         "sql",
+        "terraform",
       },
     },
     config = function(_, opts)

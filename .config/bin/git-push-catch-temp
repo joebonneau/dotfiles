@@ -1,14 +1,22 @@
 #!/usr/bin/env bash
 
-# Get the current branch name
 current_branch=$(git rev-parse --abbrev-ref HEAD)
 
-# Check if there are any commits with the message "temp"
-# if git log origin/$current_branch..$current_branch --pretty=format:"%s" | grep -q "^temp$"; then
-if git log $current_branch --pretty=format:"%s" | grep -q "^temp$"; then
-  echo "Error: Found commits with message 'temp'. Please rebase these commits before pushing."
+git_log_output=$(git log "$current_branch" --pretty=format:"%s%n")
+
+if echo "$git_log_output" | grep -iq "^temp"; then
+  echo "Error: Found commits starting with 'temp'. Please rebase these commits before pushing."
   exit 1
 fi
 
-# If no "temp" commits are found, allow the push
+if echo "$git_log_output" | grep -iq "^fixup"; then
+  echo "Error: Found commits starting with 'fixup'. Please rebase these commits before pushing."
+  exit 1
+fi
+
+if echo "$git_log_output" | grep -iq "^wip"; then
+  echo "Error: Found commits starting with 'wip'. Please rebase these commits before pushing."
+  exit 1
+fi
+
 git push

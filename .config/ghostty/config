@@ -36,4 +36,4 @@ keybind = cmd+a=text:\x02A
 keybind = cmd+z=text:\x02z
 keybind = cmd+w=text:\x02c
 
-
+keybind = cmd+t=ignore
