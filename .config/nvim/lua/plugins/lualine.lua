@@ -1,3 +1,11 @@
+local function IsZoomedIn()
+  if vim.t["simple-zoom"] == nil then
+    return ""
+  elseif vim.t["simple-zoom"] == "zoom" then
+    return ""
+  end
+end
+
 return {
   "nvim-lualine/lualine.nvim",
   opts = function()
@@ -17,6 +25,7 @@ return {
         lualine_a = { { "mode" } },
         lualine_b = {},
         lualine_c = {
+          { IsZoomedIn },
           {
             "diagnostics",
             symbols = {

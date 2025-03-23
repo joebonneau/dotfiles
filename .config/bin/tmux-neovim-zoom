@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+nvim_command="$1"
+if [ -z "$TMUX" ]; then
+  echo "Not in a tmux session"
+  exit 1
+fi
+
+pane_tty=$(tmux display-message -p "#{pane_tty}")
+pane_id=$(tmux display-message -p "#{pane_id}")
+
+echo "Checking if Neovim is running in pane $pane_id (TTY: $pane_tty)..."
+
+if ps -t "${pane_tty#/dev/}" -o comm= | grep -q "n\?vim"; then
+  echo "Neovim detected in current pane, sending command: $nvim_command"
+  tmux send-keys -t $pane_id Escape Space z
+else
+  echo "Neovim not detected in current pane, zooming pane."
+  tmux resize-pane -Z -t $pane_id
+fi

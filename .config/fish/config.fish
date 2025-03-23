@@ -29,3 +29,28 @@ fish_add_path $GOPATH/bin
 
 # Created by `pipx` on 2024-06-22 15:46:03
 set PATH $PATH /Users/joebonneau/.local/bin
+
+function tmux_neovim_zoom
+    set -l nvim_command $argv[1]
+
+    # Check if we're in a tmux session
+    if test -z "$TMUX"
+        echo "Not in a tmux session"
+        return 1
+    end
+
+    set -l pane_id (tmux display-message -p "#{pane_id}")
+
+    # Check if neovim is running in the current pane
+    echo "Checking if Neovim is running in the current pane..."
+    if pgrep -f nvim >/dev/null
+        # Neovim is running, send the command to neovim
+        echo "Neovim detected, sending command: $nvim_command"
+        # tmux send-keys -t $pane_id Escape ":$nvim_command" Enter
+        tmux send-keys -t $pane_id Escape Space z
+    else
+        # Neovim is not running, send the keypresses and zoom
+        echo "Neovim not detected, zooming pane."
+        tmux resize-pane -Z -t $pane_id # Zoom the pane
+    end
+end
