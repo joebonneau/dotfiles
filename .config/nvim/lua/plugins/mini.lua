@@ -11,4 +11,16 @@ return {
       line_up = "<M-k>",
     },
   },
+  {
+    "echasnovski/mini.snippets",
+    opts = function()
+      local mini_snippets = require("mini.snippets")
+      return {
+        snippets = {
+          mini_snippets.gen_loader.from_lang(),
+          mini_snippets.gen_loader.from_file("~/.config/nvim/snippets/global.json"),
+        },
+      }
+    end,
+  },
 }

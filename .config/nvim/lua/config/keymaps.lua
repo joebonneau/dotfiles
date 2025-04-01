@@ -3,23 +3,23 @@
 -- Add any additional keymaps here
 
 -- delete some default lazyvim keymaps
-vim.keymap.del("n", "<leader>ft")
-vim.keymap.del("n", "<leader>fT")
-vim.keymap.del("n", "<leader>fn")
-vim.keymap.del("n", "<leader>gs")
-vim.keymap.del("n", "<leader>gb")
-vim.keymap.del("n", "<leader>gB")
-vim.keymap.del("n", "<leader>gY")
-vim.keymap.del("n", "<leader>ghb")
-vim.keymap.del("n", "<leader>ghB")
-vim.keymap.del("n", "<leader>ghd")
-vim.keymap.del("n", "<leader>ghD")
-vim.keymap.del("n", "<leader>ghp")
-vim.keymap.del("n", "<leader>ghr")
-vim.keymap.del("n", "<leader>ghR")
-vim.keymap.del("n", "<leader>ghs")
-vim.keymap.del("n", "<leader>ghS")
-vim.keymap.del("n", "<leader>ghu")
+-- vim.keymap.del("n", "<leader>ft")
+-- vim.keymap.del("n", "<leader>fT")
+-- vim.keymap.del("n", "<leader>fn")
+-- vim.keymap.del("n", "<leader>gs")
+-- vim.keymap.del("n", "<leader>gb")
+-- vim.keymap.del("n", "<leader>gB")
+-- vim.keymap.del("n", "<leader>gY")
+-- vim.keymap.del("n", "<leader>ghb")
+-- vim.keymap.del("n", "<leader>ghB")
+-- vim.keymap.del("n", "<leader>ghd")
+-- vim.keymap.del("n", "<leader>ghD")
+-- vim.keymap.del("n", "<leader>ghp")
+-- vim.keymap.del("n", "<leader>ghr")
+-- vim.keymap.del("n", "<leader>ghR")
+-- vim.keymap.del("n", "<leader>ghs")
+-- vim.keymap.del("n", "<leader>ghS")
+-- vim.keymap.del("n", "<leader>ghu")
 
 vim.api.nvim_create_user_command("W", function()
   vim.api.nvim_cmd({ cmd = "w" }, {})
@@ -40,10 +40,19 @@ vim.keymap.set("x", "Q", ":norm @qj<CR>")
 
 vim.keymap.set("n", "<leader>fd", ":lua get_git_diff_files()<CR>", { desc = "Find file in git diff" })
 
+vim.api.nvim_create_user_command("DiagnosticsToggleVirtualText", function()
+  local current_value = vim.diagnostic.config().virtual_lines.current_line
+  if current_value then
+    vim.diagnostic.config({ virtual_lines = { current_line = false } })
+  else
+    vim.diagnostic.config({ virtual_lines = { current_line = true } })
+  end
+end, {})
+
 vim.keymap.set(
   "n",
   "<leader>di",
-  ":lua require('tiny-inline-diagnostic').toggle()<CR>",
+  "<cmd>DiagnosticsToggleVirtualText<CR>",
   { desc = "Toggle in-line diagnostics", silent = true }
 )
 

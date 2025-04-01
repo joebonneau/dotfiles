@@ -41,19 +41,19 @@
         },
         {
           "key" : "l",
-          "label" : null,
+          "label" : "",
           "type" : "application",
           "value" : "/Applications/Leader Key.app"
         },
         {
           "key" : "p",
-          "label" : null,
+          "label" : "",
           "type" : "application",
           "value" : "/System/Applications/Passwords.app"
         },
         {
           "key" : "o",
-          "label" : null,
+          "label" : "",
           "type" : "application",
           "value" : "/Applications/1Password.app"
         }

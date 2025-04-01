@@ -1,4 +1,4 @@
-local function IsZoomedIn()
+local function is_zoomed_in()
   if vim.t["simple-zoom"] == nil then
     return ""
   elseif vim.t["simple-zoom"] == "zoom" then
@@ -25,7 +25,7 @@ return {
         lualine_a = { { "mode" } },
         lualine_b = {},
         lualine_c = {
-          { IsZoomedIn },
+          { is_zoomed_in() },
           {
             "diagnostics",
             symbols = {

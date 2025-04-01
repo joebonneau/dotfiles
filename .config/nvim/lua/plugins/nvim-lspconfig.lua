@@ -2,6 +2,10 @@ return {
   "neovim/nvim-lspconfig",
   opts = {
     diagnostics = {
+      -- virtual_text = false,
+      virtual_lines = {
+        current_line = true,
+      },
       virtual_text = false,
     },
     format = { timeout_ms = 1000 },
@@ -36,6 +40,7 @@ return {
       ruff_lsp = { enabled = false },
       ruff = { enabled = true },
       rust_analyzers = { enabled = true },
+      sqls = { enabled = true },
     },
     inlay_hints = { enabled = false },
   },

@@ -14,9 +14,10 @@ return {
         cycle = { from_bottom = true, from_top = true },
       },
     },
+    snippets = { preset = "mini_snippets" },
     sources = {
-      -- default = { "lsp", "path", "snippets" },
-      per_filetype = { sql = { "dadbod" } },
+      default = { "buffer", "lsp", "path", "snippets" },
+      per_filetype = { sql = { "snippets", "buffer", "dadbod" } },
       compat = { "codeium" },
       providers = {
         dadbod = {
@@ -33,6 +34,5 @@ return {
     cmdline = {
       sources = { "buffer", "cmdline" },
     },
-    snippets = { preset = "default" },
   },
 }
