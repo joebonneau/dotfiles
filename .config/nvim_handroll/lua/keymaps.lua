@@ -19,6 +19,14 @@ vim.keymap.set('n', '<leader>gD', '<cmd>DiffviewClose<CR>', { desc = 'Close git 
 
 vim.keymap.set('n', '<leader>o', 'o<Esc>')
 vim.keymap.set('n', '<leader>O', 'O<Esc>')
+vim.keymap.set('n', '<leader>uf', function()
+  local enabled = vim.b.autoformat
+  if enabled == nil or not enabled then
+    vim.b.autoformat = true
+  else
+    vim.b.autoformat = false
+  end
+end)
 
 vim.api.nvim_create_user_command('W', function()
   vim.api.nvim_cmd({ cmd = 'w' }, {})
