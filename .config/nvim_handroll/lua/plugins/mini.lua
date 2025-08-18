@@ -14,15 +14,14 @@ return {
         update_n_lines = 'gzn', -- Update `n_lines`
       },
     }
-    require('mini.statusline').setup()
 
     local gen_loader = require('mini.snippets').gen_loader
     require('mini.snippets').setup {
-
       snippets = {
         gen_loader.from_lang(),
         gen_loader.from_file '~/.config/nvim/snippets/global.json',
       },
+      mappings = { stop = '<esc>' },
     }
 
     require('mini.pairs').setup()
@@ -31,8 +30,17 @@ return {
     require('mini.cursorword').setup()
     require('mini.git').setup()
     require('mini.diff').setup()
+    require('mini.trailspace').setup()
+    require('mini.misc').setup()
   end,
   keys = {
     { 'gz', '', desc = '+surround' },
+    {
+      '<leader>z',
+      function()
+        require('mini.misc').zoom()
+      end,
+      'Zoom into the current buffer',
+    },
   },
 }

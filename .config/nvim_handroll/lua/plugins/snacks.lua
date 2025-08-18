@@ -4,5 +4,6 @@ return {
   lazy = false,
   opts = {
     bufdelete = { enabled = true },
+    indent = { enabled = true },
   },
 }
