@@ -1,5 +1,6 @@
 return {
   'christoomey/vim-tmux-navigator',
+  enabled = false,
   keys = {
     { '<C-\\>', '<cmd>TmuxNavigatePrevious<cr>', desc = 'Go to the previous pane' },
     { '<C-h>', '<cmd>TmuxNavigateLeft<cr>', desc = 'Go to the left pane' },

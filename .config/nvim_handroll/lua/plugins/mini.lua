@@ -25,7 +25,9 @@ return {
     }
 
     require('mini.pairs').setup()
-    require('mini.animate').setup()
+    require('mini.animate').setup {
+      resize = { enable = false },
+    }
     require('mini.comment').setup()
     require('mini.cursorword').setup()
     require('mini.git').setup()
@@ -35,12 +37,5 @@ return {
   end,
   keys = {
     { 'gz', '', desc = '+surround' },
-    {
-      '<leader>z',
-      function()
-        require('mini.misc').zoom()
-      end,
-      'Zoom into the current buffer',
-    },
   },
 }
