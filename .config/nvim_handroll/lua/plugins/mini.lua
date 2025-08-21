@@ -30,10 +30,19 @@ return {
     }
     require('mini.comment').setup()
     require('mini.cursorword').setup()
-    require('mini.git').setup()
-    require('mini.diff').setup()
     require('mini.trailspace').setup()
     require('mini.misc').setup()
+
+    local hipatterns = require 'mini.hipatterns'
+    hipatterns.setup {
+      highlighters = {
+        fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
+        todo = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
+        note = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
+
+        hex_color = hipatterns.gen_highlighter.hex_color(),
+      },
+    }
   end,
   keys = {
     { 'gz', '', desc = '+surround' },

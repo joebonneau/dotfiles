@@ -14,8 +14,14 @@ vim.keymap.set('n', '<leader>bd', function()
   require('snacks').bufdelete()
 end, { desc = 'Delete Buffer' })
 vim.keymap.set('n', '<leader>wd', '<C-W>c', { desc = 'Delete Window', remap = true })
-vim.keymap.set('n', '<leader>gd', '<cmd>DiffviewOpen<CR>', { desc = 'Open git diff view', silent = true })
-vim.keymap.set('n', '<leader>gD', '<cmd>DiffviewClose<CR>', { desc = 'Close git diff view', silent = true })
+vim.keymap.set('n', '<leader>gd', function()
+  require('focus').focus_disable()
+  vim.cmd 'DiffviewOpen'
+end, { desc = 'Open git diff view', silent = true })
+vim.keymap.set('n', '<leader>gD', function()
+  require('focus').focus_enable()
+  vim.cmd 'DiffviewClose'
+end, { desc = 'Close git diff view', silent = true })
 
 vim.keymap.set('n', '<leader>o', 'o<Esc>')
 vim.keymap.set('n', '<leader>O', 'O<Esc>')
@@ -50,18 +56,9 @@ vim.keymap.set('n', 'yc', 'yygccp', { remap = true })
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
--- [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
-
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.hl.on_yank()`
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.hl.on_yank()
-  end,
-})
+vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- vim: ts=2 sts=2 sw=2 et

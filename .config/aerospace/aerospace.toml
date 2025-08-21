@@ -100,10 +100,10 @@ alt-enter = 'exec-and-forget open -n /Applications/Ghostty.app/'
 # alt-comma = 'layout accordion horizontal vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-alt-h = 'exec-and-forget aerospace focus left && aerospace move-mouse window-lazy-center'
+cmd-alt-h = 'exec-and-forget aerospace focus left && aerospace move-mouse window-lazy-center'
 # alt-j = 'focus down'
 # alt-k = 'focus up'
-alt-l = 'exec-and-forget aerospace focus right && aerospace move-mouse window-lazy-center'
+cmd-alt-l = 'exec-and-forget aerospace focus right && aerospace move-mouse window-lazy-center'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
 alt-shift-h = 'move left'

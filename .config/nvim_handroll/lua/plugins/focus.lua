@@ -1,6 +1,6 @@
 return {
   'nvim-focus/focus.nvim',
-  version = '*',
+  version = false,
   config = function()
     require('focus').setup()
   end,
@@ -11,12 +11,36 @@ return {
       'Zoom into the current buffer',
     },
     {
-      '<C-h>',
-      '<cmd>FocusSplitLeft<CR>',
+      '<M-h>',
+      function()
+        vim.api.nvim_command 'FocusSplitLeft'
+        vim.api.nvim_command 'FocusAutoresize'
+      end,
+      'Switch to (or create) the left buffer and autoresize',
     },
     {
-      '<C-l>',
-      '<cmd>FocusSplitRight<CR>',
+      '<M-l>',
+      function()
+        vim.api.nvim_command 'FocusSplitRight'
+        vim.api.nvim_command 'FocusAutoresize'
+      end,
+      'Switch to (or create) the right buffer and autoresize',
+    },
+    {
+      '<M-j>',
+      function()
+        vim.api.nvim_command 'FocusSplitDown'
+        vim.api.nvim_command 'FocusAutoresize'
+      end,
+      'Switch to (or create) the left buffer and autoresize',
+    },
+    {
+      '<M-k>',
+      function()
+        vim.api.nvim_command 'FocusSplitUp'
+        vim.api.nvim_command 'FocusAutoresize'
+      end,
+      'Switch to (or create) the right buffer and autoresize',
     },
   },
 }

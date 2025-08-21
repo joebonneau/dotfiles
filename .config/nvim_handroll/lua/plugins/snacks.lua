@@ -5,5 +5,6 @@ return {
   opts = {
     bufdelete = { enabled = true },
     indent = { enabled = true },
+    rename = { enabled = true },
   },
 }
