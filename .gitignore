@@ -5,3 +5,5 @@
 .config/bin/threshold
 .config/sesh/bin/threshold
 .config/raycast
+
+.config/github-copilot

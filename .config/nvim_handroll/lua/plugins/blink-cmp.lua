@@ -1,6 +1,7 @@
 return {
   'saghen/blink.cmp',
   version = '1.*',
+  dependencies = { 'fang2hou/blink-copilot' },
   opts = {
     keymap = {
       ['<C-j>'] = { 'select_next', 'fallback' },
@@ -17,12 +18,18 @@ return {
     },
     snippets = { preset = 'mini_snippets' },
     sources = {
-      default = { 'buffer', 'lsp', 'path', 'snippets' },
+      default = { 'buffer', 'lsp', 'path', 'snippets', 'copilot' },
       per_filetype = { sql = { 'snippets', 'buffer', 'dadbod' } },
       providers = {
         dadbod = {
           name = 'Dadbod',
           module = 'vim_dadbod_completion.blink',
+        },
+        copilot = {
+          name = 'copilot',
+          module = 'blink-copilot',
+          score_offset = 100,
+          async = true,
         },
       },
     },
