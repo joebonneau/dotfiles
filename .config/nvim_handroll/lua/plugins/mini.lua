@@ -7,11 +7,7 @@ return {
       mappings = {
         add = 'gza', -- Add surrounding in Normal and Visual modes
         delete = 'gzd', -- Delete surrounding
-        find = 'gzf', -- Find surrounding (to the right)
-        find_left = 'gzF', -- Find surrounding (to the left)
-        highlight = 'gzh', -- Highlight surrounding
         replace = 'gzr', -- Replace surrounding
-        update_n_lines = 'gzn', -- Update `n_lines`
       },
     }
 
@@ -24,13 +20,33 @@ return {
       mappings = { stop = '<esc>' },
     }
 
-    require('mini.pairs').setup()
+    require('mini.pairs').setup {
+      modes = { insert = true, command = true, terminal = false },
+      skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
+      skip_ts = { 'string' },
+      -- skip autopair when next character is closing pair
+      -- and there are more closing pairs than opening pairs
+      skip_unbalanced = true,
+      -- better deal with markdown code blocks
+      markdown = true,
+    }
     require('mini.animate').setup {
       resize = { enable = false },
     }
     require('mini.comment').setup()
     require('mini.cursorword').setup()
     require('mini.trailspace').setup()
+    require('mini.files').setup {
+      mappings = {
+        close = 'bd',
+        go_in = '',
+        go_in_plus = '<C-CR>',
+        go_out = '<BS>',
+        go_out_plus = '<C-BS>',
+        reset = '<C-r>',
+      },
+    }
+
     require('mini.misc').setup()
 
     local hipatterns = require 'mini.hipatterns'
@@ -46,5 +62,23 @@ return {
   end,
   keys = {
     { 'gz', '', desc = '+surround' },
+    {
+      '<leader>e',
+      function()
+        if not MiniFiles.close() then
+          MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+        end
+      end,
+      desc = 'Open mini.files in cwd',
+    },
+    {
+      '<leader>E',
+      function()
+        if not MiniFiles.close() then
+          MiniFiles.open(nil, false)
+        end
+      end,
+      desc = 'Open mini.files in root',
+    },
   },
 }

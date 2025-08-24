@@ -25,6 +25,13 @@ return {
   },
   keys = {
     { '<leader>ff', '<cmd>FzfLua files<cr>', desc = 'Recent' },
+    {
+      '<leader>fb',
+      function()
+        require('fzf-lua').buffers { previewer = false }
+      end,
+      desc = 'Open buffers',
+    },
     { '<leader>sg', '<cmd>FzfLua live_grep<cr>', desc = 'Grep (Root Dir)' },
   },
 }
