@@ -24,7 +24,7 @@ return {
     },
   },
   keys = {
-    { '<leader>ff', '<cmd>FzfLua files<cr>', desc = 'Recent' },
+    { '<leader>ff', '<cmd>FzfLua files<cr>', desc = 'Find files' },
     {
       '<leader>fb',
       function()
