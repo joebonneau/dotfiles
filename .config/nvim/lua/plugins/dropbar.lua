@@ -1,10 +1,10 @@
 return {
-  "Bekaboo/dropbar.nvim",
-  name = "dropbar",
+  'Bekaboo/dropbar.nvim',
+  name = 'dropbar',
   opts = {
     bar = {
       sources = function(buf, _)
-        local sources = require("dropbar.sources")
+        local sources = require 'dropbar.sources'
         return { sources.path }
       end,
     },
@@ -20,12 +20,12 @@ return {
         max_depth = 5,
         preview = false,
         modified = function(sym)
-          return sym:merge({
+          return sym:merge {
             name = sym.name,
-            icon = " ",
-            name_hl = "MiniIconsYellow",
-            icon_hl = "MiniIconsYellow",
-          })
+            icon = ' ',
+            name_hl = 'MiniIconsYellow',
+            icon_hl = 'MiniIconsYellow',
+          }
         end,
       },
     },

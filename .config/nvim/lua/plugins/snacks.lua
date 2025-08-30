@@ -1,21 +1,20 @@
 return {
-  "folke/snacks.nvim",
-  enabled = true,
+  'folke/snacks.nvim',
+  priority = 1000,
+  lazy = false,
   opts = {
-    dashboard = {
-      enabled = false,
-    },
-    notifier = {
-      enabled = false,
-    },
+    bufdelete = { enabled = true },
+    indent = { enabled = true },
+    rename = { enabled = true },
+    picker = { enabled = true },
   },
   keys = {
     {
-      "<leader>ff",
+      '<leader>su',
       function()
-        Snacks.picker.smart()
+        require('snacks').picker.undo()
       end,
-      desc = "Smart picker",
+      desc = 'Undo history',
     },
   },
 }
