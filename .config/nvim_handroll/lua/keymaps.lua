@@ -64,4 +64,25 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
 
+vim.api.nvim_create_user_command('FormatDisable', function(args)
+  vim.g.disable_autoformat = true
+end, {
+  desc = 'Disable autoformat-on-save',
+})
+vim.api.nvim_create_user_command('FormatEnable', function()
+  vim.g.disable_autoformat = false
+end, {
+  desc = 'Re-enable autoformat-on-save',
+})
+
+vim.keymap.set('n', '<leader>uf', function()
+  if vim.g.disable_autoformat then
+    vim.cmd 'FormatEnable'
+    vim.notify 'auto-format on save enabled'
+  else
+    vim.cmd 'FormatDisable'
+    vim.notify 'auto-format on save disabled'
+  end
+end, { desc = 'Toggle autoformat on save' })
+
 -- vim: ts=2 sts=2 sw=2 et
