@@ -1,5 +1,6 @@
 return {
   'ibhagwan/fzf-lua',
+  enabled = false,
   dependencies = { 'echasnovski/mini.icons' },
   opts = {
     oldfiles = {
@@ -24,7 +25,7 @@ return {
     },
   },
   keys = {
-    { '<leader>ff', '<cmd>FzfLua files<cr>', desc = 'Find files' },
+    -- { '<leader>ff', '<cmd>FzfLua files<cr>', desc = 'Find files' },
     {
       '<leader>fb',
       function()
@@ -32,6 +33,6 @@ return {
       end,
       desc = 'Open buffers',
     },
-    { '<leader>sg', '<cmd>FzfLua live_grep<cr>', desc = 'Grep (Root Dir)' },
+    -- { '<leader>sg', '<cmd>FzfLua live_grep<cr>', desc = 'Grep (Root Dir)' },
   },
 }

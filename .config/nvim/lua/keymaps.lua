@@ -10,9 +10,9 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 
 vim.keymap.set('n', '<leader>l', '<cmd>Lazy<CR>')
 vim.keymap.set('n', '<leader>bb', '<cmd>e #<cr>', { desc = 'Switch to Other Buffer' })
-vim.keymap.set('n', '<leader>bd', function()
-  require('snacks').bufdelete()
-end, { desc = 'Delete Buffer' })
+-- vim.keymap.set('n', '<leader>bd', function()
+--   require('snacks').bufdelete()
+-- end, { desc = 'Delete Buffer' })
 vim.keymap.set('n', '<leader>wd', '<C-W>c', { desc = 'Delete Window', remap = true })
 vim.keymap.set('n', '<leader>gd', function()
   require('focus').focus_disable()

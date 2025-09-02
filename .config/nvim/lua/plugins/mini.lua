@@ -2,6 +2,9 @@ return {
   'nvim-mini/mini.nvim',
   version = false,
   config = function()
+    require('mini.icons').setup()
+    MiniIcons.mock_nvim_web_devicons()
+
     require('mini.ai').setup { n_lines = 500 }
     require('mini.surround').setup {
       mappings = {
@@ -59,9 +62,47 @@ return {
         hex_color = hipatterns.gen_highlighter.hex_color(),
       },
     }
+    local starter = require 'mini.starter'
+    starter.setup {
+      items = {
+        starter.sections.recent_files(5, true),
+        starter.sections.sessions(5, true),
+        starter.sections.builtin_actions(),
+      },
+    }
+    require('mini.tabline').setup()
+    require('mini.sessions').setup()
+    require('mini.bufremove').setup()
+    require('mini.indentscope').setup {
+      options = {
+        symbol = '│',
+      },
+    }
+    local win_config = function()
+      local height = math.floor(0.618 * vim.o.lines)
+      local width = math.floor(0.618 * vim.o.columns)
+      return {
+        anchor = 'NW',
+        height = height,
+        width = width,
+        row = math.floor(0.5 * (vim.o.lines - height)),
+        col = math.floor(0.5 * (vim.o.columns - width)),
+        border = 'rounded',
+      }
+    end
+    require('mini.pick').setup {
+      window = { config = win_config },
+      mappings = {
+        choose_marked = '<C-q>',
+      },
+    }
+    require('mini.extra').setup()
   end,
+  -- stylua: ignore start
   keys = {
     { 'gz', '', desc = '+surround' },
+    { '<leader>bd', function() MiniBufremove.delete() end, desc = "Buffer delete" },
+    { '<leader>bu', function() MiniBufremove.unshow_in_window() end, desc = "Buffer unshow" },
     {
       '<leader>e',
       function()
@@ -80,5 +121,54 @@ return {
       end,
       desc = 'Open mini.files in root',
     },
+    {
+      '<leader>sw',
+      function()
+        if next(MiniSessions.detected) == nil then
+          vim.ui.input({ prompt = 'Enter session name' }, function(input)
+            if input then
+              MiniSessions.write(input)
+            end
+          end)
+        else
+          MiniSessions.select 'write'
+        end
+      end,
+      { desc = 'Write Session' },
+    },
+    {
+      '<leader>sr',
+      function()
+        MiniSessions.select 'read'
+      end,
+      { desc = 'Read Session' },
+    },
+    {
+      '<leader>sd',
+      function()
+        MiniSessions.select 'delete'
+      end,
+      { desc = 'Delete Session' },
+    },
+    {
+      '<leader>bd',
+      function()
+        MiniBufremove.delete()
+      end,
+      { desc = 'Delete Buffer' },
+    },
+    {
+      '<leader>ff',
+      function()
+        MiniPick.builtin.files { tool = 'rg' }
+      end,
+    },
+    {
+      '<leader>sg',
+      function()
+        MiniPick.builtin.grep_live { tool = 'rg' }
+      end,
+    },
   },
+  -- stylua: ignore end
 }

@@ -7,6 +7,7 @@ SETUVAR --export --path GOPATH:/Users/joebonneau/git_repos
 SETUVAR --export GOPROXY:https\x3a//proxy\x2egolang\x2eorg\x2cdirect
 SETUVAR --export GOROOT:/opt/homebrew/opt/go/libexec
 SETUVAR --export RAINFROG_CONFIG:/Users/joebonneau/\x2econfig/rainfrog
+SETUVAR --export --path RIPGREP_CONFIG_PATH:/Users/joebonneau/\x2econfig/\x2eripgreprc
 SETUVAR __fish_initialized:3800
 SETUVAR _fisher_edc_2F_bass_files:\x7e/\x2econfig/fish/functions/__bass\x2epy\x1e\x7e/\x2econfig/fish/functions/bass\x2efish
 SETUVAR _fisher_franciscolourenco_2F_done_files:\x7e/\x2econfig/fish/conf\x2ed/done\x2efish

@@ -113,3 +113,22 @@ vim.api.nvim_create_autocmd('User', {
     })
   end,
 })
+
+local set_mark = function(id, path, desc)
+  MiniFiles.set_bookmark(id, path, { desc = desc })
+end
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'MiniFilesExplorerOpen',
+  callback = function()
+    local repo = vim.fn.system('basename `git rev-parse --show-toplevel`'):gsub('\n', '')
+    if repo == 'beeline-api-go' then
+      set_mark('m', vim.fn.getcwd + '/internal/app/beeline/models', 'Models')
+      set_mark('r', vim.fn.getcwd + '/internal/app/beeline/database/repository', 'Repositories')
+      set_mark('s', vim.fn.getcwd + '/internal/app/beeline/service', 'Services')
+    else
+      set_mark('c', vim.fn.stdpath 'config', 'Config') -- path
+      set_mark('w', vim.fn.getcwd, 'Working directory') -- callable
+      set_mark('~', '~', 'Home directory')
+    end
+  end,
+})

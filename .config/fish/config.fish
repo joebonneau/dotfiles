@@ -18,6 +18,7 @@ set -Ux COMPOSE_HTTP_TIMEOUT 86400
 set -Ux GOROOT (brew --prefix golang)/libexec
 set -Ux GOPATH /Users/joebonneau/git_repos
 set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
+set -Ux RIPGREP_CONFIG_PATH "$HOME/.config/.ripgreprc"
 
 # fish_config theme save "TokyoNight Storm"
 

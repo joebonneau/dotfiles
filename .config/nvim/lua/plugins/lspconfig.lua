@@ -62,11 +62,16 @@ return {
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.
-          map('gd', require('fzf-lua').lsp_definitions, '[G]oto [D]efinition')
+          -- map('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+          map('gd', function()
+            MiniExtra.pickers.lsp { scope = 'definition' }
+          end, '[G]oto [D]efinition')
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
-          map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+          map('gD', function()
+            MiniExtra.pickers.lsp { scope = 'declaration' }
+          end, '[G]oto [D]efinition')
 
           -- -- Fuzzy find all the symbols in your current document.
           -- --  Symbols are things like variables, functions, types, etc.
@@ -79,7 +84,10 @@ return {
           -- -- Jump to the type of the word under your cursor.
           -- --  Useful when you're not sure what type a variable is and you want to see
           -- --  the definition of its *type*, not where it was *defined*.
-          map('gt', require('fzf-lua').lsp_typedefs, '[G]oto [T]ype Definition')
+          map('gt', vim.lsp.buf.type_definition, '[G]oto [T]ype Definition')
+          map('gt', function()
+            MiniExtra.pickers.lsp { scope = 'type_definition' }
+          end, '[G]oto [T]ype [D]efinition')
 
           -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
           ---@param client vim.lsp.Client
