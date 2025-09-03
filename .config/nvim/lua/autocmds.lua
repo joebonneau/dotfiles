@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   command = "execute 'silent !tmux source <afile> --silent'",
 })
 
-vim.api.nvim_create_autocmd('FileType', {
+vim.api.nvim_create_autocmd('filetype', {
   pattern = '*.tsv',
   callback = function()
     vim.opt_local.expandtab = false
@@ -35,19 +35,11 @@ vim.api.nvim_create_autocmd('TabEnter', {
 })
 
 vim.api.nvim_create_autocmd('User', {
-  pattern = 'MiniFilesActionRename',
-  callback = function(event)
-    Snacks.rename.on_rename_file(event.data.from, event.data.to)
-  end,
-})
-
-vim.api.nvim_create_autocmd('User', {
   pattern = 'MiniFilesBufferCreate',
   callback = function(ev)
     vim.schedule(function()
       vim.api.nvim_buf_set_option(0, 'buftype', 'acwrite')
       vim.api.nvim_buf_set_name(ev.data.buf_id, 'mini-files-' .. ev.data.buf_id)
-      -- vim.api.nvim_buf_set_name(0, tostring(vim.api.nvim_get_current_win()))
       vim.api.nvim_create_autocmd('BufWriteCmd', {
         buffer = ev.data.buf_id,
         callback = function()
@@ -132,5 +124,12 @@ vim.api.nvim_create_autocmd('User', {
       set_mark('w', cwd, 'Working directory') -- callable
       set_mark('~', '~', 'Home directory')
     end
+  end,
+})
+
+-- this shouldn't be necessary with the config I have for mini.starter
+vim.api.nvim_create_autocmd('VimEnter', {
+  callback = function()
+    require('mini.starter').open()
   end,
 })

@@ -11,7 +11,7 @@ return {
       'Zoom into the current buffer',
     },
     {
-      '<M-h>',
+      '<C-h>',
       function()
         vim.api.nvim_command 'FocusSplitLeft'
         vim.api.nvim_command 'FocusAutoresize'
@@ -19,7 +19,7 @@ return {
       'Switch to (or create) the left buffer and autoresize',
     },
     {
-      '<M-l>',
+      '<C-l>',
       function()
         vim.api.nvim_command 'FocusSplitRight'
         vim.api.nvim_command 'FocusAutoresize'
@@ -27,7 +27,7 @@ return {
       'Switch to (or create) the right buffer and autoresize',
     },
     {
-      '<M-j>',
+      '<C-j>',
       function()
         vim.api.nvim_command 'FocusSplitDown'
         vim.api.nvim_command 'FocusAutoresize'
@@ -35,7 +35,7 @@ return {
       'Switch to (or create) the left buffer and autoresize',
     },
     {
-      '<M-k>',
+      '<C-k>',
       function()
         vim.api.nvim_command 'FocusSplitUp'
         vim.api.nvim_command 'FocusAutoresize'

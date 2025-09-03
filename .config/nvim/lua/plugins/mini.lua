@@ -25,13 +25,19 @@ return {
 
     require('mini.pairs').setup {
       modes = { insert = true, command = true, terminal = false },
-      skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
-      skip_ts = { 'string' },
-      -- skip autopair when next character is closing pair
-      -- and there are more closing pairs than opening pairs
-      skip_unbalanced = true,
-      -- better deal with markdown code blocks
-      markdown = true,
+      mappings = {
+        ['('] = { action = 'open', pair = '()', neigh_pattern = '.[%s)]' },
+        ['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\].' },
+        ['{'] = { action = 'open', pair = '{}', neigh_pattern = '[^\\].' },
+
+        [')'] = { action = 'close', pair = '()', neigh_pattern = '[^\\].' },
+        [']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
+        ['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
+
+        ['"'] = { action = 'closeopen', pair = '""', neigh_pattern = '[^\\].', register = { cr = false } },
+        ["'"] = { action = 'closeopen', pair = "''", neigh_pattern = '[^%a\\].', register = { cr = false } },
+        ['`'] = { action = 'closeopen', pair = '``', neigh_pattern = '[^\\].', register = { cr = false } },
+      },
     }
     require('mini.animate').setup {
       resize = { enable = false },
@@ -76,25 +82,6 @@ return {
     require('mini.indentscope').setup {
       symbol = '│',
     }
-    -- local win_config = function()
-    --   local height = math.floor(0.618 * vim.o.lines)
-    --   local width = math.floor(0.618 * vim.o.columns)
-    --   return {
-    --     anchor = 'NW',
-    --     height = height,
-    --     width = width,
-    --     row = math.floor(0.5 * (vim.o.lines - height)),
-    --     col = math.floor(0.5 * (vim.o.columns - width)),
-    --     border = 'rounded',
-    --   }
-    -- end
-    -- require('mini.pick').setup {
-    --   window = { config = win_config },
-    --   mappings = {
-    --     choose_marked = '<C-q>',
-    --   },
-    -- }
-    -- require('mini.extra').setup()
   end,
   -- stylua: ignore start
   keys = {
