@@ -1,6 +1,6 @@
 return {
   'ibhagwan/fzf-lua',
-  enabled = false,
+  enabled = true,
   dependencies = { 'echasnovski/mini.icons' },
   opts = {
     oldfiles = {
@@ -25,14 +25,26 @@ return {
     },
   },
   keys = {
-    -- { '<leader>ff', '<cmd>FzfLua files<cr>', desc = 'Find files' },
     {
-      '<leader>fb',
+      '<leader>ff',
       function()
-        require('fzf-lua').buffers { previewer = false }
+        local height = math.floor(0.618 * vim.o.lines)
+        local width = math.floor(0.618 * vim.o.columns)
+        FzfLua.combine {
+          pickers = 'buffers;files',
+          winopts = {
+            height = height,
+            width = width,
+            row = math.floor(0.5 * (vim.o.lines - height)),
+            col = math.floor(0.5 * (vim.o.columns - width)),
+            preview = {
+              hidden = true,
+            },
+          },
+        }
       end,
-      desc = 'Open buffers',
+      desc = 'Find files',
     },
-    -- { '<leader>sg', '<cmd>FzfLua live_grep<cr>', desc = 'Grep (Root Dir)' },
+    { '<leader>sg', '<cmd>FzfLua live_grep<cr>', desc = 'Grep (Root Dir)' },
   },
 }

@@ -70,33 +70,31 @@ return {
         starter.sections.builtin_actions(),
       },
     }
-    require('mini.tabline').setup()
+    -- require('mini.tabline').setup()
     require('mini.sessions').setup()
     require('mini.bufremove').setup()
     require('mini.indentscope').setup {
-      options = {
-        symbol = '│',
-      },
+      symbol = '│',
     }
-    local win_config = function()
-      local height = math.floor(0.618 * vim.o.lines)
-      local width = math.floor(0.618 * vim.o.columns)
-      return {
-        anchor = 'NW',
-        height = height,
-        width = width,
-        row = math.floor(0.5 * (vim.o.lines - height)),
-        col = math.floor(0.5 * (vim.o.columns - width)),
-        border = 'rounded',
-      }
-    end
-    require('mini.pick').setup {
-      window = { config = win_config },
-      mappings = {
-        choose_marked = '<C-q>',
-      },
-    }
-    require('mini.extra').setup()
+    -- local win_config = function()
+    --   local height = math.floor(0.618 * vim.o.lines)
+    --   local width = math.floor(0.618 * vim.o.columns)
+    --   return {
+    --     anchor = 'NW',
+    --     height = height,
+    --     width = width,
+    --     row = math.floor(0.5 * (vim.o.lines - height)),
+    --     col = math.floor(0.5 * (vim.o.columns - width)),
+    --     border = 'rounded',
+    --   }
+    -- end
+    -- require('mini.pick').setup {
+    --   window = { config = win_config },
+    --   mappings = {
+    --     choose_marked = '<C-q>',
+    --   },
+    -- }
+    -- require('mini.extra').setup()
   end,
   -- stylua: ignore start
   keys = {
@@ -156,18 +154,6 @@ return {
         MiniBufremove.delete()
       end,
       { desc = 'Delete Buffer' },
-    },
-    {
-      '<leader>ff',
-      function()
-        MiniPick.builtin.files { tool = 'rg' }
-      end,
-    },
-    {
-      '<leader>sg',
-      function()
-        MiniPick.builtin.grep_live { tool = 'rg' }
-      end,
     },
   },
   -- stylua: ignore end

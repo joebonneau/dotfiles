@@ -47,6 +47,8 @@ return {
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
+          local fzf = require 'fzf-lua'
+
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
           map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
@@ -64,13 +66,13 @@ return {
           --  To jump back, press <C-t>.
           -- map('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
           map('gd', function()
-            MiniExtra.pickers.lsp { scope = 'definition' }
+            fzf.lsp_definitions()
           end, '[G]oto [D]efinition')
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
           map('gD', function()
-            MiniExtra.pickers.lsp { scope = 'declaration' }
+            fzf.lsp_declarations()
           end, '[G]oto [D]efinition')
 
           -- -- Fuzzy find all the symbols in your current document.
@@ -86,7 +88,7 @@ return {
           -- --  the definition of its *type*, not where it was *defined*.
           map('gt', vim.lsp.buf.type_definition, '[G]oto [T]ype Definition')
           map('gt', function()
-            MiniExtra.pickers.lsp { scope = 'type_definition' }
+            fzf.lsp_typedefs()
           end, '[G]oto [T]ype [D]efinition')
 
           -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
