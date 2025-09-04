@@ -1,11 +1,8 @@
 return {
   'ibhagwan/fzf-lua',
   enabled = true,
-  dependencies = { 'echasnovski/mini.icons' },
+  dependencies = { 'nvim-mini/mini.icons' },
   opts = {
-    oldfiles = {
-      include_current_session = true,
-    },
     previewers = {
       builtin = {
         syntax_limit_b = 1024 * 100,
@@ -23,6 +20,11 @@ return {
         ['ctrl-d'] = 'half-page-down',
       },
     },
+    git = {
+      diff = {
+        file_icons = false,
+      },
+    },
   },
   keys = {
     {
@@ -31,7 +33,7 @@ return {
         local height = math.floor(0.618 * vim.o.lines)
         local width = math.floor(0.618 * vim.o.columns)
         FzfLua.combine {
-          pickers = 'buffers;files',
+          pickers = 'buffers;git_diff;files',
           winopts = {
             height = height,
             width = width,

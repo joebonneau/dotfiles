@@ -26,7 +26,8 @@ return {
     require('mini.pairs').setup {
       modes = { insert = true, command = true, terminal = false },
       mappings = {
-        ['('] = { action = 'open', pair = '()', neigh_pattern = '.[%s)]' },
+        -- autopair if after "function" or surrounded by blankspace, but not if before "error"
+        ['('] = { action = 'open', pair = '()', neigh_pattern = '[%w%s][^%w%)]' },
         ['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\].' },
         ['{'] = { action = 'open', pair = '{}', neigh_pattern = '[^\\].' },
 
