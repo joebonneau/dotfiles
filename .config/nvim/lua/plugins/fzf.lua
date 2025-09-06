@@ -20,11 +20,6 @@ return {
         ['ctrl-d'] = 'half-page-down',
       },
     },
-    git = {
-      diff = {
-        file_icons = false,
-      },
-    },
   },
   keys = {
     {
