@@ -1,0 +1,23 @@
+# #!/usr/bin/env bash
+
+current_session=$(tmux display-message -p '#S')
+current_window=$(tmux display-message -p '#I')
+max_len=$(tmux list-sessions -F '#S' | awk '{ if (length > max) max = length } END { print max }')
+
+choices=$(
+  # Current session windows
+  tmux list-windows -a -F '#S:#I:#W' | while IFS=: read -r session idx name; do
+    if [[ "$session" == "$current_session" && "$idx" != "$current_window" ]]; then
+      printf "%-*s   %s\t%s:%s\n" "$max_len" "$session" "$name" "$session" "$idx"
+    fi
+  done
+
+  # Other sessions
+  tmux list-windows -a -F '#S:#I:#W' | while IFS=: read -r session idx name; do
+    if [[ "$session" != "$current_session" ]]; then
+      printf "%-*s   %s\t%s:%s\n" "$max_len" "$session" "$name" "$session" "$idx"
+    fi
+  done
+)
+
+tmux display-popup -E "echo \"$choices\" | fzf --with-nth=1 --delimiter='\t' --prompt='Switch > ' --reverse | awk -F'\t' '{system(\"tmux switch-client -t \" \$2)}'"

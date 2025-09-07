@@ -128,8 +128,8 @@ vim.api.nvim_create_autocmd('User', {
 })
 
 -- this shouldn't be necessary with the config I have for mini.starter
-vim.api.nvim_create_autocmd('VimEnter', {
-  callback = function()
-    require('mini.starter').open()
-  end,
-})
+-- vim.api.nvim_create_autocmd('VimEnter', {
+--   callback = function()
+--     require('mini.starter').open()
+--   end,
+-- })

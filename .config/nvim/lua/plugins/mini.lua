@@ -69,15 +69,14 @@ return {
         hex_color = hipatterns.gen_highlighter.hex_color(),
       },
     }
-    local starter = require 'mini.starter'
-    starter.setup {
-      items = {
-        starter.sections.recent_files(5, true),
-        starter.sections.sessions(5, true),
-        starter.sections.builtin_actions(),
-      },
-    }
-    -- require('mini.tabline').setup()
+    -- local starter = require 'mini.starter'
+    -- starter.setup {
+    --   items = {
+    --     starter.sections.recent_files(5, true),
+    --     starter.sections.sessions(5, true),
+    --     starter.sections.builtin_actions(),
+    --   },
+    -- }
     require('mini.sessions').setup()
     require('mini.bufremove').setup()
     require('mini.indentscope').setup {

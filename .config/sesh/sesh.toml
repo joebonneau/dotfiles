@@ -8,20 +8,6 @@ path = "~/git_repos/sesh"
 startup_command = "source ~/.config/sesh/bin/sesh.sh"
 
 [[session]]
-name = "spotify"
-path = "~/.config/spotify-player"
-startup_command = "source ~/.config/sesh/bin/spotify.sh"
-
-[[session]]
-name = "patient_data_platform"
-path = "~/git_repos/patient_data_platform"
-startup_command = "source ~/.config/sesh/bin/threshold/threshold.sh"
-
-[[session]]
 name = "db"
 path = "/tmp"
 startup_command = "nvim -c DBUI"
-
-[[session]]
-name = "nvim_trash"
-path = "~/.local/share/nvim/mini.files/trash"

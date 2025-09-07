@@ -25,6 +25,7 @@ link-url = true
 shell-integration = fish
 shell-integration-features = "no-cursor,sudo,title"
 
+keybind = cmd+j=text:\x02H
 keybind = cmd+k=text:\x02T
 keybind = cmd+l=text:\x02L
 keybind = cmd+n=text:\x02n
