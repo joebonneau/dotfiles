@@ -1,4 +1,4 @@
-theme = tokyonight-storm
+theme = TokyoNight Storm
 window-decoration = false
 window-theme = auto
 macos-window-shadow = false

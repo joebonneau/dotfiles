@@ -9,9 +9,26 @@ end
 # This variable is global so that it can be referenced by fzf_configure_bindings and in tests
 set --global _fzf_search_vars_command '_fzf_search_variables (set --show | psub) (set --names | psub)'
 
-
 # Install the default bindings, which are mnemonic and minimally conflict with fish's preset bindings
 fzf_configure_bindings
+
+# Function that runs `zi` and replaces the current token with the new path
+function _fzf_ctrl_g_search --description "Run zi and replace current token with result"
+    # Run zi and capture the output
+    set result (zi)
+    # Replace the current token on the command line with the result
+    commandline --current-token --replace $result
+    # Refresh prompt
+    commandline --function repaint
+end
+
+# Key sequence for Ctrl+G
+set -g _fzf_ctrl_g_key \cg
+
+# Bind in default and insert mode, like fzf.fish does
+for mode in default insert
+    bind --mode $mode $_fzf_ctrl_g_key _fzf_ctrl_g_search
+end
 
 # Doesn't erase autoloaded _fzf_* functions because they are not easily accessible once key bindings are erased
 function _fzf_uninstall --on-event fzf_uninstall
