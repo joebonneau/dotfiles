@@ -2,7 +2,6 @@
 abbr g git
 abbr gst "git status"
 abbr gsp "git stash push --"
-abbr gc "git commit -m --trailer"
 abbr gc git-commit-with-trailer
 abbr gr "git rebase"
 abbr gre "git rebase --exec 'source ~/git_repos/patient_data_platform/.githooks/pre-commit'"
@@ -34,9 +33,6 @@ alias ts tmux-split
 # brew
 abbr brewfile "brew bundle dump --force"
 
-# abbr nvim "nvim -c \"Telescope smart_open\""
-abbr hfzf "history | fzf"
-
 abbr c clear
 abbr ef "source ~/.config/fish/conf.d/abbr.fish && exec fish"
 abbr efa exec-all-sh
@@ -44,5 +40,4 @@ abbr upda update-all
 
 abbr tf terraform
 
-# aliases for ease of use in neovim (abbr don't expand)
-alias pydoc "python3 -m pydoc"
+abbr ccb "git branch --show-current | tr -d '\n' | pbcopy"

@@ -205,7 +205,7 @@ drag_swap_fraction = 0.3
 #   that's already active, it will switch to the last workspace instead
 # - reapply_app_rules_on_title_change: if true, app rules are re-evaluated when a window's title changes
 enabled = true
-default_workspace_count = 7
+default_workspace_count = 8
 auto_assign_windows = true
 preserve_focus_per_workspace = true
 workspace_auto_back_and_forth = true
@@ -288,16 +288,19 @@ workspace_names = ["A", "C", "D", "G", "M", "S", "T", "Z"]
 app_rules = [
   { app_id = "com.mitchellh.ghostty", workspace = "A" },
   { app_id = "com.spotify.client", workspace = "S" },
-  { app_id = "com.hnc.Discord", workspace = "D" },
+  { app_id = "com.vivaldi.Vivaldi.app.pliiebkcmokkgndfalahlmimanmbjlab", workspace = "D" },
   { app_name = "wine64-preloader", workspace = "G" },
   { app_id = "com.Apple.MobileSMS", workspace = "M" },
   { app_id = "com.vivaldi.Vivaldi", workspace = "C" },
-  { title_substring = "Meet", workspace = "Z" },
-  { app_id = "com.apple.Notes", floating = true },
-  { app_id = "com.Apple.finder", floating = true },
-  { app_id = "com.Apple.Passwords", floating = true },
-  { app_id = "com.1password.1password", floating = true },
-  { app_id = "com.apple.systempreferences", floating = true },
+  { app_id = "com.vivaldi.Vivaldi.app.eobpobfhdaodffjjjjkfjlchdkmelbjh", workspace = "T" },
+  { app_id = "com.vivaldi.Vivaldi.app.kjgfgldnnfoeklkmfkjfagphfepbbdan", workspace = "Z" },
+  { app_id = "com.apple.Notes", manage = false },
+  { app_id = "com.Apple.finder", manage = false },
+  { app_id = "com.Apple.Passwords", manage = false },
+  { app_id = "com.1password.1password", manage = false },
+  { app_id = "com.apple.systempreferences", manage = false },
+  { app_id = "com.apple.calculator", manage = false },
+  { app_id = "com.brnbw.Tuna", floating = true },
 ]
 
 # Modifier combinations that can be reused in key bindings

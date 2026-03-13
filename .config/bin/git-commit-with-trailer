@@ -30,8 +30,7 @@ branch_name=$(git rev-parse --abbrev-ref HEAD)
 if [[ $branch_name =~ ^([A-Z0-9]+-[0-9]{1,4})_.*$ ]]; then
   ticket_name="${BASH_REMATCH[1]}"
 else
-  echo "Error: Branch name does not contain a valid ticket name in the format XXX-00_"
-  exit 1
+  ticket_name="$branch_name"
 fi
 
 # Run the git commit command with the message, trailer, and optional --no-verify flag

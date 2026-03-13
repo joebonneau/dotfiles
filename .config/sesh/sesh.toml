@@ -8,6 +8,17 @@ path = "~/git_repos/sesh"
 startup_command = "source ~/.config/sesh/bin/sesh.sh"
 
 [[session]]
+[[session]]
+name = "beeline-api-go"
+path = "~/git_repos/beeline-api-go"
+startup_command = "source ~/.config/sesh/bin/threshold/beeline-api-go.sh"
+
+[[session]]
+name = "beeline-ui"
+path = "~/git_repos/beeline-ui"
+startup_command = "source ~/.config/sesh/bin/threshold/beeline-ui.sh"
+
+[[session]]
 name = "db"
 path = "/tmp"
 startup_command = "nvim -c DBUI"

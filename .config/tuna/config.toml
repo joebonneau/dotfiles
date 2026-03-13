@@ -1,0 +1,91 @@
+schemaVersion = 1
+
+[actionPreferences]
+objectOverrides = []
+version = 1
+
+    [[actionPreferences.typeRankings]]
+    typeID = 'com.tuna.type.text-snippet'
+
+        [[actionPreferences.typeRankings.actions]]
+        actionKey = 'Copy to Clipboard'
+        catalogIdentifier = 'TunaCore.CommonActionsCatalog'
+
+        [[actionPreferences.typeRankings.actions]]
+        actionKey = 'Paste'
+        catalogIdentifier = 'TunaCore.CommonActionsCatalog'
+
+        [[actionPreferences.typeRankings.actions]]
+        actionKey = 'Paste as Plain Text'
+        catalogIdentifier = 'TunaCore.CommonActionsCatalog'
+
+        [[actionPreferences.typeRankings.actions]]
+        actionKey = 'Type Text'
+        catalogIdentifier = 'TunaCore.CommonActionsCatalog'
+
+        [[actionPreferences.typeRankings.actions]]
+        actionKey = 'Speak Text (Say)'
+        catalogIdentifier = 'TunaCore.CommonActionsCatalog'
+
+        [[actionPreferences.typeRankings.actions]]
+        actionKey = 'Define'
+        catalogIdentifier = 'Tuna.BasicActionsCatalog'
+
+[extensions]
+enabledIdentifiers = [ 'com.brnbw.tuna.plugins.things' ]
+
+[hotkeys]
+custom = []
+
+    [hotkeys.app.leaderMode]
+    carbonKeyCode = 49
+    carbonModifiers = 256
+
+[[leaderMode.bindings]]
+key = 'f'
+url = 'tuna://run/path.%252FSystem%252FLibrary%252FCoreServices%252FFinder.app/Open'
+
+[[leaderMode.bindings]]
+key = 'm'
+url = 'tuna://run/path.%252FSystem%252FApplications%252FMessages.app/Open'
+
+[[leaderMode.bindings]]
+key = 'n'
+url = 'tuna://run/path.%252FSystem%252FApplications%252FNotes.app/Open'
+
+[[leaderMode.bindings]]
+key = 'p'
+url = 'tuna://run/TunaCore.AllApplicationsCatalog.1Password/Open'
+
+[[leaderMode.bindings]]
+iconPath = '/Library'
+key = 'd'
+url = 'tuna://run/TunaCore.AllApplicationsCatalog.Discord/Open'
+
+[[leaderMode.bindings]]
+key = 'b'
+url = 'tuna://run/TunaCore.AllApplicationsCatalog.Vivaldi/Open'
+
+[[leaderMode.bindings]]
+key = 's'
+url = 'tuna://run/TunaCore.AllApplicationsCatalog.Spotify/Open'
+
+[[leaderMode.bindings]]
+key = 't'
+url = 'tuna://run/TunaCore.AllApplicationsCatalog.Slack/Open'
+
+[[leaderMode.bindings]]
+iconPath = '/Applications/Tuna.app'
+key = 'space'
+url = 'tuna://run/TunaAutomation.ShortcutsCatalog.Show%20Tuna%20%2F%20Fuzzy/TunaCore.CommonActionsCatalog.Run'
+
+[[leaderMode.bindings]]
+key = 'c'
+url = 'tuna://run/Tuna.Internal.ClipboardProxyCatalog.Clipboard%20History/Tuna.BasicActionsCatalog.Browse'
+
+[settings]
+backspaceBehavior = 'deleteCharacters'
+leaderModeModifierTrigger = 'rightOption'
+resultListNavigationBindings = 'vimStyle'
+switchToTextModeWhenNoResults = true
+themeIdentifier = 'com.brnbw.tuna.themes.default'
