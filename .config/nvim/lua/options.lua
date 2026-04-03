@@ -16,7 +16,14 @@ vim.o.mouse = 'a'
 vim.o.showmode = false
 
 -- Sync clipboard between OS and Neovim.
---  Schedule the setting after `UiEnter` because it can increase startup-time.
+--  Scheduledth = 2
+vim.o.expandtab = true
+vim.o.smartindent = true
+
+vim.o.termguicolors = true
+vim.o.virtualedit = 'block'
+
+-- vim: ts=2 sts=2 sw=2 et the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.schedule(function()
@@ -79,5 +86,3 @@ vim.o.smartindent = true
 
 vim.o.termguicolors = true
 vim.o.virtualedit = 'block'
-
--- vim: ts=2 sts=2 sw=2 et

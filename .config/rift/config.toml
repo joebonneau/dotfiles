@@ -29,7 +29,7 @@ default_disable = false
 # - focus_follows_mouse: moving the mouse into a window focuses it
 # - mouse_follows_focus: when focus changes, move the mouse to the focused window
 # - mouse_hides_on_focus: hide the mouse cursor after focusing a window
-focus_follows_mouse = true
+focus_follows_mouse = false
 mouse_follows_focus = true
 mouse_hides_on_focus = true
 # focus_follows_mouse_disable_hotkey temporarily suspends focus-follows-mouse while held
@@ -64,7 +64,9 @@ auto_focus_blacklist = []
 #   "rift-cli subscribe cli --event windows_changed --command sh --args -c --args 'sketchybar --trigger rift_windows_changed RIFT_WORKSPACE_NAME=\"$RIFT_WORKSPACE_NAME\" RIFT_WINDOW_COUNT=\"$RIFT_WINDOW_COUNT\"'"
 # ]
 
-run_on_start = []
+# run_on_start = [
+#   "rift-cli subscribe cli --event workspace_changed --command sh --args -c --args '~/.config/rift/bin/move_floating_windows.sh \"$RIFT_WORKSPACE_ID\"'",
+# ]
 
 # Hot Reloading
 # - If true, rift will watch the config file for changes and reload automatically.
@@ -290,6 +292,8 @@ app_rules = [
   { app_id = "com.spotify.client", workspace = "S" },
   { app_id = "com.vivaldi.Vivaldi.app.pliiebkcmokkgndfalahlmimanmbjlab", workspace = "D" },
   { app_name = "wine64-preloader", workspace = "G" },
+  { app_name = "com.ableton.live", workspace = "G" },
+  { app_name = "com.valvesoftware.steam", workspace = "G" },
   { app_id = "com.Apple.MobileSMS", workspace = "M" },
   { app_id = "com.vivaldi.Vivaldi", workspace = "C" },
   { app_id = "com.vivaldi.Vivaldi.app.eobpobfhdaodffjjjjkfjlchdkmelbjh", workspace = "T" },
