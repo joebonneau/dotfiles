@@ -1,37 +1,37 @@
 vim.lsp.config('*', {
-    settings = {
-        telemetry = {
-            enabled = false,
-        },
+  settings = {
+    telemetry = {
+      enabled = false,
     },
+  },
 })
-vim.lsp.enable({
-  "gopls",
-  "lua_ls",
-  "tsserver",
-  "vtsls",
-  "html",
-  "json"
-})
+vim.lsp.enable {
+  'gopls',
+  'lua_ls',
+  'vtsls',
+  'html',
+  'json',
+}
 
-vim.api.nvim_create_autocmd("LspAttach", {
+vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
   callback = function(event)
     local map = function(keys, func, desc)
-      vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+      vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
     end
 
     -- defaults:
     -- https://neovim.io/doc/user/news-0.11.html#_defaults
 
-    map("gl", vim.diagnostic.open_float, "Open Diagnostic Float")
-    map("K", vim.lsp.buf.hover, "Hover Documentation")
-    map("gs", vim.lsp.buf.signature_help, "Signature Documentation")
-    map("gD", vim.lsp.buf.declaration, "Goto Declaration")
-    map("<leader>la", vim.lsp.buf.code_action, "Code Action")
-    map("<leader>lr", vim.lsp.buf.rename, "Rename all references")
-    map("<leader>lf", vim.lsp.buf.format, "Format")
-    map("<leader>v", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>", "Goto Definition in Vertical Split")
+    map('gl', vim.diagnostic.open_float, 'Open Diagnostic Float')
+    map('K', vim.lsp.buf.hover, 'Hover Documentation')
+    map('gs', vim.lsp.buf.signature_help, 'Signature Documentation')
+    map('gd', vim.lsp.buf.definition, 'Goto definition')
+    map('gD', vim.lsp.buf.declaration, 'Goto Declaration')
+    map('<leader>la', vim.lsp.buf.code_action, 'Code Action')
+    map('<leader>lr', vim.lsp.buf.rename, 'Rename all references')
+    map('<leader>lf', vim.lsp.buf.format, 'Format')
+    map('<leader>v', '<cmd>vsplit | lua vim.lsp.buf.definition()<cr>', 'Goto Definition in Vertical Split')
 
     local function client_supports_method(client, method, bufnr)
       if vim.fn.has 'nvim-0.11' == 1 then
@@ -70,26 +70,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-vim.diagnostic.config({
-  virtual_lines = false,
-  -- virtual_text = true,
-  underline = true,
-  update_in_insert = false,
-  severity_sort = true,
-  float = {
-    border = "rounded",
-    source = true,
-  },
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = "󰅚 ",
-      [vim.diagnostic.severity.WARN] = "󰀪 ",
-      [vim.diagnostic.severity.INFO] = "󰋽 ",
-      [vim.diagnostic.severity.HINT] = "󰌶 ",
-    },
-    numhl = {
-      [vim.diagnostic.severity.ERROR] = "ErrorMsg",
-      [vim.diagnostic.severity.WARN] = "WarningMsg",
-    },
-  },
+vim.pack.add {
+  'https://github.com/neovim/nvim-lspconfig',
+  'https://github.com/folke/lazydev.nvim',
+}
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'lua',
+  callback = function()
+    require('lazydev').setup {
+      library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+      },
+    }
+  end,
 })

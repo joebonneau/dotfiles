@@ -86,3 +86,8 @@ vim.o.smartindent = true
 
 vim.o.termguicolors = true
 vim.o.virtualedit = 'block'
+
+vim.o.laststatus = 3
+vim.o.cmdheight = 1
+vim.o.showcmd = false
+vim.o.showcmdloc = 'statusline'

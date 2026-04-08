@@ -4,8 +4,10 @@ vim.g.maplocalleader = ' '
 
 vim.g.have_nerd_font = true
 
-require 'core.core'
-require 'core.autocmds'
-require 'core.lsp'
+require 'autocmds'
 require 'options'
 require 'keymaps'
+
+for _, file in ipairs(vim.fn.globpath(vim.fn.stdpath 'config' .. '/lua/plugin', '*.lua', false, true)) do
+  dofile(file)
+end
