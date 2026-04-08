@@ -8,8 +8,5 @@ require('tokyonight').setup {
     floats = 'transparent',
     sidebars = 'transparent',
   },
-  on_highlights = function(hl, c)
-    hl.StatuslineMacro = { fg = c.orange, bg = c.bg_statusline }
-  end,
 }
 vim.cmd.colorscheme 'tokyonight-storm'

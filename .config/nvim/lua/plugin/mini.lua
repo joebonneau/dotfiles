@@ -1,10 +1,12 @@
 vim.pack.add {
   'https://www.github.com/nvim-mini/mini.nvim',
+  'https://github.com/JoosepAlviste/nvim-ts-context-commentstring',
 }
-local icons = require 'mini.icons'
-icons.mock_nvim_web_devicons()
+
+require('mini.icons').mock_nvim_web_devicons()
 
 require('mini.ai').setup { n_lines = 500 }
+
 require('mini.surround').setup {
   mappings = {
     add = 'gza',
@@ -28,11 +30,11 @@ require('mini.diff').setup {
   },
 }
 
-local gen_loader = require('mini.snippets').gen_loader
-require('mini.snippets').setup {
+local snippets = require 'mini.snippets'
+snippets.setup {
   snippets = {
-    gen_loader.from_lang(),
-    gen_loader.from_file '~/.config/nvim/snippets/global.json',
+    snippets.gen_loader.from_lang(),
+    snippets.gen_loader.from_file '~/.config/nvim/snippets/global.json',
   },
   mappings = { stop = '<esc>' },
 }
@@ -54,10 +56,11 @@ require('mini.pairs').setup {
     ['`'] = { action = 'closeopen', pair = '``', neigh_pattern = '[^\\].', register = { cr = false } },
   },
 }
+
 require('mini.animate').setup {
   resize = { enable = false },
 }
-vim.pack.add { 'https://github.com/JoosepAlviste/nvim-ts-context-commentstring' }
+
 require('mini.comment').setup {
   options = {
     custom_commentstring = function()
@@ -65,8 +68,11 @@ require('mini.comment').setup {
     end,
   },
 }
+
 require('mini.cursorword').setup()
+
 require('mini.trailspace').setup()
+
 require('mini.files').setup {
   mappings = {
     close = 'q',
@@ -128,7 +134,6 @@ require('mini.statusline').setup {
       local recording_register = vim.fn.reg_recording()
       local macro = recording_register ~= '' and ('recording @' .. recording_register) or ''
 
-      -- local location = MiniStatusline.section_location { trunc_width = 75 }
       local function location()
         local line = vim.fn.line '.'
         local total = vim.fn.line '$'
@@ -162,8 +167,9 @@ hipatterns.setup {
     hex_color = hipatterns.gen_highlighter.hex_color(),
   },
 }
-require('mini.sessions').setup()
+
 require('mini.bufremove').setup()
+
 require('mini.indentscope').setup {
   symbol = '│',
 }
