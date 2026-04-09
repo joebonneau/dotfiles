@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   command = "execute 'silent !tmux source <afile> --silent'",
 })
 
-vim.api.nvim_create_autocmd('Filetype', {
+vim.api.nvim_create_autocmd('FileType', {
   pattern = '*.tsv',
   callback = function()
     vim.opt_local.expandtab = false
@@ -23,16 +23,16 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   command = 'setlocal filetype=sql',
 })
 
-vim.api.nvim_create_autocmd('TabEnter', {
-  callback = function()
-    local ok, diffview = pcall(require, 'diffview.lib')
-    if ok and diffview.get_current_view() then
-      require('focus').focus_disable_window()
-    else
-      require('focus').focus_enable_window()
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd('TabEnter', {
+--   callback = function()
+--     local ok, diffview = pcall(require, 'diffview.lib')
+--     if ok and diffview.get_current_view() then
+--       require('focus').focus_disable_window()
+--     else
+--       require('focus').focus_enable_window()
+--     end
+--   end,
+-- })
 
 vim.api.nvim_create_autocmd('User', {
   pattern = 'MiniFilesBufferCreate',

@@ -32,3 +32,10 @@ vim.keymap.set('n', 'yc', 'yygccp', { remap = true })
 
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
+
+vim.keymap.set('n', '<leader>gd', function()
+  vim.cmd 'CodeDiff'
+end, { desc = 'Open git diff view', silent = true })
+vim.keymap.set('n', '<leader>gD', function()
+  vim.cmd 'CodeDiffClose'
+end, { desc = 'Close git diff view', silent = true })

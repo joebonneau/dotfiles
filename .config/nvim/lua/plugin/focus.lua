@@ -3,22 +3,18 @@ require('focus').setup()
 
 vim.keymap.set('n', '<leader>z', '<cmd>FocusMaxOrEqual<CR>', { desc = 'Zoom into the current buffer' })
 
-vim.keymap.set('n', '<C-h>', function()
-  vim.api.nvim_command 'FocusSplitLeft'
-  vim.api.nvim_command 'FocusAutoresize'
-end, { desc = 'Switch to (or create) the left buffer and autoresize' })
+local function split_nav(focus_cmd, fallback)
+  return function()
+    if vim.g.focus_disabled then
+      vim.cmd('wincmd ' .. fallback)
+    else
+      vim.cmd('Focus' .. focus_cmd)
+      vim.cmd 'FocusAutoresize'
+    end
+  end
+end
 
-vim.keymap.set('n', '<C-l>', function()
-  vim.api.nvim_command 'FocusSplitRight'
-  vim.api.nvim_command 'FocusAutoresize'
-end, { desc = 'Switch to (or create) the right buffer and autoresize' })
-
-vim.keymap.set('n', '<C-j>', function()
-  vim.api.nvim_command 'FocusSplitDown'
-  vim.api.nvim_command 'FocusAutoresize'
-end, { desc = 'Switch to (or create) the left buffer and autoresize' })
-
-vim.keymap.set('n', '<C-k>', function()
-  vim.api.nvim_command 'FocusSplitUp'
-  vim.api.nvim_command 'FocusAutoresize'
-end, { desc = 'Switch to (or create) the right buffer and autoresize' })
+vim.keymap.set('n', '<C-h>', split_nav('SplitLeft', 'h'), { desc = 'Switch to left buffer' })
+vim.keymap.set('n', '<C-l>', split_nav('SplitRight', 'l'), { desc = 'Switch to right buffer' })
+vim.keymap.set('n', '<C-j>', split_nav('SplitDown', 'j'), { desc = 'Switch to bottom buffer' })
+vim.keymap.set('n', '<C-k>', split_nav('SplitUp', 'k'), { desc = 'Switch to top buffer' })

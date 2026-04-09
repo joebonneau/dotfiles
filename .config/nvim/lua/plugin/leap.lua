@@ -2,7 +2,7 @@ vim.pack.add {
   'https://codeberg.org/andyg/leap.nvim',
 }
 
-require('leap.user').set_repeat_keys('.', ',')
+require('leap.user').set_repeat_keys(';', ',')
 vim.keymap.set({ 'n', 'x', 'o' }, 's', '<Plug>(leap-forward)')
 vim.keymap.set({ 'n', 'x', 'o' }, 'S', '<Plug>(leap-backward)')
 

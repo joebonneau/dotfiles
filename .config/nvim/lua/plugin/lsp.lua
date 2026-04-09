@@ -13,6 +13,8 @@ vim.lsp.enable {
   'vtsls',
   'html',
   'json',
+  'terraform-ls',
+  'marksman',
 }
 
 vim.api.nvim_create_autocmd('LspAttach', {
