@@ -1,6 +1,5 @@
 vim.pack.add {
   'https://github.com/nvim-treesitter/nvim-treesitter',
-  'https://github.com/nvim-treesitter/nvim-treesitter-context',
   'https://github.com/nvim-treesitter/nvim-treesitter-textobjects',
   'https://github.com/windwp/nvim-ts-autotag',
 }
@@ -10,11 +9,16 @@ local ensure_installed = {
   'devicetree',
   'git_config',
   'gitignore',
+  'go',
+  'gowork',
+  'gosum',
+  'gomod',
   'html',
   'javascript',
   'json',
   'lua',
   'markdown',
+  'markdown-inline',
   'regex',
   'scss',
   'sql',
