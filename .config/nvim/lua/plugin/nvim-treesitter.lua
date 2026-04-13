@@ -18,7 +18,6 @@ local ensure_installed = {
   'json',
   'lua',
   'markdown',
-  'markdown-inline',
   'regex',
   'scss',
   'sql',

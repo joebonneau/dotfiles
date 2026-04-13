@@ -4,6 +4,7 @@ vim.pack.add {
   'https://www.github.com/kristijanhusak/vim-dadbod-completion',
 }
 vim.g.db_ui_use_nerd_fonts = 1
+vim.g.db_ui_hide_schemas = { 'pg_toast', 'pg_toast_temp.*' }
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'dbui', 'dbout' },

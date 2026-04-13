@@ -29,6 +29,10 @@
       "rev": "4a5f9f26a8cd006b8a71b9c3aa24cba4d139d4ee",
       "src": "https://github.com/chojs23/ec"
     },
+    "everforest-nvim": {
+      "rev": "cf08aa67fc96946a01177ae483b7631733b4b5e6",
+      "src": "https://github.com/neanias/everforest-nvim"
+    },
     "focus.nvim": {
       "rev": "36ebedeebe82ebea250c9d671769194caa033902",
       "src": "https://www.github.com/nvim-focus/focus.nvim"

@@ -3,6 +3,13 @@ vim.pack.add {
   'https://github.com/JoosepAlviste/nvim-ts-context-commentstring',
 }
 
+local win_config = function()
+  local has_statusline = vim.o.laststatus > 0
+  local pad = vim.o.cmdheight + (has_statusline and 1 or 0)
+  return { anchor = 'SE', col = vim.o.columns, row = vim.o.lines - pad, border = 'none' }
+end
+require('mini.notify').setup { window = { config = win_config } }
+
 require('mini.icons').mock_nvim_web_devicons()
 
 require('mini.ai').setup { n_lines = 500 }
@@ -84,11 +91,11 @@ require('mini.files').setup {
   },
 }
 
-vim.api.nvim_set_hl(0, 'StatuslineDiagError', { fg = 0xf7768e, bg = 0x3b4261 })
-vim.api.nvim_set_hl(0, 'StatuslineDiagWarn', { fg = 0xe0af68, bg = 0x3b4261 })
-vim.api.nvim_set_hl(0, 'StatuslineDiagInfo', { fg = 0x0db9d7, bg = 0x3b4261 })
-vim.api.nvim_set_hl(0, 'StatuslineDiagHint', { fg = 0x1abc9c, bg = 0x3b4261 })
-vim.api.nvim_set_hl(0, 'StatuslineMacro', { fg = 0xff9e64, bg = 0x3b4261 })
+vim.api.nvim_set_hl(0, 'StatuslineDiagError', { fg = 0xf7768e, bg = 0x2E383C })
+vim.api.nvim_set_hl(0, 'StatuslineDiagWarn', { fg = 0xe0af68, bg = 0x2E383C })
+vim.api.nvim_set_hl(0, 'StatuslineDiagInfo', { fg = 0x0db9d7, bg = 0x2E383C })
+vim.api.nvim_set_hl(0, 'StatuslineDiagHint', { fg = 0x1abc9c, bg = 0x2E383C })
+vim.api.nvim_set_hl(0, 'StatuslineMacro', { fg = 0xff9e64, bg = 0x2E383C })
 
 local function diagnostics_section()
   local diag_icons = {

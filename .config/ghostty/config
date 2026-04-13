@@ -1,4 +1,6 @@
-theme = TokyoNight Storm
+# theme = TokyoNight Storm
+theme = Everforest Dark Hard
+# theme = everforest-dark-hard
 window-decoration = false
 window-theme = auto
 macos-window-shadow = false
