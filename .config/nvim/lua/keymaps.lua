@@ -34,5 +34,5 @@ vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
 
 vim.keymap.set('n', '<leader>gd', function()
-  vim.cmd 'CodeDiff'
-end, { desc = 'Open git diff view', silent = true })
+  vim.cmd 'DiffviewToggle'
+end, { desc = 'Toggle git diff view', silent = true })

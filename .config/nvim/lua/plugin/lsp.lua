@@ -15,6 +15,7 @@ vim.lsp.enable {
   'json',
   'terraform-ls',
   'marksman',
+  'postgres-language-server',
 }
 
 vim.api.nvim_create_autocmd('LspAttach', {

@@ -21,6 +21,10 @@
       "rev": "faa347cef2a9429eec14dada549e000a3b8d0fc9",
       "src": "https://www.github.com/zbirenbaum/copilot.lua"
     },
+    "diffview.nvim": {
+      "rev": "ddfbda3828755afce73b327a4fe32b3220c981c2",
+      "src": "https://github.com/dlyongemallo/diffview.nvim"
+    },
     "dropbar.nvim": {
       "rev": "ce202248134e3949aac375fd66c28e5207785b10",
       "src": "https://www.github.com/Bekaboo/dropbar.nvim"
@@ -116,6 +120,10 @@
     "vim-dadbod-ui": {
       "rev": "07e92e22114cc5b1ba4938d99897d85b58e20475",
       "src": "https://www.github.com/kristijanhusak/vim-dadbod-ui"
+    },
+    "vim-tmux-navigator": {
+      "rev": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432",
+      "src": "https://github.com/christoomey/vim-tmux-navigator"
     }
   }
 }

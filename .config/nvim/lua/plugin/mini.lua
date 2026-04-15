@@ -3,13 +3,6 @@ vim.pack.add {
   'https://github.com/JoosepAlviste/nvim-ts-context-commentstring',
 }
 
-local win_config = function()
-  local has_statusline = vim.o.laststatus > 0
-  local pad = vim.o.cmdheight + (has_statusline and 1 or 0)
-  return { anchor = 'SE', col = vim.o.columns, row = vim.o.lines - pad, border = 'none' }
-end
-require('mini.notify').setup { window = { config = win_config } }
-
 require('mini.icons').mock_nvim_web_devicons()
 
 require('mini.ai').setup { n_lines = 500 }
