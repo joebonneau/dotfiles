@@ -26,7 +26,7 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
         typescript = { 'prettier' },
         javascriptreact = { 'prettierd' },
         typescriptreact = { 'prettier' },
-        css = { 'prettierd', 'stylelint' },
+        css = { 'prettier', 'stylelint' },
         html = { 'prettierd' },
         json = { 'prettierd' },
         yaml = { 'prettierd' },
