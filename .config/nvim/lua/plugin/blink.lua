@@ -26,11 +26,23 @@ require('blink.cmp').setup {
   sources = {
     -- default = { 'buffer', 'lsp', 'path', 'snippets', 'copilot' },
     default = { 'buffer', 'lsp', 'path', 'snippets' },
-    per_filetype = { sql = { 'snippets', 'buffer', 'dadbod' } },
+    per_filetype = { sql = { 'snippets', 'buffer', 'dadbod', 'tabpage' } },
     providers = {
+      buffer = {
+        opts = {
+          get_bufnrs = function()
+            return { vim.api.nvim_get_current_buf() }
+          end,
+        },
+      },
       dadbod = {
         name = 'Dadbod',
         module = 'vim_dadbod_completion.blink',
+      },
+      tabpage = {
+        name = 'Tabpage',
+        module = 'plugin.blink_tabpage',
+        score_offset = -3,
       },
       -- copilot = {
       --   name = 'copilot',
