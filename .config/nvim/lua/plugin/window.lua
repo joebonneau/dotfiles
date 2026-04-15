@@ -2,7 +2,19 @@
 
 local PHI = 1.618
 
-local ignore_ft = { 'qf', 'help', 'nofile', 'DiffviewFiles', 'DiffviewDiff', 'dbui', 'dbout' }
+local ignore_ft = { 'qf', 'help', 'nofile' }
+
+local dadbod_ft = { 'dbui', 'dbout', 'dbquery' }
+
+local function is_dadbod_active()
+  for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+    local buf = vim.api.nvim_win_get_buf(win)
+    if vim.tbl_contains(dadbod_ft, vim.bo[buf].filetype) then
+      return true
+    end
+  end
+  return false
+end
 
 local function is_diffview_active()
   local ok, lib = pcall(require, 'diffview.lib')
@@ -13,7 +25,7 @@ local function is_diffview_active()
 end
 
 local function should_ignore()
-  if is_diffview_active() then
+  if is_diffview_active() or is_dadbod_active() then
     return true
   end
   local win = vim.api.nvim_get_current_win()
@@ -52,7 +64,7 @@ vim.api.nvim_create_autocmd('WinEnter', {
 local zoomed_win = nil
 
 local function zoom_toggle()
-  if is_diffview_active() then
+  if is_diffview_active() or is_dadbod_active() then
     return
   end
   if zoomed_win ~= nil then

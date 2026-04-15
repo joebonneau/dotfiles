@@ -11,7 +11,5 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function()
     vim.g.codediff_saved_showtabline = vim.o.showtabline
     vim.o.showtabline = 0
-    vim.g.focus_disabled = true
-    require('focus').focus_disable()
   end,
 })

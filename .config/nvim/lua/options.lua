@@ -36,6 +36,3 @@ vim.opt.shortmess:append 'I'
 vim.schedule(function()
   vim.o.clipboard = 'unnamedplus'
 end)
-
--- custom
-vim.g.focus_disabled = false
