@@ -1,41 +1,22 @@
 schemaVersion = 1
 
-[actionPreferences]
-objectOverrides = []
-version = 1
+[catalogConfiguration]
+customFolders = []
 
-    [[actionPreferences.typeRankings]]
-    typeID = 'com.tuna.type.text-snippet'
+    [[catalogConfiguration.folderDepthOverrides]]
+    catalogIdentifier = 'TunaCore.UserFoldersCatalog'
+    depthRawValue = 5
 
-        [[actionPreferences.typeRankings.actions]]
-        actionKey = 'Copy to Clipboard'
-        catalogIdentifier = 'TunaCore.CommonActionsCatalog'
-
-        [[actionPreferences.typeRankings.actions]]
-        actionKey = 'Paste'
-        catalogIdentifier = 'TunaCore.CommonActionsCatalog'
-
-        [[actionPreferences.typeRankings.actions]]
-        actionKey = 'Paste as Plain Text'
-        catalogIdentifier = 'TunaCore.CommonActionsCatalog'
-
-        [[actionPreferences.typeRankings.actions]]
-        actionKey = 'Type Text'
-        catalogIdentifier = 'TunaCore.CommonActionsCatalog'
-
-        [[actionPreferences.typeRankings.actions]]
-        actionKey = 'Speak Text (Say)'
-        catalogIdentifier = 'TunaCore.CommonActionsCatalog'
-
-        [[actionPreferences.typeRankings.actions]]
-        actionKey = 'Define'
-        catalogIdentifier = 'Tuna.BasicActionsCatalog'
-
-[extensions]
-enabledIdentifiers = [ 'com.brnbw.tuna.plugins.things' ]
+    [[catalogConfiguration.scriptsDirectories]]
+    id = 'EF946476-413C-4FAE-A73F-3C1A9FF7E88D'
+    path = '~/git_repos/dotfiles/.config/tuna/bin'
 
 [hotkeys]
 custom = []
+
+    [hotkeys.app.activate]
+    carbonKeyCode = 36
+    carbonModifiers = 256
 
     [hotkeys.app.leaderMode]
     carbonKeyCode = 49
@@ -77,15 +58,41 @@ url = 'tuna://run/TunaCore.AllApplicationsCatalog.Slack/Open'
 [[leaderMode.bindings]]
 iconPath = '/Applications/Tuna.app'
 key = 'space'
-url = 'tuna://run/TunaAutomation.ShortcutsCatalog.Show%20Tuna%20%2F%20Fuzzy/TunaCore.CommonActionsCatalog.Run'
+url = 'tuna://run/Tuna.ModesCatalog.Fuzzy%20Mode/TunaCore.CommonActionsCatalog.Switch'
 
 [[leaderMode.bindings]]
 key = 'c'
 url = 'tuna://run/Tuna.Internal.ClipboardProxyCatalog.Clipboard%20History/Tuna.BasicActionsCatalog.Browse'
 
+[[leaderMode.bindings]]
+key = 'g'
+url = 'tuna://run/TunaCore.AllApplicationsCatalog.Ghostty/Open'
+
+[[leaderMode.bindings]]
+key = 'z'
+url = 'tuna://run/TunaCore.AllApplicationsCatalog.Google%20Meet/Open'
+
+[[leaderMode.bindings]]
+iconPath = '/System/Applications/Mission Control.app'
+key = 'w'
+label = 'window management'
+
+    [[leaderMode.bindings.children]]
+    key = 'm'
+    url = 'tuna://run/TunaSystem.WindowManagementCatalog.Almost%20Maximize/TunaCore.CommonActionsCatalog.Run%20in%20Background'
+
+[[leaderMode.bindings]]
+key = 'u'
+label = 'utility'
+
+    [[leaderMode.bindings.children]]
+    key = 's'
+    url = 'tuna://run/TunaCore.SystemApplicationsCatalog.Screenshot/Open'
+
 [settings]
 backspaceBehavior = 'deleteCharacters'
 leaderModeModifierTrigger = 'rightOption'
 resultListNavigationBindings = 'vimStyle'
+showResultsImmediatelyOnActivation = true
 switchToTextModeWhenNoResults = true
 themeIdentifier = 'com.brnbw.tuna.themes.default'

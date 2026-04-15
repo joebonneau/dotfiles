@@ -1,8 +1,6 @@
 eval (/opt/homebrew/bin/brew shellenv)
 status --is-interactive; and starship init fish | source
 status --is-interactive; and zoxide init fish | source
-status --is-interactive; and pyenv init - | source
-status --is-interactive; and pyenv virtualenv-init - | source
 status --is-interactive; and fzf --fish | source
 status --is-interactive; and fnm env --use-on-cd --shell fish | source
 
@@ -20,7 +18,7 @@ set -Ux GOPATH /Users/joebonneau/git_repos
 set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
 set -Ux RIPGREP_CONFIG_PATH "$HOME/.config/.ripgreprc"
 
-# fish_config theme save "TokyoNight Storm"
+source ~/.config/fish/themes/everforest.fish
 
 fish_add_path ~/.cargo/bin
 fish_add_path ~/.config/bin

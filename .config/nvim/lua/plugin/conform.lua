@@ -16,16 +16,16 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
           return nil
         else
           return {
-            timeout_ms = 500,
+            timeout_ms = 1000,
             lsp_format = 'fallback',
           }
         end
       end,
       formatters_by_ft = {
         javascript = { 'prettierd' },
-        typescript = { 'prettierd' },
+        typescript = { 'prettier' },
         javascriptreact = { 'prettierd' },
-        typescriptreact = { 'prettierd' },
+        typescriptreact = { 'prettier' },
         css = { 'prettierd', 'stylelint' },
         html = { 'prettierd' },
         json = { 'prettierd' },
@@ -50,7 +50,7 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
     end
     local disable_filetypes = { c = true, cpp = true }
     if not disable_filetypes[vim.bo[bufnr].filetype] then
-      require('conform').format { timeout_ms = 500, lsp_format = 'fallback', buf = bufnr }
+      require('conform').format { timeout_ms = 1000, lsp_format = 'fallback', buf = bufnr }
     end
   end,
 })

@@ -31,6 +31,7 @@ vim.o.laststatus = 3
 vim.o.cmdheight = 0
 vim.o.showcmd = false
 vim.o.showcmdloc = 'statusline'
+vim.opt.shortmess:append 'I'
 
 vim.schedule(function()
   vim.o.clipboard = 'unnamedplus'

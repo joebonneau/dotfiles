@@ -1,39 +1,73 @@
+# add_newline = true
+#
+# format = """
+# $character\
+# $directory\
+# $git_branch\
+# $git_status\
+# $python\
+# $nodejs\
+# $golang\
+# [ > ](bold white)\
+# """
+#
+# [git_branch]
+# disabled = true
+#
+# [git_status]
+# disabled = true
+#
+# [directory]
+# format = "[ $path]($style)"
+# style = "#41a6b5"
+#
+# [character]
+# success_symbol = " [](bold white)"
+# error_symbol = " [](bold red)"
+# vimcmd_symbol = " [](bold green)"
+# vimcmd_replace_one_symbol = " [](bold purple)"
+# vimcmd_replace_symbol = " [](bold purple)"
+# vimcmd_visual_symbol = " [](bold yellow)"
+#
+# [python]
+# format = '[ 🐍 ($virtualenv)](purple)'
+#
+# [nodejs]
+# format = '[ 🤖 $version](purple) '
+#
+# [golang]
+# format = '[ 🏎💨 $version](purple) '
+
 add_newline = true
 
 format = """
 $character\
 $directory\
-$git_branch\
-$git_status\
-$python\
 $nodejs\
 $golang\
 [ > ](bold white)\
 """
 
-[git_branch]
-disabled = true
-
-[git_status]
-disabled = true
-
-[directory]
-format = "[ $path]($style)"
-style = "#41a6b5"
-
-[character]
-success_symbol = " [](bold white)"
-error_symbol = " [](bold red)"
-vimcmd_symbol = " [](bold green)"
-vimcmd_replace_one_symbol = " [](bold purple)"
-vimcmd_replace_symbol = " [](bold purple)"
-vimcmd_visual_symbol = " [](bold yellow)"
-
-[python]
-format = '[ 🐍 ($virtualenv)](purple)'
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
 
 [nodejs]
-format = '[ 🤖 $version](purple) '
+symbol = "󰎙 "
+style = "bg:#272E33"
+format = '[[ $symbol ($version) ](fg:#83C092 bg:#272E33)]($style)'
 
 [golang]
-format = '[ 🏎💨 $version](purple) '
+symbol = " "
+style = "bg:#272E33"
+format = '[[ $symbol ($version) ](fg:#83C092 bg:#272E33)]($style)'
+
+[character]
+success_symbol = " [](bold #A7C080)"
+error_symbol = " [](bold #E67E80)"
+vimcmd_symbol = " [](bold #83C092)"
+vimcmd_replace_one_symbol = " [](bold #D699B6)"
+vimcmd_replace_symbol = " [](bold #D699B6)"
+vimcmd_visual_symbol = " [](bold #DBBC7F)"

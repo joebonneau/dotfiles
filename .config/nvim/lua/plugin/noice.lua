@@ -2,7 +2,7 @@ vim.pack.add { 'https://www.github.com/folke/noice.nvim', 'https://www.github.co
 require('noice').setup {
   cmdline = {
     format = {
-      cmdline = { pattern = '^:', icon = '  ', lang = 'vim' },
+      cmdline = { pattern = '^:', icon = ' $ ', lang = 'vim' },
     },
     view = 'cmdline',
   },
@@ -38,6 +38,10 @@ require('noice').setup {
         },
       },
       view = 'mini',
+    },
+    {
+      filter = { event = 'msg_show', kind = 'emsg', find = 'E486' },
+      opts = { skip = true },
     },
   },
 }
