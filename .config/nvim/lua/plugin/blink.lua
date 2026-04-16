@@ -54,6 +54,14 @@ require('blink.cmp').setup {
   },
   cmdline = {
     sources = { 'buffer', 'cmdline' },
+    keymap = { preset = 'inherit' },
+    completion = {
+      list = {
+        selection = { preselect = false, auto_insert = false },
+        cycle = { from_bottom = true, from_top = true },
+      },
+      menu = { auto_show = true },
+    },
   },
   fuzzy = { implementation = 'prefer_rust_with_warning' },
 }

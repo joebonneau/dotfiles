@@ -52,13 +52,6 @@ local function apply_golden_ratio()
   vim.api.nvim_win_set_width(win, focused_w)
 end
 
--- Autoresize on window enter
-local augroup = vim.api.nvim_create_augroup('GoldenRatio', { clear = true })
-vim.api.nvim_create_autocmd('WinEnter', {
-  group = augroup,
-  callback = apply_golden_ratio,
-})
-
 -- Zoom toggle: maximize current window via winwidth,
 -- navigate away normally with <C-h/j/k/l> and autoresize re-balances
 local zoomed_win = nil
@@ -77,6 +70,7 @@ local function zoom_toggle()
   end
 end
 
+local augroup = vim.api.nvim_create_augroup('GoldenRatio', { clear = true })
 vim.api.nvim_create_autocmd('WinEnter', {
   group = augroup,
   callback = function()

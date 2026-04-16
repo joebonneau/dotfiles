@@ -5,7 +5,7 @@ customFolders = []
 
     [[catalogConfiguration.folderDepthOverrides]]
     catalogIdentifier = 'TunaCore.UserFoldersCatalog'
-    depthRawValue = 5
+    depthRawValue = 3
 
     [[catalogConfiguration.scriptsDirectories]]
     id = 'EF946476-413C-4FAE-A73F-3C1A9FF7E88D'
