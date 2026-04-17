@@ -16,6 +16,7 @@ vim.lsp.enable {
   'terraform-ls',
   'marksman',
   'postgres-language-server',
+  'harper_ls',
 }
 
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -109,3 +110,7 @@ end, {
 vim.api.nvim_create_user_command('LspRestart', 'lsp restart', {
   desc = 'Restart LSP',
 })
+
+vim.keymap.set('n', '<leader>a', function()
+  vim.lsp.buf.code_action()
+end, { desc = 'Show code actions' })

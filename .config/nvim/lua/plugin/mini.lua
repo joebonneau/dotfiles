@@ -45,7 +45,9 @@ snippets.setup {
 }
 
 -- pairs
-require('mini.pairs').setup {}
+require('mini.pairs').setup {
+  modes = { insert = true, command = true, terminal = false },
+}
 
 -- animate
 require('mini.animate').setup {
