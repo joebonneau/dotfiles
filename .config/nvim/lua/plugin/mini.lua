@@ -3,10 +3,13 @@ vim.pack.add {
   'https://github.com/JoosepAlviste/nvim-ts-context-commentstring',
 }
 
+-- icons
 require('mini.icons').mock_nvim_web_devicons()
 
+-- ai
 require('mini.ai').setup { n_lines = 500 }
 
+-- surround
 require('mini.surround').setup {
   mappings = {
     add = 'gza',
@@ -15,6 +18,7 @@ require('mini.surround').setup {
   },
 }
 
+-- diff
 require('mini.diff').setup {
   view = {
     style = 'sign',
@@ -30,6 +34,7 @@ require('mini.diff').setup {
   },
 }
 
+-- snippets
 local snippets = require 'mini.snippets'
 snippets.setup {
   snippets = {
@@ -39,28 +44,15 @@ snippets.setup {
   mappings = { stop = '<esc>' },
 }
 
-require('mini.pairs').setup {
-  modes = { insert = true, command = true, terminal = false },
-  mappings = {
-    -- autopair if after "function" or surrounded by blankspace, but not if before "error"
-    ['('] = { action = 'open', pair = '()', neigh_pattern = '[%w%s][^%w%)]' },
-    ['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\].' },
-    ['{'] = { action = 'open', pair = '{}', neigh_pattern = '[^\\].' },
+-- pairs
+require('mini.pairs').setup {}
 
-    [')'] = { action = 'close', pair = '()', neigh_pattern = '[^\\].' },
-    [']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
-    ['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
-
-    ['"'] = { action = 'closeopen', pair = '""', neigh_pattern = '[^\\].', register = { cr = false } },
-    ["'"] = { action = 'closeopen', pair = "''", neigh_pattern = '[^%a\\].', register = { cr = false } },
-    ['`'] = { action = 'closeopen', pair = '``', neigh_pattern = '[^\\].', register = { cr = false } },
-  },
-}
-
+-- animate
 require('mini.animate').setup {
   resize = { enable = false },
 }
 
+-- comment
 require('mini.comment').setup {
   options = {
     custom_commentstring = function()
@@ -69,10 +61,10 @@ require('mini.comment').setup {
   },
 }
 
-require('mini.cursorword').setup()
-
+-- trailspace
 require('mini.trailspace').setup()
 
+-- files
 require('mini.files').setup {
   mappings = {
     close = 'q',
@@ -84,6 +76,19 @@ require('mini.files').setup {
   },
 }
 
+vim.keymap.set('n', '<leader>e', function()
+  if not MiniFiles.close() then
+    MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+  end
+end, { desc = 'Open mini.files in cwd' })
+
+vim.keymap.set('n', '<leader>E', function()
+  if not MiniFiles.close() then
+    MiniFiles.open(vim.fn.getcwd(), false)
+  end
+end, { desc = 'Open mini.files in cwd' })
+
+-- statusline
 vim.api.nvim_set_hl(0, 'StatuslineDiagError', { fg = 0xf7768e, bg = 0x2E383C })
 vim.api.nvim_set_hl(0, 'StatuslineDiagWarn', { fg = 0xe0af68, bg = 0x2E383C })
 vim.api.nvim_set_hl(0, 'StatuslineDiagInfo', { fg = 0x0db9d7, bg = 0x2E383C })
@@ -155,37 +160,24 @@ require('mini.statusline').setup {
   use_icons = true,
 }
 
-require('mini.misc').setup()
-
+-- hipatterns
 local hipatterns = require 'mini.hipatterns'
 hipatterns.setup {
   highlighters = {
     fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
     todo = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
     note = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
-
-    hex_color = hipatterns.gen_highlighter.hex_color(),
   },
 }
 
+-- bufremove
 require('mini.bufremove').setup()
-
-require('mini.indentscope').setup {
-  symbol = '│',
-}
 
 vim.keymap.set('n', '<leader>bd', function()
   MiniBufremove.delete()
 end, { desc = 'Buffer delete' })
 
-vim.keymap.set('n', '<leader>e', function()
-  if not MiniFiles.close() then
-    MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
-  end
-end, { desc = 'Open mini.files in cwd' })
-
-vim.keymap.set('n', '<leader>E', function()
-  if not MiniFiles.close() then
-    MiniFiles.open(nil, false)
-  end
-end, { desc = 'Open mini.files in root' })
+-- indentscope
+require('mini.indentscope').setup {
+  symbol = '│',
+}

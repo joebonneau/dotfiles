@@ -58,7 +58,6 @@ require('blink.cmp').setup {
     completion = {
       list = {
         selection = { preselect = false, auto_insert = false },
-        cycle = { from_bottom = true, from_top = true },
       },
       menu = { auto_show = true },
     },
