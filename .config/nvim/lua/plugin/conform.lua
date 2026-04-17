@@ -1,6 +1,6 @@
-vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+vim.api.nvim_create_autocmd({ 'BufReadPost' }, {
   once = true,
-  callback = function(args)
+  callback = function()
     vim.pack.add { 'https://www.github.com/stevearc/conform.nvim' }
     require('conform').setup {
       notify_on_error = true,
@@ -41,17 +41,6 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
         terraform = { 'terraform_fmt' },
       },
     }
-
-    -- Manually trigger format for this first save, since format_on_save
-    -- wasn't registered when BufWritePre fired.
-    local bufnr = args.buf
-    if vim.b[bufnr].autoformat == false then
-      return nil
-    end
-    local disable_filetypes = { c = true, cpp = true }
-    if not disable_filetypes[vim.bo[bufnr].filetype] then
-      require('conform').format { timeout_ms = 1000, lsp_format = 'fallback', buf = bufnr }
-    end
   end,
 })
 
